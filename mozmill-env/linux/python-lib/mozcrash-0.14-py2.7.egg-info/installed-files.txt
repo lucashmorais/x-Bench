@@ -1,0 +1,11 @@
+../mozcrash/__init__.py
+../mozcrash/mozcrash.py
+../mozcrash/__init__.pyc
+../mozcrash/mozcrash.pyc
+./
+SOURCES.txt
+PKG-INFO
+dependency_links.txt
+requires.txt
+not-zip-safe
+top_level.txt
