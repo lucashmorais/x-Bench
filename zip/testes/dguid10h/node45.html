@@ -1,0 +1,137 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Shutting Down</TITLE>
+<META NAME="description" CONTENT="Shutting Down">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="previous" HREF="node44.html">
+<LINK REL="up" HREF="node40.html">
+<LINK REL="next" HREF="node46.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1225"
+  HREF="node46.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1219"
+  HREF="node40.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1215"
+  HREF="node44.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1221"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1223"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1226"
+  HREF="node46.html">The Basics</A>
+<B> Up:</B> <A NAME="tex2html1220"
+  HREF="node40.html">Logging In</A>
+<B> Previous:</B> <A NAME="tex2html1216"
+  HREF="node44.html">Virtual Consoles</A>
+ &nbsp <B>  <A NAME="tex2html1222"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1224"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION04450000000000000000"></A><A NAME="1436"></A><A NAME="shutdown"></A>
+<BR>
+Shutting Down
+</H1>
+
+<P>
+<SPAN  CLASS="textit">Do not just turn off the computer! You risk losing valuable data!</SPAN>
+
+<P>
+<A NAME="1439"></A><A NAME="1440"></A><A NAME="1441"></A><A NAME="1442"></A><A NAME="1443"></A><A NAME="1444"></A>If you are the only user of your computer, you might want to turn the computer
+off when you're done with it. 
+
+<P>
+To avoid possibly weakening some hardware components, only turn off the computer
+when you're done for the day. Power up and power down are the two greatest contributors
+to wear and tear on computer components. Turning the computer on and off once
+a day is probably the best compromise between your electric bill and your computer's
+lifespan.
+
+<P>
+It's a bad thing to just press the power switch when you're done using the computer.
+It is also bad to reboot the machine (with the Reset button) without first taking
+proper precautions. The Linux kernel, in order to improve performance, has a
+<SPAN  CLASS="textit">disk cache</SPAN>. This means it temporarily stores information meant for
+permanent storage in RAM. Because memory is thousands of times faster than a
+disk, this makes many file operations move more quickly. Periodically, the information
+Linux has in memory is actually written to the disk. This is called <SPAN  CLASS="textit">syncing</SPAN>.
+In order to turn off or reboot the computer safely, you'll have to tell the
+computer to clear everything out of memory and put it in permanent storage.
+
+<P>
+To reboot, just type <TT>reboot</TT> or press <TT>Ctrl-Alt-Del</TT> (that's
+<TT>Ctrl</TT>, <TT>Alt</TT>, and <TT>Delete</TT>).
+
+<P>
+To shut down, you'll have to log in as <TT>root</TT>. As root, just type the
+command <TT>shutdown&nbsp;-h&nbsp;now</TT>. The sytem will go through the entire shutdown
+procedure, including the <TT>sync</TT> command, which clears the disk cache
+as described above. When you see <TT>System&nbsp;halted</TT>, it's safe to turn off
+the computer. If you have Advanced Power Management (APM) support in your kernel
+and BIOS, the computer might shut itself off and save you the trouble. APM is
+common in laptops<A NAME="1456"></A> and is also found in certain desktop mainboards.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1225"
+  HREF="node46.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1219"
+  HREF="node40.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1215"
+  HREF="node44.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1221"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1223"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1226"
+  HREF="node46.html">The Basics</A>
+<B> Up:</B> <A NAME="tex2html1220"
+  HREF="node40.html">Logging In</A>
+<B> Previous:</B> <A NAME="tex2html1216"
+  HREF="node44.html">Virtual Consoles</A>
+ &nbsp <B>  <A NAME="tex2html1222"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1224"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>

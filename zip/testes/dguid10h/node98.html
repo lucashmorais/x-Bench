@@ -1,0 +1,210 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Common Difficulties</TITLE>
+<META NAME="description" CONTENT="Common Difficulties">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="next" HREF="node99.html">
+<LINK REL="previous" HREF="node97.html">
+<LINK REL="up" HREF="node97.html">
+<LINK REL="next" HREF="node99.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2075"
+  HREF="node99.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2069"
+  HREF="node97.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2063"
+  HREF="node97.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2071"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2073"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2076"
+  HREF="node99.html">Troubleshooting the Boot Process</A>
+<B> Up:</B> <A NAME="tex2html2070"
+  HREF="node97.html">Troubleshooting</A>
+<B> Previous:</B> <A NAME="tex2html2064"
+  HREF="node97.html">Troubleshooting</A>
+ &nbsp <B>  <A NAME="tex2html2072"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html2074"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html2077"
+  HREF="#SECTION05211000000000000000">Working with Strangely-Named Files</A>
+<LI><A NAME="tex2html2078"
+  HREF="#SECTION05212000000000000000">Printing</A>
+<LI><A NAME="tex2html2079"
+  HREF="#SECTION05213000000000000000">X Problems</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION05210000000000000000">
+Common Difficulties</A>
+</H1>
+
+<P>
+This section provides some tips for handling some of the most frequently experienced
+difficulties users have encountered.
+
+<P>
+
+<H2><A NAME="SECTION05211000000000000000">
+Working with Strangely-Named Files</A>
+</H2>
+
+<P>
+<A NAME="4242"></A><A NAME="4243"></A><A NAME="4244"></A>Occasionally, you may find that you have accidentally created a file that contains
+a character not normally found in a filename. Examples of this could include
+a space, a leading hyphen, or maybe a quotation mark. You may find that accessing,
+removing, or renaming these files can be difficult.
+
+<P>
+Here are some tips to help you:
+
+<P>
+
+<UL>
+<LI>Try enclosing the filename in single quotation marks, like this:
+<BR><TT>less&nbsp;'File&nbsp;With&nbsp;Spaces.txt'</TT>
+</LI>
+<LI>Insert a <TT>./</TT> before the filename:
+<BR><TT>less&nbsp;'./-a&nbsp;strange&nbsp;file.txt'</TT>
+</LI>
+<LI>Use wildcards:
+<BR><TT>less&nbsp;File?With?Spaces.txt</TT>
+</LI>
+<LI>Use a backslash before each unusual character:
+<BR><TT>less&nbsp;File&#92;&nbsp;With&#92;&nbsp;Spaces.txt</TT>
+</LI>
+</UL>
+
+<P>
+
+<H2><A NAME="SECTION05212000000000000000"></A><A NAME="4253"></A>
+<BR>
+Printing
+</H2>
+
+<P>
+<A NAME="4254"></A><A NAME="4255"></A><A NAME="4256"></A>One common source of trouble is the printing system in Debian. Traditionally,
+printing has been a powerful but complex aspect of Unix. However, Debian makes
+it easier. An easy way to print is with the package called <TT>magicfilter</TT>.
+<TT>magicfilter</TT> will ask you a few questions about your printer and then
+configure it for you. If you are having troubles printing, give <TT>magicfilter</TT>
+a try.
+
+<P>
+
+<H2><A NAME="SECTION05213000000000000000"></A><A NAME="4260"></A>
+<BR>
+X Problems
+</H2>
+
+<P>
+<A NAME="4261"></A><A NAME="4262"></A><A NAME="4263"></A><A NAME="4264"></A>Many questions revolve around X. Here are some general tips for things to try
+if you are having difficulties setting up the X Window system:
+
+<P>
+
+<UL>
+<LI>For mouse problems, run <TT>XF86Setup</TT> and try the PS/2, Microsoft, MouseSystems,
+and Logitech options. Most mice will fit under one of these. Also, the device
+for your mouse is <TT>/dev/psaux</TT> for PS/2 mice and a serial port such as
+<TT>/dev/ttyS0</TT> for serial mice.
+</LI>
+<LI>If you don't know what video chipset you have, try running
+<BR><TT>SuperProbe</TT>;
+it can often figure this out for you.
+</LI>
+<LI>If your screen doesn't have a lot of color, try selecting a different video
+card or tell X how much video RAM you have.
+</LI>
+<LI>If your screen goes blank or has unreadable text when you start X, you probably
+selected an incorrect refresh rate. Go back to <TT>XF86Setup</TT> or <TT>xf86config</TT>
+and double-check those settings.
+</LI>
+<LI><TT>xvidtune</TT> can help if the image on the screen is shifted too far to
+the left or right, is too high or low, or is too narrow or wide.
+</LI>
+<LI><TT>xdpyinfo</TT> can give information about a running X session.
+</LI>
+<LI><TT>XF86Setup</TT> can set your default color depth.
+</LI>
+<LI>You can select your default window manager by editing
+<BR><TT>/etc/X11/window-managers</TT>.
+</LI>
+<LI><TT>/var/log/xdm-errors</TT> can contain useful information if you are having
+trouble getting <TT>xdm</TT> to start properly.
+</LI>
+</UL>
+As a final reminder, try the <TT>XF86Setup</TT> or <TT>xf86config</TT> tools
+for configuring or reconfiguring X for your hardware.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2075"
+  HREF="node99.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2069"
+  HREF="node97.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2063"
+  HREF="node97.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2071"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2073"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2076"
+  HREF="node99.html">Troubleshooting the Boot Process</A>
+<B> Up:</B> <A NAME="tex2html2070"
+  HREF="node97.html">Troubleshooting</A>
+<B> Previous:</B> <A NAME="tex2html2064"
+  HREF="node97.html">Troubleshooting</A>
+ &nbsp <B>  <A NAME="tex2html2072"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html2074"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>

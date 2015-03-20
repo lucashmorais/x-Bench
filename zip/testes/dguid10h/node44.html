@@ -1,0 +1,141 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Virtual Consoles</TITLE>
+<META NAME="description" CONTENT="Virtual Consoles">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="next" HREF="node45.html">
+<LINK REL="previous" HREF="node43.html">
+<LINK REL="up" HREF="node40.html">
+<LINK REL="next" HREF="node45.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1213"
+  HREF="node45.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1207"
+  HREF="node40.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1201"
+  HREF="node43.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1209"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1211"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1214"
+  HREF="node45.html">Shutting Down</A>
+<B> Up:</B> <A NAME="tex2html1208"
+  HREF="node40.html">Logging In</A>
+<B> Previous:</B> <A NAME="tex2html1202"
+  HREF="node43.html">Working as Root</A>
+ &nbsp <B>  <A NAME="tex2html1210"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1212"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION04440000000000000000"></A><A NAME="1409"></A>
+<BR>
+Virtual Consoles
+</H1>
+
+<P>
+<A NAME="1410"></A><A NAME="1411"></A><A NAME="1412"></A><A NAME="1413"></A><A NAME="1414"></A><A NAME="1415"></A>The Linux kernel supports <SPAN  CLASS="textit">virtual consoles</SPAN>. These provide a way of
+making your single screen and keyboard seem like multiple terminals that are
+connected to the same system. Thankfully, using virtual consoles is one of the
+simplest things about Debian: There are ``hot keys'' for switching among the
+consoles quickly. To try it, log in to your system and press <TT>Alt-F2</TT>
+(simultaneously press the left <TT>Alt</TT> key, and <TT>F2</TT>, that is, function
+key number 2).
+
+<P>
+You should find yourself at another login prompt. Don't panic: You are now on
+virtual console (VC) number 2! Log in here and do some things - more <TT>whoami</TT>
+commands or whatever - to confirm that this is a real login shell. Now you
+can return to virtual console number 1 by pressing <TT>Alt-F1</TT>. Or you can
+move on to a <SPAN  CLASS="textit">third</SPAN> virtual console, in the obvious way (<TT>Alt-F3</TT>).
+
+<P>
+Debian comes with six virtual consoles enabled by default, which you access
+with the <TT>Alt</TT> key and function keys <TT>F1</TT> through <TT>F6</TT>.
+(Technically, there are more virtual consoles enabled, but only six of them
+allow you to log in. The others are used for the X Window system or other special
+purposes.)
+
+<P>
+If you're using the X Window system, it will generally start up on the first
+unused virtual console - probably VC 7. Also, to switch from the X virtual
+console to one of the first six, you'll have to add <TT>Ctrl</TT> to the key
+sequence. So that's <TT>Ctrl-Alt-F1</TT> to get to VC 1. But you can go from
+a text VC to the X virtual console using only <TT>Alt</TT>. If you never leave
+X, you won't have to worry about this; X automatically switches you to its virtual
+console when it starts up. 
+
+<P>
+Once you get used to them, virtual consoles will probably become an indispensable
+tool for getting many things done at once. (The X Window system serves much
+the same purpose, providing multiple windows rather than multiple consoles.)
+You can run a different program on each VC or log on as root on one VC and as
+yourself on another. Or everyone in the family can use his or her own VC; this
+is especially handy if you use X, in which case you can run several X sessions
+at once on different virtual consoles. <A NAME="1430"></A><A NAME="1431"></A><A NAME="1432"></A><A NAME="1433"></A><A NAME="1434"></A><A NAME="1435"></A>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1213"
+  HREF="node45.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1207"
+  HREF="node40.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1201"
+  HREF="node43.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1209"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1211"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1214"
+  HREF="node45.html">Shutting Down</A>
+<B> Up:</B> <A NAME="tex2html1208"
+  HREF="node40.html">Logging In</A>
+<B> Previous:</B> <A NAME="tex2html1202"
+  HREF="node43.html">Working as Root</A>
+ &nbsp <B>  <A NAME="tex2html1210"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1212"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>

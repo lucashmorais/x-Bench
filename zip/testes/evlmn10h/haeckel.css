@@ -1,0 +1,158 @@
+body { color: black;
+       background: lightyellow;
+       font-size: 11pt;
+       line-height: 14pt;
+       font-family: "Century Schoolbook", "Times New Roman", serif;
+     } 
+ 
+p { text-align: justify; 
+    background: lightyellow;
+    color: black; 
+    font-size: 11pt;
+    line-height: 14pt;
+    font-family: "Century Schoolbook", "Times New Roman", serif;
+    text-indent: 5%; margin-top: 4pt; margin-bottom: 0%;
+  }
+
+p.one { text-align: justify; 
+        background: lightyellow;
+        color: black; 
+        font-size: 11pt;
+        line-height: 14pt;
+        font-family: "Century Schoolbook", "Times New Roman", serif;
+        text-indent: 0%; margin-top: 4pt; margin-bottom: 0%;
+      }
+p.page { color: blue;
+         background: lightyellow;
+         font-size: 10pt;
+         text-align: center;
+         text-indent: 0%;
+       } 
+
+
+p.pic { text-align: justify; 
+        background: lightyellow;
+        color: black; 
+        font-size: 11pt;
+        line-height: 14pt;
+        font-family: "Century Schoolbook", "Times New Roman", serif;
+        text-indent: 5%; margin-top: 0pt; margin-bottom: 0%;
+      }
+
+p.ind { text-align: left; 
+        background: lightyellow;
+        color: black; 
+        font-size: 8pt;
+        line-height: 11pt;
+        font-family: "Century Schoolbook", "Times New Roman", serif;
+        text-indent: 0%; margin-top: 0pt; margin-bottom: 0%;
+      }
+p.ind1 { text-align: center; 
+        background: lightyellow;
+        color: black; 
+        font-size: 8pt;
+        line-height: 11pt;
+        font-family: "Century Schoolbook", "Times New Roman", serif;
+        text-indent: 0%; margin-top: 0pt; margin-bottom: 0%;
+      }
+
+
+p.first { text-align: justify; 
+          background: lightyellow;
+          color: black; 
+          font-size: 10pt;
+          line-height: 13pt;
+          font-family: "Century Schoolbook", "Times New Roman", serif;
+          text-indent: 0%; margin-top: 6pt; margin-bottom: 0%;
+        } 
+
+p.first1 { text-align: left; 
+           background: lightyellow;
+           color: black; 
+           font-size: 9pt;
+           line-height: 12pt;
+           font-family: "Century Schoolbook", "Times New Roman", serif;
+           text-indent: 0%; margin-top: 6pt; margin-bottom: 0%;
+         } 
+p.synop { text-align: justify;
+          background: lightyellow;
+          color: black;
+          font-size: 9pt;
+          line-height: 12pt;
+          font-family: "Century Schoolbook", "Times New Roman", serif;
+          text-indent: 5%; margin-top: 2pt; margin-bottom: 4pt;
+        }
+         
+p.fnote { color: green;
+          background: lightyellow;
+          font-size: 8pt;
+          line-height: 11pt;
+          text-indent: 0%;
+          margin-top: 3pt;
+        } 
+p.fnote1 { color: green;
+           background: lightyellow;
+           font-size: 8pt;
+           line-height: 10pt;
+           margin-left: 5%;
+           margin-right: 5%;
+           margin-top: 3pt;
+           text-indent: 0%;
+         }
+
+p.fnpar { color: green;
+          background: lightyellow;
+          font-size: 8pt;
+          line-height: 11pt;
+          text-indent: 5%;
+          margin-top: 0pt;
+        }
+p.capt { font-size: 8pt;
+         line-height: 10pt;
+         background: white;
+         color: black;
+         font-family: "Times New Roman", serif;
+         text-indent: 0%;
+         text-align: left;
+       } 
+
+table.text { font-size: 8pt;
+             line-height: 10pt;
+             background: lightyellow;
+             color: black;
+             font-family: "Century Schoolbook", "Times New Roman", serif;
+           }
+table.capt { font-size: 8pt;
+             line-height: 10pt;
+             background: white;
+             color: black;
+             font-family: "Times New Roman", serif;
+             text-align: justify;
+             border: 0;
+           }
+sub { font-size: 8pt;
+      font-family: Rockwell;
+    }
+
+sup { font-size: 10pt;
+      line-height: 13pt;
+      color: red;
+      background: lightyellow;
+    }
+p.ref { font-size: 8pt;
+        line-height: 11pt;
+        color: blue;
+        background: lightyellow;
+        text-align: left;
+        text-indent: 0%;
+      }
+hr { color: blue;
+     background: lightyellow;
+   } 
+a:link { text-decoration: none;
+         color: purple;
+         background: lightyellow;
+       }
+a:visited {text-decoration: none; }
+
+

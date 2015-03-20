@@ -1,0 +1,315 @@
+/* 
+	gutenberg.css --- A stylesheet for HTML in gutenberg HTML files
+
+	Jeroen Hellingman
+
+	This file is hereby irrevocably dedicated to the Public Domain.
+*/
+
+
+/*
+body - body of html page; define overall properties
+*/
+
+body
+{
+	line-height: 1.44em;
+	font-family: times, serif;
+	font-size: 1em;
+	font-weight: normal;
+	margin: 1.58em 16% 1.58em 16%; 
+	width: auto;
+	letter-spacing: normal;
+	text-transform: none;
+	word-spacing: normal;
+	font-size-adjust: 0.58;
+}
+
+/*
+
+h1..h5 headers
+
+class
+	sub		subtitle	
+
+*/
+
+h1
+{
+	font-family: helvetica, sans-serif;
+	font-size: 2em; 
+	font-style: normal; 
+	font-weight: 600; 
+	letter-spacing: normal; 
+	text-decoration: none; 
+	text-transform: none; 
+	word-spacing: normal; 
+	font-size-adjust: .4;
+
+	line-height: 1.5em;
+
+	margin-bottom: 0.33em; 
+	margin-top: 1.33em; 
+}
+
+h2
+{
+	font-family: helvetica, sans-serif;
+	font-size: 1.44em; 
+	line-height: 1.2em;
+
+}
+
+h3
+{
+	font-family: helvetica, sans-serif;
+	font-size: 1.2em; 
+	line-height: 1.2em;
+}
+
+h4
+{
+	font-family: helvetica, sans-serif;
+	font-size: 1.0em; 
+	font-weight: 400; 
+	line-height: 1.0em;
+}
+
+h5
+{
+	font-family: helvetica, sans-serif;
+	font-size: 1.0em; 
+	font-style: italic;
+	font-weight: 400; 
+	line-height: 1.0em;
+}
+
+
+/*
+p -- paragraph
+
+class
+	initial		initial paragraph of chapter, i.e. no indentation
+	argument	argument, the list of topics at the head of a chapter
+	note		footnote
+	quote		quoted material, like blockquote
+	stb		small thematic break
+	mtb		medium thematic break
+	ltb		large thematic break
+	navline		navigation line
+	figure		figure, plate, illustration
+	legend		legend with figure, plate, or other type of illustration
+*/
+
+p
+{
+	text-indent: 0em;
+}
+
+p.poetry
+{
+	margin: 0em 10% 1.58em 10%;
+	/* font-style: italic; */
+}
+
+p.initial
+{
+	text-indent: 0em;
+}
+
+p.argument, p.note
+{
+	text-indent: 0em;
+	font-size: 0.8em;
+	line-height: 1.2em;
+}
+
+p.argument
+{
+	margin: 1.58em 10% 1.58em 10%;
+}
+
+p.quote
+{
+	font-size: 0.9em;
+	line-height: 1.3em;
+	margin: 1.58em 5% 1.58em 5%;
+}
+
+div.blockquote
+{
+	font-size: 0.9em;
+	line-height: 1.3em;
+	margin: 1.58em 5% 1.58em 5%;
+}
+
+div.notetext
+{
+	font-size: 0.9em;
+	line-height: 1.3em;
+}
+
+div.divFigure
+{
+	text-align: center;
+}
+
+p.figureHead
+{
+	text-align: center;
+}
+
+p.figure, p.legend
+{
+	text-align: center;
+}
+
+p.legend
+{
+	font-size: 0.9em;
+	margin-top: 0;
+}
+
+p.navline
+{
+	text-indent: 0em;
+	text-align: center;
+	font-size: 0.7em;
+	font-family: helvetica, sans-serif;
+	margin-top: 0em;
+	margin-bottom: 0em;
+}
+
+p.smallprint, li.smallprint
+{
+	font-size: 0.8em;
+	line-height: 1.1em;
+	color: #555555;
+}
+
+/*
+// span -- used for special effects in formatting.
+//
+// class
+//	 leftnote	note in the left margin
+//	 rightnote	note in the right margin
+//	 pageno		page number, inserted at location of original page break.
+//
+// Note that the positioning only works properly in IE 5.0.
+*/
+
+span.leftnote 
+{
+	position:absolute;
+	left:1%;height:0;width:14%;
+	font-size:0.8em; 
+	text-indent: 0em;
+	line-height: 1.2em;
+}
+
+span.rightnote, span.pageno
+{
+	position:absolute;
+	left:86%;height:0;width:14%;
+	text-align:right;
+	text-indent:0em;
+	font-size:0.8em; 
+	line-height: 1.2em;
+}
+
+span.lineno
+{
+	position: absolute;
+	left: 12%;
+	height: 0;
+	width: 12%;
+	text-align: right;
+	text-indent: 0em;
+	font-size: 0.6em; 
+	line-height: 1em;
+	font-style: normal;
+}
+
+/*
+a -- anchor
+
+class
+  offsite
+  gloss	glossary entry; should be less visible
+  noteref	(foot) note reference.
+  hidden
+  navline
+*/
+
+a.navline
+{
+	text-decoration: none;
+}
+
+a.navline:hover
+{
+	text-decoration: none;
+}
+a.hidden:hover
+{
+	text-decoration: none;
+}
+a.noteref:hover
+{
+	text-decoration: none;
+}
+
+a.noteref
+{
+	text-decoration: none;
+	font-size: 0.7em;
+	vertical-align: super;
+	offset: 0.2em;
+}
+
+a.hidden
+{
+	text-decoration: none;
+}
+
+hr
+{
+	width: 100%;
+	height: 1;
+	color: black;
+}
+
+hr.noteseparator
+{
+	width: 25%;
+	height: 1;
+	text-align: left;
+}
+
+/*
+// ol ul -- ordered list, unordered list
+//
+// class
+//	toc	table of contents
+*/
+
+
+/*
+// li -- list item
+//
+// class
+//	toc_h1	table of contents h1
+//	toc_h2
+
+// table -- table
+*/
+
+table.navline
+{
+	font-size: 0.7em;
+	font-family: 'TITUS Cyberbit Basic', helvetica, sans-serif;
+	margin-top: 0em;
+	margin-bottom: 0em;
+	margin-top: 0em;
+	margin-bottom: 0em;
+}

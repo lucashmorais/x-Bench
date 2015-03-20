@@ -1,0 +1,138 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Starting the X Environment </TITLE>
+<META NAME="description" CONTENT="Starting the X Environment ">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="next" HREF="node75.html">
+<LINK REL="previous" HREF="node73.html">
+<LINK REL="up" HREF="node72.html">
+<LINK REL="next" HREF="node75.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1671"
+  HREF="node75.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1665"
+  HREF="node72.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1659"
+  HREF="node73.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1667"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1669"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1672"
+  HREF="node75.html">Basic X Operations</A>
+<B> Up:</B> <A NAME="tex2html1666"
+  HREF="node72.html">The X Window System</A>
+<B> Previous:</B> <A NAME="tex2html1660"
+  HREF="node73.html">Introduction to X</A>
+ &nbsp <B>  <A NAME="tex2html1668"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1670"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION04920000000000000000">
+Starting the X Environment </A>
+</H1>
+
+<P>
+<A NAME="3126"></A><A NAME="3127"></A><A NAME="3128"></A><A NAME="3129"></A>There are two ways to start X. The first is to start X manually when you feel
+like using it. To do so, log in to one of the text consoles and type <TT>startx</TT>.
+This will start X and switch you to its virtual console. 
+
+<P>
+<A NAME="3131"></A><A NAME="3132"></A><A NAME="3133"></A>The second (and recommended) way to use X is with <TT>xdm</TT> or X Display
+Manager. Basically, <TT>xdm</TT> gives you a nice graphical login prompt on
+the X virtual console (probably VC 7), and you log in there.
+
+<P>
+By default, either method will also start an <TT>xterm</TT><A NAME="3137"></A><A NAME="3138"></A><A NAME="3139"></A><A NAME="3140"></A>, which is a small
+window containing a shell prompt. At the shell prompt, you can type any commands
+just as you would on a text VC. So you can follow all the examples in this book
+using <TT>xterm</TT>; the only difference between an <TT>xterm</TT> and the
+text console is that you don't have to log on to the <TT>xterm</TT> because
+you already logged on to X. 
+
+<P>
+There are also a lot of things you can do only in X, which are covered in this
+chapter.
+
+<P>
+One note: The default <TT>xterm</TT> window has a smallish font. If you have
+a small monitor or very high resolution or bad eyesight, you may want to fix
+this. Follow these steps: 
+
+<P>
+
+<OL>
+<LI>Move the mouse pointer into the center of the <TT>xterm</TT> window. 
+</LI>
+<LI>Hold down the <TT>Control</TT> key and the <SPAN  CLASS="textit">right</SPAN> mouse button simultaneously.
+This will give you a font menu. 
+</LI>
+<LI>Point to the font you want and release the mouse button. 
+</LI>
+</OL><A NAME="3150"></A><A NAME="3151"></A><A NAME="3152"></A><A NAME="3153"></A>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1671"
+  HREF="node75.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1665"
+  HREF="node72.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1659"
+  HREF="node73.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1667"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1669"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1672"
+  HREF="node75.html">Basic X Operations</A>
+<B> Up:</B> <A NAME="tex2html1666"
+  HREF="node72.html">The X Window System</A>
+<B> Previous:</B> <A NAME="tex2html1660"
+  HREF="node73.html">Introduction to X</A>
+ &nbsp <B>  <A NAME="tex2html1668"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1670"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>

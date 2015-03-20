@@ -1,0 +1,211 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Backup Tools</TITLE>
+<META NAME="description" CONTENT="Backup Tools">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="previous" HREF="node79.html">
+<LINK REL="up" HREF="node77.html">
+<LINK REL="next" HREF="node81.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1767"
+  HREF="node81.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1761"
+  HREF="node77.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1757"
+  HREF="node79.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1763"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1765"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1768"
+  HREF="node81.html">Networking</A>
+<B> Up:</B> <A NAME="tex2html1762"
+  HREF="node77.html">Filesystems</A>
+<B> Previous:</B> <A NAME="tex2html1758"
+  HREF="node79.html">mount and /etc/fstab</A>
+ &nbsp <B>  <A NAME="tex2html1764"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1766"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html1769"
+  HREF="#SECTION041031000000000000000"><TT>tar</TT></A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION041030000000000000000">
+Backup Tools</A>
+</H1>
+
+<P>
+<A NAME="3485"></A><A NAME="3486"></A><A NAME="3487"></A><A NAME="3488"></A><A NAME="3489"></A>Backups are important under any operating system. Debian GNU/Linux provides
+several different utilities that you might want to use. Additionally, while
+many of these utilities were aimed at tape backups originally, you'll find that
+they are now being used for other things. For instance, <TT>tar</TT> is being
+used for distributing programs over the Internet. Some of the utilities that
+you'll find include the following:
+
+<P>
+
+<UL>
+<LI><TT>Taper</TT><A NAME="3493"></A> is a menu-driven, easy-to-learn backup program that can back
+up to a variety of media. Its limitation is that it doesn't handle large (4GB
+or larger) backups.<A NAME="3494"></A>
+</LI>
+<LI><TT>dump</TT> <A NAME="3496"></A>is designed specifically for tapes; its main strengths are its
+interface for file restores, low-level filesystem backups, and incremental backup
+scheduling. Its limitations include the inability to back up NFS or other non-<TT>ext2</TT>
+filesystems and some rather arcane defaults.<A NAME="3498"></A>
+</LI>
+<LI><A NAME="3499"></A><TT>GNU&nbsp;tar</TT><A NAME="3501"></A> (short for Tape ARchiver) is an implementation
+of what is probably the most widely used backup or archiving <A NAME="3502"></A><A NAME="3503"></A>utility in Linux
+today. It makes a good general purpose tool and can deal with the widest variety
+of target media. Additionally, many different systems can read <TT>tar</TT>
+files, making them highly portable. <TT>tar</TT>'s weaknesses include a weaker
+incremental backup system than <TT>dump</TT> and no interactive restore selection
+screen.
+</LI>
+</UL>
+
+<P>
+
+<H2><A NAME="SECTION041031000000000000000"></A><A NAME="3509"></A><A NAME="tar"></A>
+<BR>
+<TT>tar</TT>
+</H2>
+
+<P>
+<A NAME="3511"></A><A NAME="3512"></A><A NAME="3513"></A><A NAME="3514"></A><A NAME="3515"></A><A NAME="3516"></A><A NAME="3517"></A>Because <TT>tar</TT> is used so much, and for quite a bit in addition to backups,
+it is being described here. For more details, see the <TT>tar</TT> manual page;
+instructions for viewing manual pages can be found in section <A HREF="node47.html#man_pages">5.1</A>
+on page <A HREF="node47.html#man_pages"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>.
+
+<P>
+<TT>tar</TT> is an <SPAN  CLASS="textit">archiver</SPAN>. This means that <TT>tar</TT> can take many
+files and combine them all into one large file or write them out to a backup
+device such as a tape drive. Once you have this one large file, you will often
+want to compress it; the <TT>-z</TT> option is great for this. Hence, <TT>tar</TT>
+offers a great way to distribute programs and data on the Internet, and you'll
+find that it is used extensively for this purpose.
+
+<P>
+Here's a sample <TT>tar</TT> command line:
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>tar&nbsp;-zcvf&nbsp;myfiles.tar.gz&nbsp;/usr/local/bin
+</DD>
+</DL>Let's take a look at how this command can be broken down:
+
+<P>
+<DL>
+<DT><STRONG><TT>tar</TT></STRONG></DT>
+<DD>Name of the command.
+</DD>
+<DT><STRONG><TT>-</TT></STRONG></DT>
+<DD>Tells tar that options will follow.
+</DD>
+<DT><STRONG><TT>z</TT></STRONG></DT>
+<DD>Tells <TT>tar</TT> to use <TT>gzip</TT> compression automatically;
+if you use this, it's good to add a .gz extension as well.
+</DD>
+<DT><STRONG><TT>c</TT></STRONG></DT>
+<DD>Tells <TT>tar</TT> to create a new archive.
+</DD>
+<DT><STRONG><TT>v</TT></STRONG></DT>
+<DD>This says to be verbose; that is, it tells <TT>tar</TT> to let you
+know what it's doing while it creates the archive.
+</DD>
+<DT><STRONG><TT>f</TT></STRONG></DT>
+<DD>This indicates that the next thing on the command line is the name
+of the file to be created or the device to be used. If I used <TT>/dev/st0</TT>
+here, for instance, it would write the backup to the tape drive.
+</DD>
+<DT><STRONG><TT>myfiles.tar.gz</TT></STRONG></DT>
+<DD>This is the name of the file to be created.
+</DD>
+<DT><STRONG><TT>/usr/local/bin</TT></STRONG></DT>
+<DD>This is the name of the file or directory to store
+in the archive. It's also possible to specify several items here.
+</DD>
+</DL>
+You may often find <TT>tar.gz</TT> files (or simply <TT>tgz</TT> files) on the
+Internet. You can unpack these with a command like:
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>tar&nbsp;-zxvf&nbsp;filename.tar.gz
+</DD>
+</DL>
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1767"
+  HREF="node81.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1761"
+  HREF="node77.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1757"
+  HREF="node79.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1763"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1765"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1768"
+  HREF="node81.html">Networking</A>
+<B> Up:</B> <A NAME="tex2html1762"
+  HREF="node77.html">Filesystems</A>
+<B> Previous:</B> <A NAME="tex2html1758"
+  HREF="node79.html">mount and /etc/fstab</A>
+ &nbsp <B>  <A NAME="tex2html1764"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1766"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>

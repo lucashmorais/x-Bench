@@ -1,0 +1,150 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Viewing Text Files</TITLE>
+<META NAME="description" CONTENT="Viewing Text Files">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="next" HREF="node70.html">
+<LINK REL="previous" HREF="node68.html">
+<LINK REL="up" HREF="node68.html">
+<LINK REL="next" HREF="node70.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1595"
+  HREF="node70.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1589"
+  HREF="node68.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1583"
+  HREF="node68.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1591"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1593"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1596"
+  HREF="node70.html">Text Editors</A>
+<B> Up:</B> <A NAME="tex2html1590"
+  HREF="node68.html">Working with Text Files</A>
+<B> Previous:</B> <A NAME="tex2html1584"
+  HREF="node68.html">Working with Text Files</A>
+ &nbsp <B>  <A NAME="tex2html1592"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1594"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION04810000000000000000"></A><A NAME="2971"></A><A NAME="2972"></A>
+<BR>
+Viewing Text Files
+</H1>
+
+<P>
+A <SPAN  CLASS="textit">text file</SPAN> is simply a normal file that happens to contain human-readable
+text. There's nothing special about it otherwise. The other kind of file, a
+binary file, is meant to be interpreted by the computer. 
+
+<P>
+<A NAME="2974"></A><A NAME="2975"></A><A NAME="2976"></A><A NAME="2977"></A><A NAME="2978"></A><A NAME="2979"></A><A NAME="2980"></A>You can view either kind of file with the <TT>less</TT> file pager if you have
+it installed (install it if you haven't, it's quite useful). Type <TT>less
+/etc/profile</TT> to view a sample text file. Notice that you can read the characters
+even if their meaning is obscure. Type <TT>less&nbsp;/bin/ls</TT> to view a binary
+file. As you can see, the <TT>ls</TT> program is not meant to be read by humans. 
+
+<P>
+Sometimes,<A NAME="zless"></A> you'll find files that end with <TT>.gz</TT>. These files may
+be viewed with <TT>zless</TT>; you can run it like so:
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>zless&nbsp;/usr/doc/ae/changelog.Debian.gz
+</DD>
+</DL>
+<P>
+<BLOCKQUOTE>
+Tip: 
+<TT>zless</TT> is great for viewing documentation, which is often
+shipped in .gz form.
+
+</BLOCKQUOTE>
+
+<P>
+<A NAME="2991"></A>The difference between the two kinds of files is purely a matter of what they
+contain, unlike in some other systems (such as DOS and MacOS), which actually
+treat the files differently. 
+
+<P>
+Text files can contain shell scripts, documentation, copyright notices, or any
+other human-readable text. 
+
+<P>
+<A NAME="2992"></A><A NAME="2993"></A>Incidentally, this illustrates the difference between <SPAN  CLASS="textit">source code<A NAME="2994"></A></SPAN>
+and <SPAN  CLASS="textit">binary executables</SPAN>. <TT>/bin/ls</TT> is a binary executable you
+can download from Debian, but you can also download a text file that tells the
+computer how to create <TT>/bin/ls</TT>. This text file is the source code.
+Comparing <TT>/bin/ls</TT> to <TT>/etc/profile</TT> illustrates how important
+source code is if someone wants to understand and modify a piece of software.
+Free software provides you or your consultants with this all-important source
+code. 
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1595"
+  HREF="node70.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1589"
+  HREF="node68.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1583"
+  HREF="node68.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1591"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1593"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1596"
+  HREF="node70.html">Text Editors</A>
+<B> Up:</B> <A NAME="tex2html1590"
+  HREF="node68.html">Working with Text Files</A>
+<B> Previous:</B> <A NAME="tex2html1584"
+  HREF="node68.html">Working with Text Files</A>
+ &nbsp <B>  <A NAME="tex2html1592"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1594"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>

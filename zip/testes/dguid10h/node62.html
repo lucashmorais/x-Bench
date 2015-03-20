@@ -1,0 +1,516 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Permissions</TITLE>
+<META NAME="description" CONTENT="Permissions">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="next" HREF="node63.html">
+<LINK REL="previous" HREF="node61.html">
+<LINK REL="up" HREF="node61.html">
+<LINK REL="next" HREF="node63.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1493"
+  HREF="node63.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1487"
+  HREF="node61.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1481"
+  HREF="node61.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1489"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1491"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1494"
+  HREF="node63.html">Files Present and Their</A>
+<B> Up:</B> <A NAME="tex2html1488"
+  HREF="node61.html">More on Files</A>
+<B> Previous:</B> <A NAME="tex2html1482"
+  HREF="node61.html">More on Files</A>
+ &nbsp <B>  <A NAME="tex2html1490"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1492"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html1495"
+  HREF="#SECTION04711000000000000000">File Ownership</A>
+<LI><A NAME="tex2html1496"
+  HREF="#SECTION04712000000000000000">Mode</A>
+<LI><A NAME="tex2html1497"
+  HREF="#SECTION04713000000000000000">Permissions in Practice </A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION04710000000000000000"></A><A NAME="2548"></A><A NAME="Permissions"></A>
+<BR>
+Permissions
+</H1>
+
+<P>
+GNU and Unix systems are set up to allow many people to use the same computer,
+while keeping certain files private or keeping certain people from modifying
+certain files. You can verify this for yourself. Log in as yourself, i.e. <SPAN  CLASS="textit">NOT</SPAN>
+as root.<A NAME="2551"></A><A NAME="2552"></A><A NAME="2553"></A><A NAME="2554"></A><A NAME="2555"></A>
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>whoami
+</DD>
+</DL>This verifies that you are not root. Then enter the following command:
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>rm&nbsp;/etc/resolv.conf
+</DD>
+</DL><A NAME="2560"></A><A NAME="2561"></A><A NAME="2562"></A><A NAME="2563"></A><A NAME="2564"></A>You should be told <TT>Permission&nbsp;denied</TT>. <TT>/etc/resolv.conf</TT> is
+an essential system configuration file; you aren't allowed to change or remove
+it unless you're root. This keeps you from accidentally messing up the system,
+and if the computer is a public one (such as at an office or school), it keeps
+users from messing up the system on purpose. 
+
+<P>
+Now type <TT>ls&nbsp;-l&nbsp;/etc/resolv.conf</TT>.
+
+<P>
+This will give you output that looks something like this:
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>-<SMALL CLASS="SMALL">rw-r-r-&nbsp;1&nbsp;root&nbsp;root&nbsp;119&nbsp;Feb&nbsp;23&nbsp;1997&nbsp;/etc/resolv.conf</SMALL>
+<P>
+
+</DD>
+</DL>The <TT>-l</TT> option to <TT>ls</TT> requests all that additional information.
+The info on the right is easy: The size of the file is <TT>119</TT> bytes; the
+date the file was last changed is February 23, 1997; and the file's name is
+<TT>/etc/resolv.conf</TT>. On the left side of the screen, things are a little
+more complicated.
+
+<P>
+First, the brief, technical explanation: The <TT>-rw-r-r-</TT> is the
+<SPAN  CLASS="textit">mode</SPAN> of the file, the <TT>1</TT> is the number of hard links to this
+file (or the number of files in a directory), and the two <TT>root</TT>s&nbsp;are
+the user and group owning the file, respectively.
+
+<P>
+So that was cryptic. Let's go through it slowly.
+
+<P>
+
+<H2><A NAME="SECTION04711000000000000000">
+File Ownership</A>
+</H2>
+
+<P>
+<A NAME="2584"></A><A NAME="2585"></A><A NAME="2586"></A><A NAME="2587"></A><A NAME="2588"></A><A NAME="2589"></A><A NAME="2590"></A>Every file has two owners: a user and a group. The above case is a little confusing
+because there's a group called <TT>root</TT> in addition to the <TT>root</TT>
+user. Groups are just collections of users who are collectively permitted access
+to some part of the system. A good example is a <TT>games</TT> group. Just to
+be mean, you might create a group called <TT>games</TT> on your
+computer and then set up your system so that only people in a <TT>games</TT>
+group are allowed to play games. 
+
+<P>
+Here's a more practical example. Consider a case in which you're setting up
+a computer for a school. You might want certain files to be accessible only
+to teachers, not students, so you put all the teachers in a single group. Then
+you can tell the system that certain files belong to members of the group <TT>teachers</TT>,
+and that no one else can access those files. 
+
+<P>
+Let's explore groups on the system. First, you can use the <TT>groups</TT> command
+at the shell prompt. This will show you a list of the groups to which you belong.
+Here's an example:
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>$&nbsp;<SPAN  CLASS="textbf">groups</SPAN>
+
+<P>
+<A NAME="2600"></A><A NAME="2601"></A><A NAME="2602"></A><A NAME="2603"></A><A NAME="2604"></A><A NAME="2605"></A> system-wide configuration!permissions!file ownershipusername&nbsp;dialout&nbsp;cdrom&nbsp;floppy&nbsp;audio
+</DD>
+</DL>It's likely that you're a member of only one group, which is identical to your
+username. However, root can add you to other groups. The above example shows
+a person that is a member of five groups.
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>less&nbsp;/etc/group
+</DD>
+</DL>This file lists the groups that exist on your system. Notice the <TT>root</TT>
+group (the only member of this group is the root user), and the group that corresponds
+to your username. There are also groups like <TT>dialout</TT> (users who are
+allowed to dial out on the modem) and <TT>floppy</TT> (users who can use the
+floppy drive). However, your system is probably not configured to make use of
+these groups. It's likely that only root can use the floppy or the modem right
+now. For details about this file, try reading <TT>man&nbsp;group</TT>. 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>ls&nbsp;-l&nbsp;/home
+</DD>
+</DL>This command shows you that every user's directory is owned by that user and
+that user's personal group.
+<BLOCKQUOTE>
+Tip: If you just installed Debian, you may be the only
+user.  You can use the <TT>adduser</TT> command to add more users to the
+system.
+
+</BLOCKQUOTE>
+
+<P>
+
+<H2><A NAME="SECTION04712000000000000000">
+Mode</A>
+</H2>
+
+<P>
+<A NAME="2618"></A><A NAME="2619"></A><A NAME="2620"></A><A NAME="2621"></A><A NAME="2622"></A><A NAME="2623"></A><A NAME="2624"></A>In addition to being owned by one user and one group, every file and directory
+also has a mode, which determines who's allowed to read, write, and execute
+the file (and run it, if it's a program). There are a few other things also
+determined by the mode, but they're advanced topics so we'll skip them for now. 
+
+<P>
+The mode looks like this in the <TT>ls</TT> output: <TT>-rw-r-r-</TT>.
+For now, we'll consider nine of these parts: those that control <SPAN  CLASS="textit">read</SPAN>,
+<SPAN  CLASS="textit">write</SPAN>, and <SPAN  CLASS="textit">execute</SPAN> permissions for the <SPAN  CLASS="textit">user</SPAN> owning
+the file, the <SPAN  CLASS="textit">group</SPAN> owning the file, and <SPAN  CLASS="textit">others</SPAN> (everyone
+on the system, sometimes called <SPAN  CLASS="textit">world</SPAN>).
+
+<P>
+In the mode line, the first ``element'' gives the file type. The <TT>-</TT>
+in this case means it's a regular file. If it was <TT>d</TT>, we'd be looking
+at a directory. There are also other possibilities too complex to go into here;
+for details, see section <A HREF="node91.html#file-types">13.2.2</A> on page <A HREF="node91.html#file-types"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>.
+
+<P>
+<A NAME="2639"></A><A NAME="2640"></A><A NAME="2641"></A><A NAME="2642"></A><A NAME="2643"></A><A NAME="2644"></A><A NAME="2645"></A>The remaining nine elements are used to display the file's mode. The basic 9
+bits (read, write, and execute for user, group, and other) are displayed as
+three blocks of <TT>rwx</TT>.
+
+<P>
+So if all permissions are turned on and this is a regular file, the mode will
+look like this: <TT>-rwxrwxrwx</TT>. If it was a directory with all permissions
+turned off for others and full permissions for user and group, it would be <TT>drwxrwx--</TT>.
+
+<P>
+<BR><P></P>
+<DIV ALIGN="CENTER"><A NAME="5407"></A>
+<TABLE>
+<CAPTION><STRONG>Table 7.1:</STRONG>
+Permissions in Linux</CAPTION>
+<TR><TD>
+<P>
+
+<DIV ALIGN="CENTER">
+
+</DIV><TABLE COLS=4 BORDER FRAME=BOX RULES=GROUPS>
+<COLGROUP><COL ALIGN=CENTER><COLGROUP><COL ALIGN=CENTER><COLGROUP><COL ALIGN=JUSTIFY WIDTH="1in"><COLGROUP><COL ALIGN=JUSTIFY WIDTH="1.in">
+<TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+Code</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+Name</TD><TD VALIGN=BASELINE ALIGN=LEFT WIDTH="72">
+Allows for Files</TD><TD VALIGN=BASELINE ALIGN=LEFT WIDTH="72">
+Allows for Directories</TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>r</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+read</TD><TD VALIGN=BASELINE ALIGN=LEFT WIDTH="72">
+Examine contents of file</TD><TD VALIGN=BASELINE ALIGN=LEFT WIDTH="72">
+List contents of directory</TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>w</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+write</TD><TD VALIGN=BASELINE ALIGN=LEFT WIDTH="72">
+Modify file</TD><TD VALIGN=BASELINE ALIGN=LEFT WIDTH="72">
+Add or remove files in directory</TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>x</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+execute</TD><TD VALIGN=BASELINE ALIGN=LEFT WIDTH="72">
+Run as a command</TD><TD VALIGN=BASELINE ALIGN=LEFT WIDTH="72">
+Access files in directory</TD></TR>
+</TBODY>
+</TABLE>
+
+<P>
+</TD></TR>
+</TABLE>
+</DIV><P></P>
+<BR>
+Table <A HREF="#Permissions_in_Linux">7.1</A> describes the meaning of the read, write,
+and execute permissions for both files and directories. 
+
+<P>
+<A NAME="2658"></A>Directory modes can be a little confusing, so here are some examples of the
+effects of various combinations: 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>r-
+</DD>
+</DL>The user, group, or other with these permissions may list the contents of the
+directory, but can do nothing else. The files in the directory can't be read,
+changed, deleted, or manipulated in any way. The only permitted action is reading
+the directory itself, that is, seeing what files it contains. 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>rw-
+</DD>
+</DL>Write permission<A NAME="2664"></A> <A NAME="2665"></A><A NAME="2666"></A><A NAME="2667"></A><A NAME="2668"></A>has no effect in the absence of execute permission, so this
+mode behaves just like the above mode. 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD><A NAME="2670"></A><A NAME="2671"></A><A NAME="2672"></A><A NAME="2673"></A><A NAME="2674"></A><A NAME="2675"></A><A NAME="2676"></A>
+r-x
+</DD>
+</DL>This mode permits the files in a directory to be listed and permits access to
+those files. However, files can't be created or deleted. <SPAN  CLASS="textit">Access</SPAN> means
+that you can view, change, or execute the files as permitted by the files' own
+permissions. 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>-x
+</DD>
+</DL>Files in this directory can be accessed, but the contents of the directory can't
+be listed, so you have to know what filename you're looking for in advance (unless
+you're exceptionally good at guessing). Files can't be created or deleted. 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>rwx
+</DD>
+</DL>You can do anything you want with the files in this directory, as long as it's
+permitted by the permissions on the files themselves. 
+
+<P>
+Directory write permission determines whether you can delete files in a directory.
+A read-only file can be deleted if you have permission to write to the directory
+containing it. You can't delete a file from a read-only directory even if you're
+allowed to make changes to the file.
+
+<P>
+This also means that if you own a directory you can always delete files from
+it, even if those files belong to root.
+
+<P>
+Directory execute permission determines whether you have access to files -
+and thus whether file permissions come into play. <SPAN  CLASS="textit">If</SPAN> you have execute
+permissions to a directory, file permissions for that directory become relevant.
+Otherwise, file permissions just don't matter; you can't access the files anyway.
+
+<P>
+
+<H2><A NAME="SECTION04713000000000000000">
+Permissions in Practice </A>
+</H2>
+
+<P>
+<A NAME="2686"></A><A NAME="2687"></A><A NAME="2688"></A><A NAME="2689"></A><A NAME="2690"></A><A NAME="2691"></A><A NAME="2692"></A>This section goes through a short example session to demonstrate how permissions
+are used. To change permissions, we'll use the <TT>chmod</TT> command. 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>cd;&nbsp;touch&nbsp;myfile
+</DD>
+</DL>There are a couple of new tricks here. First, you can use <TT>;</TT> to put
+two commands on one line. You can type the above as: 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>$&nbsp;<SPAN  CLASS="textbf">cd</SPAN>&nbsp;
+
+<P>
+$&nbsp;<SPAN  CLASS="textbf">touch&nbsp;myfile</SPAN>&nbsp;
+</DD>
+</DL>or as: 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>$&nbsp;<SPAN  CLASS="textbf">cd;&nbsp;touch&nbsp;myfile</SPAN>
+</DD>
+</DL>Either way the same thing will end up happening. 
+
+<P>
+Recall that <TT>cd</TT> by itself returns you to your home directory. <TT>touch</TT>
+is normally used to change the modification time of the file to the current
+time. But it has another interesting feature: If the file doesn't exist, <TT>touch</TT>
+creates the file. So you're using it to create a file to practice with. Use
+<TT>ls&nbsp;-l</TT> to confirm that the file has been created and notice the permissions
+mode:
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>$&nbsp;<SPAN  CLASS="textbf">ls&nbsp;-l</SPAN>&nbsp;
+
+<P>
+-rw-r-r-&nbsp;1&nbsp;user&nbsp;user&nbsp;0&nbsp;Nov&nbsp;18&nbsp;22:04&nbsp;myfile
+</DD>
+</DL>Obviously the time and user/group names will be different when you try it. The
+size of the file is 0, because <TT>touch</TT> creates an empty file. <TT>-rw-r-r-</TT>
+is the default permissions mode on Debian.
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD><A NAME="2717"></A><A NAME="2718"></A><A NAME="2719"></A><A NAME="2720"></A><A NAME="2721"></A><A NAME="2722"></A><A NAME="2723"></A>
+chmod&nbsp;u+x&nbsp;myfile
+</DD>
+</DL>This command means to add (<TT>+</TT>) execute (<TT>x</TT>) permissions for
+the user (<TT>u</TT>) who owns the file. Use <TT>ls&nbsp;-l</TT> to see the effects. 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>chmod&nbsp;go-r&nbsp;myfile
+</DD>
+</DL>Here you've subtracted (<TT>-</TT>) read permission (<TT>r</TT>) from the group
+(<TT>g</TT>) owning the file and from everyone else (others, <TT>o</TT>). Again,
+use <TT>ls&nbsp;-l</TT> to verify the effects. <A NAME="2736"></A><A NAME="2737"></A><A NAME="2738"></A><A NAME="2739"></A><A NAME="2740"></A><A NAME="2741"></A><A NAME="2742"></A>
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>chmod&nbsp;ugo=rx&nbsp;myfile
+</DD>
+</DL>Here you've set (<TT>=</TT>) user, group, and other permissions to read and
+execute. This sets permissions to <SPAN  CLASS="textit">exactly</SPAN> what you've specified and
+unsets any other permissions. So all <TT>rx</TT> should be set, and all <TT>w</TT>
+should be unset. Now, no one can write to the file. 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>chmod&nbsp;a-x&nbsp;myfile
+</DD>
+</DL><TT>a</TT> is a shortcut for <TT>ugo</TT>, or ``all.'' So all the <TT>x</TT>
+permissions should now be unset. 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>rm&nbsp;myfile
+</DD>
+</DL>With this command, you're removing the file, but without write permissions.
+<TT>rm</TT> will ask if you're sure by displaying the following message:
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>rm:&nbsp;remove&nbsp;`myfile',&nbsp;overriding&nbsp;mode&nbsp;0444?
+</DD>
+</DL>You should respond by typing <TT>y</TT> and pressing <TT>Enter</TT>. This is
+a feature of <TT>rm</TT>, not a fact of permissions. Permission to delete a
+file comes from the directory permissions, and you have write permission in
+the directory. However, <TT>rm</TT> tries to be helpful, figuring that if you
+didn't want to change the file (and thus remove write permission), you don't
+want to delete it either, so it asks you. 
+
+<P>
+What was that <TT>0444</TT> business in the question from <TT>rm</TT>? The permissions
+mode is a twelve-digit binary number, like this: <TT>000100100100</TT>. <TT>0444</TT>
+is this binary number represented as an octal (base 8) number, which is the
+conventional way to write a mode. So you can type <TT>chmod&nbsp;444&nbsp;myfile</TT>
+instead of <TT>chmod&nbsp;ugo=r&nbsp;myfile</TT>.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1493"
+  HREF="node63.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1487"
+  HREF="node61.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1481"
+  HREF="node61.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1489"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1491"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1494"
+  HREF="node63.html">Files Present and Their</A>
+<B> Up:</B> <A NAME="tex2html1488"
+  HREF="node61.html">More on Files</A>
+<B> Previous:</B> <A NAME="tex2html1482"
+  HREF="node61.html">More on Files</A>
+ &nbsp <B>  <A NAME="tex2html1490"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1492"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>

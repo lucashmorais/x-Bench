@@ -1,0 +1,199 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Files Present and Their Locations</TITLE>
+<META NAME="description" CONTENT="Files Present and Their Locations">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="next" HREF="node64.html">
+<LINK REL="previous" HREF="node62.html">
+<LINK REL="up" HREF="node61.html">
+<LINK REL="next" HREF="node64.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1510"
+  HREF="node64.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1504"
+  HREF="node61.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1498"
+  HREF="node62.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1506"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1508"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1511"
+  HREF="node64.html">File Compression with gzip</A>
+<B> Up:</B> <A NAME="tex2html1505"
+  HREF="node61.html">More on Files</A>
+<B> Previous:</B> <A NAME="tex2html1499"
+  HREF="node62.html">Permissions</A>
+ &nbsp <B>  <A NAME="tex2html1507"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1509"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION04720000000000000000">
+Files Present and Their Locations</A>
+</H1>
+
+<P>
+<A NAME="2770"></A><A NAME="2771"></A><A NAME="2772"></A>Now that you can navigate the directory tree, let's take a guided tour of the
+files and directories you created when you installed Debian. If you're curious,
+<TT>cd</TT> to each directory and type <TT>ls</TT> to see its contents. If the
+listing doesn't fit on the screen, try <TT>ls&nbsp;|</TT> less, where <TT>|</TT>
+is the ``pipe'' character, generally found on the same key with backslash. 
+
+<P>
+<A NAME="2777"></A><A NAME="2778"></A><A NAME="2779"></A><DL>
+<DT><STRONG>/</STRONG></DT>
+<DD>As already mentioned, this is the root directory, which contains every other
+directory. 
+</DD>
+<DT><STRONG>/root</STRONG></DT>
+<DD><A NAME="2781"></A><A NAME="2782"></A><A NAME="2783"></A><A NAME="2784"></A>But don't get <TT>/</TT>confused with <TT>/root</TT>! <TT>/root</TT>
+is the home directory of the root user, or superuser. It's a directory called
+<TT>/root</TT>, but it isn't <SPAN  CLASS="textit">the</SPAN> root directory <TT>/</TT>.
+</DD>
+<DT><STRONG>/home</STRONG></DT>
+<DD>This is where all normal users - that is, all users except root - have
+their home directories<A NAME="2791"></A>. Each home directory is named after the user who owns
+it, for example, <TT>/home/jane</TT>. If you're using a large system at a school
+or business, your system administrator may create additional directories to
+contain home directories: <TT>/home1</TT> and <TT>/home2</TT> for example. On
+some other systems, you'll see an additional level of subdirectories: <TT>/home/students/username</TT>,
+<TT>/home/staff/username</TT>, etc.
+<BR>
+<BR><A NAME="2797"></A>Your home directory is where you put all your personal work, e-mail and other
+documents, and personal configuration preferences. It's your home on the system.
+</DD>
+<DT><STRONG>/bin</STRONG></DT>
+<DD><A NAME="2798"></A>This directory contains ``binaries,'' executable files that are essential
+to the operation of the system. Examples are the shell (<TT>bash</TT>) and file
+commands such as <TT>cp</TT>.
+</DD>
+<DT><STRONG>/sbin</STRONG></DT>
+<DD><A NAME="2801"></A>This directory<A NAME="2802"></A><A NAME="2803"></A> <A NAME="2804"></A>contains ``system binaries,'' utilities that the root
+user or system administrator might want to use, but that you probably won't
+want to use in your day-to-day activities.
+</DD>
+<DT><STRONG>/usr<A NAME="2805"></A><A NAME="2806"></A></STRONG></DT>
+<DD><TT>/usr</TT> contains most of the files you'll be interested in. It has
+many subdirectories. <TT>/usr/bin</TT> and <TT>/usr/sbin</TT> are pretty much
+like <TT>/bin</TT> and <TT>/sbin</TT>, except that the directories in <TT>/usr</TT>
+are not considered ``essential to the operation of the system.'' 
+<BR>
+<BR>
+While not essential to getting the computer working,&nbsp;<TT>/usr</TT> does contain
+the applications you'll use to get real work done. Also in <TT>/usr</TT>, you'll
+find the <TT>/usr/man</TT>, <TT>/usr/info</TT>, and <TT>/usr/doc</TT> directories.
+These contain manual pages, info pages, and other documentation, respectively.
+And don't forget <TT>/usr/games</TT>! 
+</DD>
+<DT><STRONG>/usr/local</STRONG></DT>
+<DD>The Debian system doesn't install anything in this directory. You
+should use it if you want to install software that you compile yourself or any
+software not contained in a Debian package. You can also install software in
+your home directory if you'll be the only one using it.
+</DD>
+<DT><STRONG>/etc</STRONG></DT>
+<DD><TT>/etc</TT> <A NAME="2820"></A><A NAME="2821"></A>contains all the system-wide configuration files. Whenever
+you want to change something that affects all users of your computer - such
+<A NAME="2822"></A><A NAME="2823"></A>as how you connect to the Internet or what kind of video card you have - you'll
+<A NAME="2824"></A>probably have to log on as root and change a file in <TT>/etc</TT>. 
+</DD>
+<DT><STRONG>/tmp</STRONG></DT>
+<DD><A NAME="5410"></A><A NAME="2827"></A><A NAME="2828"></A>Here you'll find temporary files, most of them created by the system.
+This directory is generally erased on a regular basis or every time you reboot
+the system. You can create files here if you want, just be aware that they might
+get deleted automatically. 
+</DD>
+<DT><STRONG>/var</STRONG></DT>
+<DD><TT>/var</TT> contains ``variable'' files that the system changes automatically.
+<A NAME="2830"></A><A NAME="2831"></A>For example, incoming mail is stored here. The system keeps a log of its actions
+here. There are a number of other automatically generated files here as well.
+You'll mostly be interested in the contents of <TT>/var/log</TT>, where you
+can find error messages that can help you figure out what you're system's up
+to if something goes wrong.
+</DD>
+</DL>
+Clearly there are many more directories on the system - far too many to describe
+every one. 
+
+<P>
+For changing things, you'll usually want to confine yourself to your home directory
+and <TT>/etc</TT>. On a Debian system, there's rarely an occasion to change
+anything else, because everything else is automatically installed for you.
+
+<P>
+<TT>/etc</TT><A NAME="2836"></A><A NAME="2837"></A><A NAME="2838"></A><A NAME="2839"></A> is used to configure the <SPAN  CLASS="textit">system</SPAN> as a whole. You'll use
+your own home directory, a subdirectory of <TT>/home</TT>, for configuring your
+own preferences and storing your personal data. The idea is that on a day-to-day
+basis, you confine yourself to <TT>/home/<SPAN  CLASS="textit">yourname</SPAN></TT>, so
+there's no way you can break anything. Occasionally you log in as root to change
+something in a system-wide <A NAME="2844"></A>directory, but only when it's absolutely necessary.
+Of course, if you're using Debian at a school or business and someone else is
+the system administrator, you won't have root access and will be able to change
+only your home directory and any other directory that you own. This limits what
+you can do with the system.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1510"
+  HREF="node64.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1504"
+  HREF="node61.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1498"
+  HREF="node62.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1506"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1508"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1511"
+  HREF="node64.html">File Compression with gzip</A>
+<B> Up:</B> <A NAME="tex2html1505"
+  HREF="node61.html">More on Files</A>
+<B> Previous:</B> <A NAME="tex2html1499"
+  HREF="node62.html">Permissions</A>
+ &nbsp <B>  <A NAME="tex2html1507"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1509"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,901 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Package Installation with dselect</TITLE>
+<META NAME="description" CONTENT="Package Installation with dselect">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="next" HREF="node39.html">
+<LINK REL="previous" HREF="node37.html">
+<LINK REL="up" HREF="node18.html">
+<LINK REL="next" HREF="node39.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1116"
+  HREF="node39.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1110"
+  HREF="node18.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1104"
+  HREF="node37.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1112"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1114"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1117"
+  HREF="node39.html">Glossary</A>
+<B> Up:</B> <A NAME="tex2html1111"
+  HREF="node18.html">Step-by-Step Installation</A>
+<B> Previous:</B> <A NAME="tex2html1105"
+  HREF="node37.html">Select and Install Profiles</A>
+ &nbsp <B>  <A NAME="tex2html1113"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1115"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html1118"
+  HREF="#SECTION043201000000000000000">Introduction       </A>
+<LI><A NAME="tex2html1119"
+  HREF="#SECTION043202000000000000000">Once <TT>dselect</TT> Is Launched       </A>
+<UL>
+<LI><A NAME="tex2html1120"
+  HREF="#SECTION043202100000000000000">Access </A>
+<LI><A NAME="tex2html1121"
+  HREF="#SECTION043202200000000000000">Update</A>
+<LI><A NAME="tex2html1122"
+  HREF="#SECTION043202300000000000000">Select</A>
+<LI><A NAME="tex2html1123"
+  HREF="#SECTION043202400000000000000">Install</A>
+<LI><A NAME="tex2html1124"
+  HREF="#SECTION043202500000000000000">Configure</A>
+<LI><A NAME="tex2html1125"
+  HREF="#SECTION043202600000000000000">Remove</A>
+<LI><A NAME="tex2html1126"
+  HREF="#SECTION043202700000000000000">Quit</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html1127"
+  HREF="#SECTION043203000000000000000">A Few Hints in Conclusion</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION043200000000000000000"></A><A NAME="dselect"></A><A NAME="install-packages"></A><A NAME="862"></A>
+<BR>
+Package Installation with <TT>dselect</TT>
+</H1>
+
+<P>
+<A NAME="863"></A><A NAME="864"></A>It is now time to install the software packages of your choice on your Debian
+system. This is done using Debian's package management tool, <TT>dselect</TT>.
+
+<P>
+
+<H2><A NAME="SECTION043201000000000000000">
+Introduction       </A>
+</H2>
+
+<P>
+<A NAME="867"></A><A NAME="868"></A><A NAME="869"></A><A NAME="870"></A><A NAME="871"></A><A NAME="872"></A>This section documents <TT>dselect</TT> for first-time users. It makes no attempt
+to explain everything, so when you first meet <TT>dselect</TT>, work through
+the help screens.       
+
+<P>
+<TT>dselect</TT> is used to select which packages you wish to install (there
+are currently about 2,250 packages in Debian 2.1).  It will be run for you during
+the installation. It is a very powerful and somewhat complex tool. As such,
+having some knowledge of it beforehand is highly recommended. Careless use of
+<TT>dselect</TT> can wreak havoc on your system.
+
+<P>
+<TT>dselect</TT> will step you through the package installation process outlined
+here:
+<A NAME="878"></A><A NAME="879"></A><A NAME="880"></A><A NAME="881"></A><A NAME="882"></A><A NAME="883"></A><A NAME="884"></A>
+
+<OL>
+<LI>Choose the access method to use.
+</LI>
+<LI>Update list of available packages, if possible.
+</LI>
+<LI>Select the packages you want on your system.
+</LI>
+<LI>Install and upgrade wanted packages.
+</LI>
+<LI>Configure any packages that are unconfigured.
+</LI>
+<LI>Remove unwanted software.
+</LI>
+</OL>
+As each step is completed successfully, <TT>dselect</TT> will lead you on to
+the next. Go through them in order without skipping any steps.       
+
+<P>
+Here and there in this document we talk of starting another shell. Linux has
+six console sessions or shells available at any one time. You switch between
+them by <SPAN  CLASS="textit"><SPAN  CLASS="textit">pressing</SPAN></SPAN>&nbsp;<TT><SPAN  CLASS="textit"><SPAN  CLASS="textit">Left&nbsp;Alt-F1</SPAN></SPAN></TT> through
+<TT><SPAN  CLASS="textit"><SPAN  CLASS="textit">Left&nbsp;Alt-F6</SPAN></SPAN></TT>, after which you log in on your new shell
+and go ahead.  The console used by the install process is the first one, a.k.a.
+<TT>tty1</TT>, so press <TT><SPAN  CLASS="textit"><SPAN  CLASS="textit">Left&nbsp;Alt-F1</SPAN></SPAN></TT> when you want to
+return to that process.
+
+<P>
+
+<H2><A NAME="SECTION043202000000000000000">
+Once <TT>dselect</TT> Is Launched       </A>
+</H2>
+
+<P>
+Once in <TT>dselect</TT>, you will get this screen:
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD><SMALL CLASS="FOOTNOTESIZE">Debian&nbsp;Linux&nbsp;`dselect'&nbsp;package&nbsp;handling&nbsp;frontend.</SMALL>
+<P>
+
+
+<P>
+<SMALL CLASS="FOOTNOTESIZE">0.&nbsp;&nbsp;[A]ccess&nbsp;&nbsp;Choose&nbsp;the&nbsp;access&nbsp;method&nbsp;to&nbsp;use.</SMALL>
+<P>
+
+
+<P>
+<SMALL CLASS="FOOTNOTESIZE">1.&nbsp;&nbsp;[U]pdate&nbsp;&nbsp;Update&nbsp;list&nbsp;of&nbsp;available&nbsp;packages,&nbsp;if&nbsp;possible.</SMALL>
+<P>
+
+
+<P>
+<SMALL CLASS="FOOTNOTESIZE">2&nbsp;&nbsp;&nbsp;[S]elect&nbsp;&nbsp;Request&nbsp;which&nbsp;packages&nbsp;you&nbsp;want&nbsp;on&nbsp;your&nbsp;system.</SMALL>
+<P>
+
+
+<P>
+<SMALL CLASS="FOOTNOTESIZE">3.&nbsp;&nbsp;[I]nstall&nbsp;Install&nbsp;and&nbsp;upgrade&nbsp;wanted&nbsp;packages.</SMALL>
+<P>
+
+
+<P>
+<SMALL CLASS="FOOTNOTESIZE">4.&nbsp;&nbsp;[C]onfig&nbsp;&nbsp;Configure&nbsp;any&nbsp;packages&nbsp;that&nbsp;are&nbsp;unconfigured.</SMALL>
+<P>
+
+
+<P>
+<SMALL CLASS="FOOTNOTESIZE">5.&nbsp;&nbsp;[R]emove&nbsp;&nbsp;Remove&nbsp;unwanted&nbsp;software.</SMALL>
+<P>
+
+
+<P>
+<SMALL CLASS="FOOTNOTESIZE">6.&nbsp;&nbsp;[Q]uit&nbsp;&nbsp;&nbsp;&nbsp;Quit&nbsp;dselect.&nbsp;</SMALL>
+<P>
+
+</DD>
+</DL>Let's look at these one by one.
+
+<P>
+
+<H3><A NAME="SECTION043202100000000000000"></A><A NAME="920"></A>
+<BR>
+Access 
+</H3>
+
+<P>
+<A NAME="921"></A><A NAME="922"></A><A NAME="923"></A><A NAME="924"></A><A NAME="925"></A><A NAME="926"></A><A NAME="927"></A><A NAME="928"></A>The Access screen is shown in Figure <A HREF="node38.html#dselect_access_screen">3.2</A> on page <A HREF="node38.html#dselect_access_screen"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>.
+
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="dselect_access_screen"></A><A NAME="5265"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 3.2:</STRONG>
+<TT>dselect</TT> Access screen</CAPTION>
+<TR><TD><P>
+
+<P>
+<DIV ALIGN="CENTER">
+
+</DIV><!-- MATH
+ $\resizebox*{4in}{!}{\includegraphics{images/dselect-access.eps}}$
+ -->
+<IMG
+ WIDTH="460" HEIGHT="301" ALIGN="BOTTOM" BORDER="0"
+ SRC="img3.png"
+ ALT="\resizebox*{4in}{!}{\includegraphics{images/dselect-access.eps}}"> 
+<P>
+</TD></TR>
+</TABLE>
+</DIV><P></P>
+
+<P>
+Here we tell <TT>dselect</TT> where our packages are.  Ignore the order that
+these appear in.  It is very important that you select the proper method for
+installation.   You may have a few more methods listed, or a few less, or you
+may see them listed in a different order; just don't worry about it. In the
+following list, we describe the different methods. 
+
+<P>
+<DL>
+<DD><A NAME="940"></A><A NAME="941"></A><A NAME="942"></A><A NAME="943"></A><A NAME="944"></A><A NAME="945"></A><A NAME="946"></A><A NAME="947"></A>
+</DD>
+<DT><STRONG>multi_cd.</STRONG></DT>
+<DD>Quite large and powerful, this complex method is the recommended
+way of installing a recent version of Debian from a set of multiple binary CDs.
+Each of these CDs should contain information about the packages in itself and
+all prior CDs (in the file <TT>Packages.cd</TT>). When you first select this
+method, be sure the CD-ROM you will be using is not mounted. Place the last
+<SPAN  CLASS="textit">binary</SPAN> disk of the set (we don't need the source CDs) in the drive
+and answer the questions you are asked:
+</DD>
+</DL>
+
+<DL COMPACT>
+<DT>
+<DD><SMALL CLASS="SMALL">CD-ROM&nbsp;drive&nbsp;location</SMALL>
+<P>
+
+
+<P>
+<SMALL CLASS="SMALL">Confirmation&nbsp;that&nbsp;you&nbsp;are&nbsp;using&nbsp;a&nbsp;multi-cd&nbsp;set&nbsp;&nbsp;&nbsp;</SMALL>
+<P>
+
+
+<P>
+<SMALL CLASS="SMALL">The&nbsp;location&nbsp;of&nbsp;the&nbsp;Debian&nbsp;distribution&nbsp;on&nbsp;the&nbsp;disk(s)</SMALL>
+<P>
+
+
+<P>
+<SMALL CLASS="SMALL">[&nbsp;Possibly&nbsp;]&nbsp;the&nbsp;location(s)&nbsp;of&nbsp;the&nbsp;Packages&nbsp;file(s)</SMALL>
+<P>
+
+</DD>
+</DL>Once you have updated the available list and selected the packages to be installed,
+the multi_cd method diverges from normal procedure. You will need to run an
+``install'' step for each of the CDs you have, in turn. Unfortunately, due
+to the limitations of <TT>dselect</TT>, it will not be able to prompt you for
+a new disk at each stage; the way to work for each disk is outlined here:
+
+<P>
+
+<OL>
+<LI>Insert the CD in your CD-ROM drive.
+</LI>
+<LI>From the main <TT>dselect</TT> menu, select ``Install.''
+</LI>
+<LI>Wait until <TT>dpkg</TT> finishes installing from this CD. (It may report installation
+successful, or possibly installation errors. Don't worry about these until later.)
+</LI>
+<LI>Press <TT>Return</TT> to go back to the main <TT>dselect</TT> menu.
+</LI>
+<LI>Repeat with the next CD in the set.
+</LI>
+</OL>
+It may be necessary to run the installation step more than once to cover the
+order of package installation; some packages installed early may need to have
+later packages installed before they will configure properly.
+
+<P>
+Running a ``Configure'' step is recommended to help fix any packages that
+may end up in this state. <A NAME="969"></A><A NAME="970"></A><A NAME="971"></A><A NAME="972"></A>
+
+<P>
+<DL>
+<DD><A NAME="974"></A><A NAME="975"></A><A NAME="976"></A><A NAME="977"></A>
+</DD>
+<DT><STRONG>multi_nfs,&nbsp;multi_mount.</STRONG></DT>
+<DD><P>
+These are similar to the multi_cd method
+and are refinements on the theme of coping with changing media - for example,
+installing from a multi_cd set exported via NFS from another machine's CD-ROM
+drive. indexdselect!multi-NFS, multi-mount installation<A NAME="979"></A><A NAME="980"></A><A NAME="981"></A>
+</DD>
+<DT><STRONG>apt.</STRONG></DT>
+<DD>One of the best options for installation from a local mirror of the Debian
+archive or from the network.  This method uses the ``<TT>apt</TT>'' system
+to do complete dependency analysis and ordering, so it's most likely to install
+packages in the optimal order.
+</DD>
+</DL>
+Configuration of this method is straightforward. You may select any number of
+different locations, mixing and matching <TT>file:</TT> URLs (local disks or
+NFS mounted disks), <TT>http:</TT> URLs, or <TT>ftp:</TT> URLs.  Note, however,
+that the HTTP and FTP options do not support local authenticating proxies.               
+
+<P>
+If you have proxy server for either HTTP or FTP (or both), make sure you set
+the <TT>http_proxy</TT> and <TT>ftp_proxy</TT> environment variables, respectively.
+ Set them from your shell before starting <TT>dselect</TT> by using the following<A NAME="990"></A><A NAME="991"></A><A NAME="992"></A>
+command:
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>#&nbsp;export&nbsp;http_proxy=http://gateway:3128/
+
+<P>
+#&nbsp;dselect&nbsp;<SPAN  CLASS="textit"></SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</DD>
+</DL>
+<P>
+
+<H3><A NAME="SECTION043202200000000000000"></A><A NAME="996"></A>
+<BR>
+Update
+</H3>
+
+<P>
+<A NAME="997"></A><A NAME="998"></A><A NAME="999"></A><A NAME="1000"></A><A NAME="1001"></A><A NAME="1002"></A><TT>dselect</TT> will read the <TT>Packages</TT> or <TT>Packages.gz</TT> files
+from the mirror and create a database on your system of all available packages.
+ This may take a while as it downloads and processes the files.       
+
+<P>
+
+<H3><A NAME="SECTION043202300000000000000"></A><A NAME="1006"></A>
+<BR>
+Select
+</H3>
+
+<P>
+<A NAME="1007"></A><A NAME="1008"></A><A NAME="1009"></A>Hang on to your hat. This is where it all happens. The object of the exercise
+is to select just which packages you wish to have installed.         
+
+<P>
+Press <TT><SPAN  CLASS="textit"><SPAN  CLASS="textit">Enter</SPAN></SPAN></TT>. If you have a slow machine, be aware that
+the screen will clear and can remain blank for 15 seconds. So don't start bashing
+keys at this point.         
+
+<P>
+<A NAME="1011"></A><A NAME="1012"></A><A NAME="1013"></A>The first thing that comes up on the screen is page 1 of the Help file.  You
+can get to this help by <SPAN  CLASS="textit"><SPAN  CLASS="textit">pressing</SPAN></SPAN>&nbsp;<TT><SPAN  CLASS="textit"><SPAN  CLASS="textit">?</SPAN></SPAN></TT>
+at any point in the ``Select'' screens, and you can page through the help
+screens by hitting the <TT><SPAN  CLASS="textit">.</SPAN></TT> (full stop) key.         
+
+<P>
+Before you dive in, note these points: 
+
+<P>
+
+<UL>
+<LI>To exit the ``Select'' screen after all selections are complete, <SPAN  CLASS="textit"><SPAN  CLASS="textit">press</SPAN></SPAN><A NAME="1019"></A><A NAME="1020"></A> <A NAME="1021"></A><A NAME="1022"></A><A NAME="1023"></A>
+<TT><SPAN  CLASS="textit"><SPAN  CLASS="textit">Enter</SPAN></SPAN></TT>. This will return you to the main screen if there
+is no problem with your selection.  Otherwise, you will be asked to deal with
+that problem. When you are happy with any given screen, press <TT><SPAN  CLASS="textit"><SPAN  CLASS="textit">Enter</SPAN></SPAN></TT>
+to get out.
+</LI>
+<LI>Problems are quite normal and are to be expected. If you select package A and
+that package requires package B to run, <TT>dselect</TT> will warn you of the
+problem and will most likely suggest a solution. If package A conflicts with
+package B (i.e., if they are mutually exclusive), you will be asked to decide
+between them.
+</LI>
+</UL>
+Let's look at the top two lines of the Select screen.  This header reminds us of some of the special keys listed in Table <A HREF="#dselect_keys">3.1</A>.
+
+<P>
+<BR><P></P>
+<DIV ALIGN="CENTER"><A NAME="5277"></A>
+<TABLE>
+<CAPTION><STRONG>Table 3.1:</STRONG>
+Special <TT>dselect</TT> keys</CAPTION>
+<TR><TD>
+<P>
+
+<A NAME="1032"></A><A NAME="1033"></A><A NAME="1034"></A><A NAME="1035"></A><A NAME="1036"></A><A NAME="1037"></A><A NAME="1038"></A>
+<DIV ALIGN="CENTER">
+
+</DIV><TABLE COLS=2 BORDER FRAME=BOX RULES=GROUPS>
+<COLGROUP><COL ALIGN=CENTER><COLGROUP><COL ALIGN=CENTER>
+<TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+Key</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+Description</TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP><TT><SPAN  CLASS="textbf">+</SPAN></TT></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+Select a package for installation.</TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP><TT><SPAN  CLASS="textbf">=</SPAN></TT></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+Place a package on hold</TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP><TT><SPAN  CLASS="textbf">-</SPAN></TT></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+Remove a package.</TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP><TT><SPAN  CLASS="textbf">_</SPAN></TT></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+Remove a package and its configuration files.</TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP><TT><SPAN  CLASS="textbf">i</SPAN></TT>, <TT><SPAN  CLASS="textbf">I</SPAN></TT></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+Toggle/cycle information displays.</TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP><TT><SPAN  CLASS="textbf">o</SPAN></TT>, <TT><SPAN  CLASS="textbf">O</SPAN></TT></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+Cycle through the sort options.</TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP><TT><SPAN  CLASS="textbf">v</SPAN></TT>, <TT><SPAN  CLASS="textbf">V</SPAN></TT></TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+A terse/verbose toggle.</TD></TR>
+</TBODY>
+</TABLE>
+
+<P>
+</TD></TR>
+</TABLE>
+</DIV><P></P>
+<BR>
+Table <A HREF="#dselect_package_states">3.2</A> lists the states that <TT>dselect</TT> uses
+to denote the status of each package it is aware of.<A NAME="1055"></A><A NAME="1056"></A><A NAME="1057"></A><A NAME="1058"></A><A NAME="1059"></A><A NAME="1060"></A>
+<BR><P></P>
+<DIV ALIGN="CENTER"><A NAME="5288"></A>
+<TABLE>
+<CAPTION><STRONG>Table 3.2:</STRONG>
+<TT>dselect</TT> Package States</CAPTION>
+<TR><TD>
+<P>
+<A NAME="1062"></A><A NAME="1063"></A><A NAME="1064"></A>
+<A NAME="1065"></A>
+<A NAME="1066"></A>
+<A NAME="1067"></A>
+<A NAME="1068"></A>
+<A NAME="1069"></A>
+<A NAME="1070"></A>
+<A NAME="1071"></A>
+<A NAME="1072"></A><A NAME="1073"></A>
+
+<P>
+
+<DIV ALIGN="CENTER">
+
+</DIV><TABLE COLS=3 BORDER FRAME=BOX RULES=GROUPS>
+<COLGROUP><COL ALIGN=CENTER><COLGROUP><COL ALIGN=CENTER><COLGROUP><COL ALIGN=CENTER>
+<TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+Flag</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+Meaning</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+Possible values</TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>E</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+Error</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+Space, R, I </TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>I</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+Installed State</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+Space, *, -, U, C, I</TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>O</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+Old Mark</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+*, -, =, _, n</TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>M</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+Mark</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+*, -, =, _, n</TD></TR>
+</TBODY>
+</TABLE>
+
+<P>
+</TD></TR>
+</TABLE>
+</DIV><P></P>
+<BR>
+
+<P>
+Rather than spell all this out here, I refer you to the Help screens where all
+is revealed. One example, though.
+
+<P>
+You enter <TT>dselect</TT> and find a line like this: 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD><SMALL CLASS="SCRIPTSIZE">EIOM&nbsp;Pri&nbsp;&nbsp;Section&nbsp;&nbsp;Package&nbsp;&nbsp;&nbsp;Description</SMALL>
+<P>
+
+
+<P>
+<SMALL CLASS="SCRIPTSIZE">&nbsp;&nbsp;**&nbsp;Opt&nbsp;&nbsp;misc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loadlin&nbsp;&nbsp;&nbsp;a&nbsp;loader&nbsp;(running&nbsp;under&nbsp;DOS)&nbsp;for&nbsp;LINUX</SMALL>
+<P>
+
+</DD>
+</DL>This is saying that <TT>loadlin</TT> was selected when you last ran <TT>dselect</TT>
+and that it is still selected, but it is not installed. Why not? The answer
+must be that the <TT>loadlin</TT> package is not physically available. It is
+missing from your mirror.         
+
+<P>
+<A NAME="1094"></A><A NAME="1095"></A><A NAME="1096"></A>The information that <TT>dselect</TT> uses to get all the right packages installed
+is buried in the packages themselves. Nothing in this world is perfect, and
+it does sometimes happen that the dependencies built into a package are incorrect,
+which means that <TT>dselect</TT> simply cannot resolve the situation.  A way
+out is provided where the user can regain control; it takes the form of the
+commands <TT><SPAN  CLASS="textit"><SPAN  CLASS="textit">Q</SPAN></SPAN></TT> and <TT><SPAN  CLASS="textit"><SPAN  CLASS="textit">X</SPAN></SPAN></TT>, which are
+available in the Select screen. 
+
+<P>
+<DL>
+<DT><STRONG><TT>Q</TT></STRONG></DT>
+<DD>An <A NAME="1103"></A>override. Forces <TT>dselect</TT> to ignore the built-in dependencies
+and to do what you have specified. The results, of course, will be on your own
+head.              
+</DD>
+<DT><STRONG><TT>X</TT></STRONG></DT>
+<DD>Use <TT><SPAN  CLASS="textit"><SPAN  CLASS="textit">X</SPAN></SPAN></TT> if you get totally lost. It puts
+things back the way they were and exits.                         
+</DD>
+</DL><A NAME="1108"></A><A NAME="1109"></A><A NAME="1110"></A>Select screen (dselect)<A NAME="1112"></A><A NAME="1113"></A>
+Keys that help you <SPAN  CLASS="textit">not</SPAN> to get lost (!) are <TT><SPAN  CLASS="textit"><SPAN  CLASS="textit">R</SPAN></SPAN></TT>,
+<TT><SPAN  CLASS="textit"><SPAN  CLASS="textit">U</SPAN></SPAN></TT><SPAN  CLASS="textit"><SPAN  CLASS="textit">,</SPAN></SPAN> and <TT><SPAN  CLASS="textit"><SPAN  CLASS="textit">D</SPAN></SPAN></TT>. 
+
+<P>
+<A NAME="1119"></A><A NAME="1120"></A><A NAME="1121"></A><A NAME="1122"></A><A NAME="1123"></A><A NAME="1124"></A><DL>
+<DT><STRONG><TT>R</TT></STRONG></DT>
+<DD>Cancels all selections at this level. Does not affect selections<A NAME="1127"></A><A NAME="1128"></A><A NAME="1129"></A><A NAME="1130"></A><A NAME="1131"></A>
+made at the previous level.            
+</DD>
+<DT><STRONG><TT>U</TT></STRONG></DT>
+<DD>If <TT>dselect</TT> has proposed changes and you have made further
+changes <TT>U</TT> will restore <TT>dselect</TT>'s selections.             
+</DD>
+<DT><STRONG><TT>D</TT></STRONG></DT>
+<DD>Removes the selections made by <TT>dselect</TT>, leaving only yours.
+
+<P>
+</DD>
+</DL>
+An example follows.  The <TT>boot-floppies</TT> package (not an example for
+beginners, I know, but it was chosen because it has a lot of dependencies) depends
+on these packages: 
+
+<P>
+
+<UL>
+<LI><TT>libc6-pic</TT>
+</LI>
+<LI><TT>slang1-pic</TT>
+</LI>
+<LI><TT>sysutils</TT>
+</LI>
+<LI><TT>makedev</TT>
+</LI>
+<LI><TT>newt0.25</TT>
+</LI>
+<LI><TT>newt0.25-dev</TT>
+</LI>
+<LI><TT>popt</TT>
+</LI>
+<LI><TT>zlib1g</TT>
+</LI>
+<LI><TT>zlib1g-dev</TT>
+</LI>
+<LI><TT>recode</TT>
+</LI>
+</UL>
+The person maintaining <TT>boot-floppies</TT> also thinks that the following
+packages should be installed. These are not, however, essential: 
+
+<P>
+
+<UL>
+<LI><TT>lynx&nbsp;&nbsp;&nbsp;</TT>
+</LI>
+<LI><TT>debiandoc-sgml</TT>
+</LI>
+<LI><TT>unzip</TT>    
+</LI>
+</UL>
+
+<P>
+When you select boot-floppies, dselect brings up the conflict
+resolution screen.  You'll notice that all the required packages have been selected.
+
+<P>
+Pressing the <TT><SPAN  CLASS="textit"><SPAN  CLASS="textit">R</SPAN></SPAN></TT> key puts things back to the starting
+point.
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD><P>
+<SMALL CLASS="SCRIPTSIZE">EIOM&nbsp;Pri&nbsp;Section&nbsp;&nbsp;Package&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Description&nbsp;</SMALL>
+<P>
+
+
+<P>
+<SMALL CLASS="SCRIPTSIZE">&nbsp;&nbsp;__&nbsp;Opt&nbsp;admin&nbsp;&nbsp;&nbsp;&nbsp;boot-floppie&nbsp;Scripts&nbsp;to&nbsp;create&nbsp;the&nbsp;Debian</SMALL>
+<P>
+
+
+<P>
+<SMALL CLASS="SCRIPTSIZE">&nbsp;&nbsp;__&nbsp;Opt&nbsp;devel&nbsp;&nbsp;&nbsp;&nbsp;newt0.25-dev&nbsp;Developer's&nbsp;toolkit&nbsp;for&nbsp;newt</SMALL>
+<P>
+
+
+<P>
+<SMALL CLASS="SCRIPTSIZE">&nbsp;&nbsp;__&nbsp;Opt&nbsp;devel&nbsp;&nbsp;&nbsp;&nbsp;slang1-dev&nbsp;&nbsp;&nbsp;The&nbsp;S-Lang&nbsp;programming&nbsp;library</SMALL>
+<P>
+
+
+<P>
+<SMALL CLASS="SCRIPTSIZE">&nbsp;&nbsp;__&nbsp;Opt&nbsp;devel&nbsp;&nbsp;&nbsp;&nbsp;slang1-pic&nbsp;&nbsp;&nbsp;The&nbsp;S-Lang&nbsp;programming&nbsp;library</SMALL>
+<P>
+
+</DD>
+</DL>If you decide now that you don't want <TT>boot-floppies</TT>, just press <TT><SPAN  CLASS="textit"><SPAN  CLASS="textit">Enter</SPAN></SPAN></TT>.
+
+<P>
+Pressing the <TT><SPAN  CLASS="textit"><SPAN  CLASS="textit">D</SPAN></SPAN></TT> key puts things the way I selected them
+in the first place:
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD><SMALL CLASS="SCRIPTSIZE">EIOM&nbsp;Pri&nbsp;Section&nbsp;&nbsp;Package&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Description</SMALL>
+<P>
+
+
+<P>
+<SMALL CLASS="SCRIPTSIZE">&nbsp;&nbsp;_*&nbsp;Opt&nbsp;admin&nbsp;&nbsp;&nbsp;&nbsp;boot-floppie&nbsp;Scripts&nbsp;to&nbsp;create&nbsp;the&nbsp;Debian</SMALL>
+<P>
+
+<A NAME="1179"></A><A NAME="1180"></A><A NAME="1181"></A>
+<SMALL CLASS="SCRIPTSIZE">&nbsp;&nbsp;__&nbsp;Opt&nbsp;devel&nbsp;&nbsp;&nbsp;&nbsp;newt0.25-dev&nbsp;Developer's&nbsp;toolkit&nbsp;for&nbsp;newt</SMALL>
+<P>
+
+
+<P>
+<SMALL CLASS="SCRIPTSIZE">&nbsp;&nbsp;__&nbsp;Opt&nbsp;devel&nbsp;&nbsp;&nbsp;&nbsp;slang1-dev&nbsp;&nbsp;&nbsp;The&nbsp;S-Lang&nbsp;programming&nbsp;library</SMALL>
+<P>
+
+
+<P>
+<SMALL CLASS="SCRIPTSIZE">&nbsp;&nbsp;__&nbsp;Opt&nbsp;devel&nbsp;&nbsp;&nbsp;&nbsp;slang1-pic&nbsp;&nbsp;&nbsp;The&nbsp;S-Lang&nbsp;programming&nbsp;library</SMALL>
+<P>
+
+</DD>
+</DL>Pressing the <TT><SPAN  CLASS="textit">U</SPAN></TT> key restores <TT>dselect</TT>'s selections:
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD><P>
+<SMALL CLASS="SCRIPTSIZE">EIOM&nbsp;Pri&nbsp;Section&nbsp;&nbsp;Package&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Description</SMALL>
+<P>
+
+
+<P>
+<SMALL CLASS="SCRIPTSIZE">&nbsp;&nbsp;_*&nbsp;Opt&nbsp;admin&nbsp;&nbsp;&nbsp;&nbsp;boot-floppie&nbsp;Scripts&nbsp;to&nbsp;create&nbsp;the&nbsp;Debian&nbsp;installation</SMALL>
+<P>
+
+
+<P>
+<SMALL CLASS="SCRIPTSIZE">&nbsp;&nbsp;_*&nbsp;Opt&nbsp;devel&nbsp;&nbsp;&nbsp;&nbsp;newt0.25-dev&nbsp;Developer's&nbsp;toolkit&nbsp;for&nbsp;newt</SMALL>
+<P>
+
+
+<P>
+<SMALL CLASS="SCRIPTSIZE">&nbsp;&nbsp;_*&nbsp;Opt&nbsp;devel&nbsp;&nbsp;&nbsp;&nbsp;slang1-dev&nbsp;&nbsp;&nbsp;The&nbsp;S-Lang&nbsp;programming&nbsp;library</SMALL>
+<P>
+
+
+<P>
+<SMALL CLASS="SCRIPTSIZE">&nbsp;&nbsp;_*&nbsp;Opt&nbsp;devel&nbsp;&nbsp;&nbsp;&nbsp;slang1-pic&nbsp;&nbsp;&nbsp;The&nbsp;S-Lang&nbsp;programming&nbsp;library</SMALL>
+<P>
+
+</DD>
+</DL>
+<P>
+I suggest running with the defaults for now; you will have ample opportunities
+to add more later.
+
+<P>
+Whatever you decide, press <TT><SPAN  CLASS="textit"><SPAN  CLASS="textit">Enter</SPAN></SPAN></TT> to accept and return
+to the main screen. If this results in unresolved problems, you will be bounced
+right back to another problem resolution screen.
+
+<P>
+The <TT><SPAN  CLASS="textit"><SPAN  CLASS="textit">R</SPAN></SPAN></TT>, <TT><SPAN  CLASS="textit"><SPAN  CLASS="textit">U</SPAN></SPAN></TT>, and <TT><SPAN  CLASS="textit"><SPAN  CLASS="textit">D</SPAN></SPAN></TT>
+keys are very useful in ``what if'' situations. You can experiment at will
+and then restore everything and start again. <SPAN  CLASS="textit">Don't</SPAN> look on them as
+being in a glass box labeled ``Break in Case of Emergency.''
+
+<P>
+After making your selections in the Select screen, press <TT><SPAN  CLASS="textit"><SPAN  CLASS="textit">I</SPAN></SPAN></TT>
+to give you a big window, press <TT><SPAN  CLASS="textit"><SPAN  CLASS="textit">t</SPAN></SPAN></TT> to take you to the
+beginning, and then use the <TT><SPAN  CLASS="textit"><SPAN  CLASS="textit">Page&nbsp;Down</SPAN></SPAN></TT> key to look quickly
+through the settings. This way you can check the results of your work and spot
+glaring errors. Some people have deselected whole groups of packages by mistake
+and not noticed the error until too late. <TT>dselect</TT> is a <SPAN  CLASS="textit">very</SPAN>
+powerful tool; don't misuse it.
+
+<P>
+You should now have the situation shown in Table <A HREF="#pre-install_package_category_states">3.3</A>.<A NAME="1214"></A><A NAME="1215"></A><A NAME="1216"></A>
+
+<P>
+<BR><P></P>
+<DIV ALIGN="CENTER"><A NAME="5314"></A>
+<TABLE>
+<CAPTION><STRONG>Table 3.3:</STRONG>
+Expected Package Category States</CAPTION>
+<TR><TD>
+<P>
+
+<DIV ALIGN="CENTER">
+
+</DIV><TABLE COLS=2 BORDER FRAME=BOX RULES=GROUPS>
+<COLGROUP><COL ALIGN=CENTER><COLGROUP><COL ALIGN=CENTER>
+<TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP> 
+Package category</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+Status</TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>Required</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+all selected </TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>Important</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+all selected</TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>Standard</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+mostly selected</TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>Optional</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+mostly deselected</TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>Extra</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+mostly deselected</TD></TR>
+</TBODY>
+</TABLE>
+
+<P>
+</TD></TR>
+</TABLE>
+</DIV><P></P>
+<BR>
+
+<P>
+Happy? Press <TT><SPAN  CLASS="textit"><SPAN  CLASS="textit">Enter</SPAN></SPAN></TT> to exit the Select process. You
+can come back and run Select again if you wish.       
+
+<P>
+
+<H3><A NAME="SECTION043202400000000000000">
+Install</A>
+</H3>
+
+<P>
+<A NAME="1225"></A><A NAME="1226"></A><A NAME="1227"></A><A NAME="1228"></A><A NAME="1229"></A><TT>dselect</TT> runs through the entire set of packages and installs those
+selected.  Expect to be asked to make decisions as you go. It is often useful
+to switch to a different shell to compare, say, an old configuration with a
+new one.  If the old file is <TT>conf.modules</TT>, the new one will be <TT>conf.modules.dpkg-dist</TT>.
+
+<P>
+The screen scrolls past fairly quickly on a fast machine. You can stop and start
+it with <TT><SPAN  CLASS="textit"><SPAN  CLASS="textit">Ctrl-s</SPAN></SPAN></TT> <SPAN  CLASS="textit"><SPAN  CLASS="textit">and</SPAN></SPAN>&nbsp;<TT><SPAN  CLASS="textit"><SPAN  CLASS="textit">Ctrl-q</SPAN></SPAN></TT>,
+respectively, and at the end of the run, you will get a list of any uninstalled
+packages. 
+
+<P>
+It can happen that a package does not get installed because it depends on some
+other package that is listed for installation but is not yet installed. The
+answer here is to run Install again.  Cases have been reported where it was
+necessary to run it four times before everything slipped into place.  This will
+vary by your acquisition method. <A NAME="1236"></A><A NAME="1237"></A><A NAME="1238"></A><A NAME="1239"></A><A NAME="1240"></A>     
+
+<P>
+
+<H3><A NAME="SECTION043202500000000000000">
+Configure</A>
+</H3>
+
+<P>
+Most packages get configured in step 3, but anything left hanging can be configured<A NAME="1242"></A><A NAME="1243"></A><A NAME="1244"></A><A NAME="1245"></A><A NAME="1246"></A>
+here.       
+
+<P>
+
+<H3><A NAME="SECTION043202600000000000000">
+Remove</A>
+</H3>
+
+<P>
+Removes packages that are installed but no longer required.       
+
+<P>
+
+<H3><A NAME="SECTION043202700000000000000">
+Quit</A>
+</H3>
+
+<P>
+I suggest running <TT>/etc/cron.daily/find</TT> at this point, because you have
+a lot of new files on your system. Then you can use <TT>locate</TT> to get the
+location of any given file.
+
+<P>
+
+<H2><A NAME="SECTION043203000000000000000">
+A Few Hints in Conclusion</A>
+</H2>
+
+<P>
+When the install process runs <TT>dselect</TT> for you, you will doubtless be
+eager to get Debian running as soon as possible. Well, please be prepared to
+take an hour or so to learn your way around and then get it right. When you
+enter the Select screen for the first time, don't make <SPAN  CLASS="textit">any</SPAN> selections
+at all - just press <TT><SPAN  CLASS="textit"><SPAN  CLASS="textit">Enter</SPAN></SPAN></TT> and see what dependency
+problems there are. Try fixing them. If you find yourself back at the main screen,
+run Select again.
+
+<P>
+You can get an idea of the size of a package by <SPAN  CLASS="textit"><SPAN  CLASS="textit">pressing</SPAN></SPAN>&nbsp;<TT><SPAN  CLASS="textit"><SPAN  CLASS="textit">i</SPAN></SPAN></TT>
+<SPAN  CLASS="textit"><SPAN  CLASS="textit">twice</SPAN></SPAN> and looking for the ``Size'' figure. This is the size
+of the compressed package, so the uncompressed files will be a lot bigger (see
+``Installed-Size,'' which is in kilobytes, to know it).       
+
+<P>
+Installing a new Debian system is a complex thing, but <TT>dselect</TT> can
+do it for you as easy as can be. So take the time to learn how to drive it.
+Read the help screens and experiment with <TT>i</TT><SPAN  CLASS="textit">,</SPAN>&nbsp;<TT>I</TT><SPAN  CLASS="textit">,</SPAN>
+<TT>o</TT><SPAN  CLASS="textit">,</SPAN> and <TT>O</TT>. Use the <TT>R</TT> key. It's all there,
+but it's up to you to use it effectively.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1116"
+  HREF="node39.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1110"
+  HREF="node18.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1104"
+  HREF="node37.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1112"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1114"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1117"
+  HREF="node39.html">Glossary</A>
+<B> Up:</B> <A NAME="tex2html1111"
+  HREF="node18.html">Step-by-Step Installation</A>
+<B> Previous:</B> <A NAME="tex2html1105"
+  HREF="node37.html">Select and Install Profiles</A>
+ &nbsp <B>  <A NAME="tex2html1113"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1115"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>

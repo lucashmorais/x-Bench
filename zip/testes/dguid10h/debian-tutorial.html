@@ -1,0 +1,518 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Debian GNU/Linux: Guide to Installation and Usage</TITLE>
+<META NAME="description" CONTENT="Debian GNU/Linux: Guide to Installation and Usage">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html52"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev_g.png"> 
+<A NAME="tex2html48"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html50"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html53"
+  HREF="node1.html">Contents</A>
+ &nbsp <B>  <A NAME="tex2html49"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html51"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<P>
+
+<P>
+
+
+
+
+<P>
+
+<P>
+<H1 ALIGN="CENTER">Debian GNU/Linux: Guide to Installation and Usage</H1>
+<P ALIGN="CENTER"><STRONG>John Goerzen and Ossama Othman</STRONG></P>
+(c) 1998, 1999 Software in the Public Interest, Inc.
+
+<P>
+Permission is granted to make and distribute verbatim copies of this manual
+provided the copyright notice and this permission notice are preserved on all
+copies.
+
+<P>
+Permission is granted to copy and distribute modified versions of this manual
+under the conditions for verbatim copying, provided also that the sections that
+reprint ``The GNU General Public License'' and other clearly marked sections
+held under separate copyright are reproduced under the conditions given within
+them, and provided that the entire resulting derived work is distributed under
+the terms of a permission notice identical to this one.
+
+<P>
+Permission is granted to copy and distribute translations of this manual into
+another language under the conditions for modified versions. ``The GNU General
+Public License'' may be included in a translation approved by the Free Software
+Foundation instead of in the original English.
+
+<P>
+At your option, you may distribute verbatim and modified versions of this document
+under the terms of the GNU General Public License, excepting the clearly marked
+sections held under separate copyright.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html54"
+  HREF="node1.html">Contents</A>
+<LI><A NAME="tex2html55"
+  HREF="node2.html">List of Figures</A>
+<LI><A NAME="tex2html56"
+  HREF="node3.html">List of Tables</A>
+<UL>
+<LI><A NAME="tex2html57"
+  HREF="node4.html">Acknowledgments</A>
+<LI><A NAME="tex2html58"
+  HREF="node5.html">Preface</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html59"
+  HREF="node6.html">Guide</A>
+<UL>
+<LI><A NAME="tex2html60"
+  HREF="node7.html">Introduction</A>
+<UL>
+<LI><A NAME="tex2html61"
+  HREF="node8.html">What Is Debian?</A>
+<UL>
+<LI><A NAME="tex2html62"
+  HREF="node8.html#SECTION04111000000000000000">Who Creates Debian? </A>
+</UL>
+<LI><A NAME="tex2html63"
+  HREF="node9.html">A Multiuser, Multitasking Operating System</A>
+<LI><A NAME="tex2html64"
+  HREF="node10.html">What Is Free Software? </A>
+<LI><A NAME="tex2html65"
+  HREF="node11.html">About This Book</A>
+<UL>
+<LI><A NAME="tex2html66"
+  HREF="node11.html#SECTION04141000000000000000">How to Read This Book </A>
+<LI><A NAME="tex2html67"
+  HREF="node11.html#SECTION04142000000000000000">Conventions</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html68"
+  HREF="node12.html">Getting Started</A>
+<UL>
+<LI><A NAME="tex2html69"
+  HREF="node13.html">Supported Hardware</A>
+<UL>
+<LI><A NAME="tex2html70"
+  HREF="node13.html#SECTION04211000000000000000">Memory and Disk Space Requirements</A>
+</UL>
+<LI><A NAME="tex2html71"
+  HREF="node14.html">Before You Start</A>
+<UL>
+<LI><A NAME="tex2html72"
+  HREF="node14.html#SECTION04221000000000000000">Information You Will Need</A>
+</UL>
+<LI><A NAME="tex2html73"
+  HREF="node15.html">Partitioning Your Hard Drive</A>
+<UL>
+<LI><A NAME="tex2html74"
+  HREF="node15.html#SECTION04231000000000000000">Background</A>
+<LI><A NAME="tex2html75"
+  HREF="node15.html#SECTION04232000000000000000">Planning Use of the System</A>
+<LI><A NAME="tex2html76"
+  HREF="node15.html#SECTION04233000000000000000">PC Disk Limitations</A>
+<LI><A NAME="tex2html77"
+  HREF="node15.html#SECTION04234000000000000000">Device Names in Linux</A>
+<LI><A NAME="tex2html78"
+  HREF="node15.html#SECTION04235000000000000000">Recommended Partitioning Scheme</A>
+<LI><A NAME="tex2html79"
+  HREF="node15.html#SECTION04236000000000000000">Partitioning Prior to Installation</A>
+<LI><A NAME="tex2html80"
+  HREF="node15.html#SECTION04237000000000000000">Debian Installation Steps</A>
+</UL>
+<LI><A NAME="tex2html81"
+  HREF="node16.html">Choosing Your Installation Media</A>
+<UL>
+<LI><A NAME="tex2html82"
+  HREF="node16.html#SECTION04241000000000000000">Installing from a CD-ROM</A>
+<LI><A NAME="tex2html83"
+  HREF="node16.html#SECTION04242000000000000000">Booting from Floppies</A>
+</UL>
+<LI><A NAME="tex2html84"
+  HREF="node17.html">Booting the Installation System</A>
+</UL>
+<LI><A NAME="tex2html85"
+  HREF="node18.html">Step-by-Step Installation</A>
+<UL>
+<LI><A NAME="tex2html86"
+  HREF="node19.html">Select Color or Monochrome Display</A>
+<LI><A NAME="tex2html87"
+  HREF="node20.html">Debian GNU/Linux Installation Main Menu</A>
+<LI><A NAME="tex2html88"
+  HREF="node21.html">Configure the Keyboard</A>
+<LI><A NAME="tex2html89"
+  HREF="node22.html">Last Chance to Back Up!</A>
+<LI><A NAME="tex2html90"
+  HREF="node23.html">Partition a Hard Disk</A>
+<LI><A NAME="tex2html91"
+  HREF="node24.html">Initialize and Activate a Swap Partition</A>
+<LI><A NAME="tex2html92"
+  HREF="node25.html">Initialize a Linux Partition</A>
+<UL>
+<LI><A NAME="tex2html93"
+  HREF="node25.html#SECTION04371000000000000000">Mount a Previously-Initialized Partition</A>
+</UL>
+<LI><A NAME="tex2html94"
+  HREF="node26.html">Install Operating System Kernel and Modules</A>
+<LI><A NAME="tex2html95"
+  HREF="node27.html">Configure PCMCIA Support</A>
+<LI><A NAME="tex2html96"
+  HREF="node28.html">Configure Device Driver Modules</A>
+<LI><A NAME="tex2html97"
+  HREF="node29.html">Configure the Network</A>
+<LI><A NAME="tex2html98"
+  HREF="node30.html">Install the Base System</A>
+<UL>
+<LI><A NAME="tex2html99"
+  HREF="node30.html#SECTION043121000000000000000">Configure the Base System</A>
+<LI><A NAME="tex2html100"
+  HREF="node30.html#SECTION043122000000000000000">Make Linux Bootable Directly from the Hard Disk</A>
+</UL>
+<LI><A NAME="tex2html101"
+  HREF="node31.html">Make a Boot Floppy</A>
+<LI><A NAME="tex2html102"
+  HREF="node32.html">The Moment of Truth    </A>
+<LI><A NAME="tex2html103"
+  HREF="node33.html">Set the Root Password</A>
+<LI><A NAME="tex2html104"
+  HREF="node34.html">Create an Ordinary User    </A>
+<LI><A NAME="tex2html105"
+  HREF="node35.html">Shadow Password Support    </A>
+<LI><A NAME="tex2html106"
+  HREF="node36.html">Remove PCMCIA</A>
+<LI><A NAME="tex2html107"
+  HREF="node37.html">Select and Install Profiles</A>
+<LI><A NAME="tex2html108"
+  HREF="node38.html">Package Installation with <TT>dselect</TT></A>
+<UL>
+<LI><A NAME="tex2html109"
+  HREF="node38.html#SECTION043201000000000000000">Introduction       </A>
+<LI><A NAME="tex2html110"
+  HREF="node38.html#SECTION043202000000000000000">Once <TT>dselect</TT> Is Launched       </A>
+<LI><A NAME="tex2html111"
+  HREF="node38.html#SECTION043203000000000000000">A Few Hints in Conclusion</A>
+</UL>
+<LI><A NAME="tex2html112"
+  HREF="node39.html">Glossary</A>
+</UL>
+<LI><A NAME="tex2html113"
+  HREF="node40.html">Logging In</A>
+<UL>
+<LI><A NAME="tex2html114"
+  HREF="node41.html">First Steps</A>
+<LI><A NAME="tex2html115"
+  HREF="node42.html">Command History and Editing the
+<BR>
+Command Line</A>
+<LI><A NAME="tex2html116"
+  HREF="node43.html">Working as Root</A>
+<LI><A NAME="tex2html117"
+  HREF="node44.html">Virtual Consoles</A>
+<LI><A NAME="tex2html118"
+  HREF="node45.html">Shutting Down</A>
+</UL>
+<LI><A NAME="tex2html119"
+  HREF="node46.html">The Basics</A>
+<UL>
+<LI><A NAME="tex2html120"
+  HREF="node47.html">The Command Line and Man Pages</A>
+<UL>
+<LI><A NAME="tex2html121"
+  HREF="node47.html#SECTION04511000000000000000">Describing the Command Line </A>
+</UL>
+<LI><A NAME="tex2html122"
+  HREF="node48.html">Files and Directories</A>
+<UL>
+<LI><A NAME="tex2html123"
+  HREF="node48.html#SECTION04521000000000000000">Using Files: A Tutorial </A>
+<LI><A NAME="tex2html124"
+  HREF="node48.html#SECTION04522000000000000000">Dot Files and <TT>ls&nbsp;-a</TT></A>
+</UL>
+<LI><A NAME="tex2html125"
+  HREF="node49.html">Processes</A>
+<LI><A NAME="tex2html126"
+  HREF="node50.html">The Shell</A>
+<LI><A NAME="tex2html127"
+  HREF="node51.html">Managing Processes with <TT>bash</TT></A>
+<LI><A NAME="tex2html128"
+  HREF="node52.html">A Few <TT>bash</TT> Features </A>
+<UL>
+<LI><A NAME="tex2html129"
+  HREF="node52.html#SECTION04561000000000000000">Tab Completion </A>
+</UL>
+<LI><A NAME="tex2html130"
+  HREF="node53.html">Managing Your Identity </A>
+</UL>
+<LI><A NAME="tex2html131"
+  HREF="node54.html">Using the Shell</A>
+<UL>
+<LI><A NAME="tex2html132"
+  HREF="node55.html">Environment Variables</A>
+<LI><A NAME="tex2html133"
+  HREF="node56.html">Where Commands Reside: The <TT>PATH</TT> Variable</A>
+<LI><A NAME="tex2html134"
+  HREF="node57.html">Configuration Files</A>
+<UL>
+<LI><A NAME="tex2html135"
+  HREF="node57.html#SECTION04631000000000000000">System-Wide Versus User-Specific
+<BR>
+Configuration</A>
+</UL>
+<LI><A NAME="tex2html136"
+  HREF="node58.html">Aliases </A>
+<LI><A NAME="tex2html137"
+  HREF="node59.html">Controlling Input and Output</A>
+<UL>
+<LI><A NAME="tex2html138"
+  HREF="node59.html#SECTION04651000000000000000"><TT>stdin</TT>, <TT>stdout</TT>, Pipelines, and Redirection</A>
+</UL>
+<LI><A NAME="tex2html139"
+  HREF="node60.html">Filename Expansion</A>
+</UL>
+<LI><A NAME="tex2html140"
+  HREF="node61.html">More on Files</A>
+<UL>
+<LI><A NAME="tex2html141"
+  HREF="node62.html">Permissions</A>
+<UL>
+<LI><A NAME="tex2html142"
+  HREF="node62.html#SECTION04711000000000000000">File Ownership</A>
+<LI><A NAME="tex2html143"
+  HREF="node62.html#SECTION04712000000000000000">Mode</A>
+<LI><A NAME="tex2html144"
+  HREF="node62.html#SECTION04713000000000000000">Permissions in Practice </A>
+</UL>
+<LI><A NAME="tex2html145"
+  HREF="node63.html">Files Present and Their Locations</A>
+<LI><A NAME="tex2html146"
+  HREF="node64.html">File Compression with <TT>gzip</TT></A>
+<LI><A NAME="tex2html147"
+  HREF="node65.html">Finding Files </A>
+<LI><A NAME="tex2html148"
+  HREF="node66.html">Determining a File's Contents </A>
+<LI><A NAME="tex2html149"
+  HREF="node67.html">Using a File Manager </A>
+</UL>
+<LI><A NAME="tex2html150"
+  HREF="node68.html">Working with Text Files</A>
+<UL>
+<LI><A NAME="tex2html151"
+  HREF="node69.html">Viewing Text Files</A>
+<LI><A NAME="tex2html152"
+  HREF="node70.html">Text Editors</A>
+<LI><A NAME="tex2html153"
+  HREF="node71.html">Using ae</A>
+</UL>
+<LI><A NAME="tex2html154"
+  HREF="node72.html">The X Window System</A>
+<UL>
+<LI><A NAME="tex2html155"
+  HREF="node73.html">Introduction to X </A>
+<LI><A NAME="tex2html156"
+  HREF="node74.html">Starting the X Environment </A>
+<LI><A NAME="tex2html157"
+  HREF="node75.html">Basic X Operations</A>
+<UL>
+<LI><A NAME="tex2html158"
+  HREF="node75.html#SECTION04931000000000000000">The Mouse</A>
+<LI><A NAME="tex2html159"
+  HREF="node75.html#SECTION04932000000000000000">X Clients </A>
+<LI><A NAME="tex2html160"
+  HREF="node75.html#SECTION04933000000000000000">Troubleshooting </A>
+<LI><A NAME="tex2html161"
+  HREF="node75.html#SECTION04934000000000000000">Leaving the X Environment </A>
+</UL>
+<LI><A NAME="tex2html162"
+  HREF="node76.html">Customizing Your X Startup </A>
+</UL>
+<LI><A NAME="tex2html163"
+  HREF="node77.html">Filesystems</A>
+<UL>
+<LI><A NAME="tex2html164"
+  HREF="node78.html">Concepts </A>
+<LI><A NAME="tex2html165"
+  HREF="node79.html"><TT>mount</TT> and <TT>/etc/fstab</TT></A>
+<UL>
+<LI><A NAME="tex2html166"
+  HREF="node79.html#SECTION041021000000000000000">Mounting a Filesystem</A>
+<LI><A NAME="tex2html167"
+  HREF="node79.html#SECTION041022000000000000000">Example: Mounting a CD-ROM </A>
+<LI><A NAME="tex2html168"
+  HREF="node79.html#SECTION041023000000000000000"><TT>/etc/fstab</TT>: Automating the Mount Process</A>
+<LI><A NAME="tex2html169"
+  HREF="node79.html#SECTION041024000000000000000">Removable Disks (Floppies, Zip Disks, Etc.) </A>
+</UL>
+<LI><A NAME="tex2html170"
+  HREF="node80.html">Backup Tools</A>
+<UL>
+<LI><A NAME="tex2html171"
+  HREF="node80.html#SECTION041031000000000000000"><TT>tar</TT></A>
+</UL>
+</UL>
+<LI><A NAME="tex2html172"
+  HREF="node81.html">Networking</A>
+<UL>
+<LI><A NAME="tex2html173"
+  HREF="node82.html">PPP </A>
+<UL>
+<LI><A NAME="tex2html174"
+  HREF="node82.html#SECTION041111000000000000000">Introduction</A>
+<LI><A NAME="tex2html175"
+  HREF="node82.html#SECTION041112000000000000000">Preparation</A>
+<LI><A NAME="tex2html176"
+  HREF="node82.html#SECTION041113000000000000000">The Easy Way: <TT>wvdial</TT></A>
+</UL>
+<LI><A NAME="tex2html177"
+  HREF="node83.html">Ethernet</A>
+</UL>
+<LI><A NAME="tex2html178"
+  HREF="node84.html">Removing and Installing Software</A>
+<UL>
+<LI><A NAME="tex2html179"
+  HREF="node85.html">What a Package Maintenance Utility Does </A>
+<LI><A NAME="tex2html180"
+  HREF="node86.html"><TT>dpkg</TT></A>
+<LI><A NAME="tex2html181"
+  HREF="node87.html"><TT>dselect</TT></A>
+<LI><A NAME="tex2html182"
+  HREF="node88.html">Compiling Software</A>
+</UL>
+<LI><A NAME="tex2html183"
+  HREF="node89.html">Advanced Topics</A>
+<UL>
+<LI><A NAME="tex2html184"
+  HREF="node90.html">Regular Expressions </A>
+<LI><A NAME="tex2html185"
+  HREF="node91.html">Advanced Files</A>
+<UL>
+<LI><A NAME="tex2html186"
+  HREF="node91.html#SECTION041321000000000000000">The Real Nature of Files: Hard Links and Inodes</A>
+<LI><A NAME="tex2html187"
+  HREF="node91.html#SECTION041322000000000000000">Types of Files</A>
+<LI><A NAME="tex2html188"
+  HREF="node91.html#SECTION041323000000000000000">The <TT>proc</TT> Filesystem </A>
+<LI><A NAME="tex2html189"
+  HREF="node91.html#SECTION041324000000000000000">Large-Scale Copying</A>
+</UL>
+<LI><A NAME="tex2html190"
+  HREF="node92.html">Security</A>
+<LI><A NAME="tex2html191"
+  HREF="node93.html">Software Development with Debian</A>
+</UL>
+</UL>
+<BR>
+<LI><A NAME="tex2html192"
+  HREF="node94.html">Reference</A>
+<UL>
+<LI><A NAME="tex2html193"
+  HREF="node95.html">Reading Documentation and Getting Help </A>
+<UL>
+<LI><A NAME="tex2html194"
+  HREF="node96.html">Kinds of Documentation</A>
+<UL>
+<LI><A NAME="tex2html195"
+  HREF="node96.html#SECTION05111000000000000000">Using <TT>info</TT></A>
+<LI><A NAME="tex2html196"
+  HREF="node96.html#SECTION05112000000000000000">HOWTOs </A>
+<LI><A NAME="tex2html197"
+  HREF="node96.html#SECTION05113000000000000000">Personal Help</A>
+<LI><A NAME="tex2html198"
+  HREF="node96.html#SECTION05114000000000000000">Getting Information from the System </A>
+</UL>
+</UL>
+<LI><A NAME="tex2html199"
+  HREF="node97.html">Troubleshooting</A>
+<UL>
+<LI><A NAME="tex2html200"
+  HREF="node98.html">Common Difficulties</A>
+<UL>
+<LI><A NAME="tex2html201"
+  HREF="node98.html#SECTION05211000000000000000">Working with Strangely-Named Files</A>
+<LI><A NAME="tex2html202"
+  HREF="node98.html#SECTION05212000000000000000">Printing</A>
+<LI><A NAME="tex2html203"
+  HREF="node98.html#SECTION05213000000000000000">X Problems</A>
+</UL>
+<LI><A NAME="tex2html204"
+  HREF="node99.html">Troubleshooting the Boot Process</A>
+</UL>
+<LI><A NAME="tex2html205"
+  HREF="node100.html">Booting the System </A>
+<LI><A NAME="tex2html206"
+  HREF="node101.html">The GNU General Public License</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html207"
+  HREF="node102.html">Index</A>
+<LI><A NAME="tex2html208"
+  HREF="node103.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html52"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev_g.png"> 
+<A NAME="tex2html48"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html50"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html53"
+  HREF="node1.html">Contents</A>
+ &nbsp <B>  <A NAME="tex2html49"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html51"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>

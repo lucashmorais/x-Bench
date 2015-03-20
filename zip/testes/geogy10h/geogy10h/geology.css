@@ -1,0 +1,74 @@
+body { color: blue;
+       background: lightyellow;
+       font-size: 10pt;
+       line-height: 14pt;
+       font-family: georgia, "Times New Roman", serif;
+     }  
+p { text-align: justify; 
+    color: blue; 
+    font-size: 10pt;
+    line-height: 14pt;
+    font-family: georgia, "Times New Roman", serif;
+  }
+p.intro { margin-left: 5%;
+          margin-right: 5%;
+          font-size: 9pt;
+          line-height: 12pt;
+        }  
+p.page { color: black;
+         text-align: center;
+       }            
+p.capt { color: black;
+         font-family: georgia, serif;
+         font-size: 7pt; line-height: 8pt;
+         text-align: left;
+         list-style-type: lower-alpha;
+         list-style-position: outside;
+       }
+p.capt2 { color: black;
+          background: white;
+          font-size: 7pt; line-height: 8pt;
+          margin-left: 15%; margin-right: 15%;
+        } 
+p.index { font-size: 8pt; line-height: 10pt; }           
+p.fnote { color: black;
+          font-size: 8pt;
+          line-height: 12pt;
+        } 
+p.fnote2 { color: black;
+           font-size: 7pt;
+           line-height: 8pt;
+           text-align: center;
+         }
+p.quote { color: blue;
+          font-size: 10pt;
+        }  
+p.rt { text-align: right; }
+
+sup { font-size: 7pt; 
+      color: black;
+    }
+table { color: blue;
+        font-size: 8pt;
+      }  
+table.note { color: black;
+             font-size: 7pt;
+           }
+table.499 { font-size: 7pt;
+            line-height: 7pt; 
+          }
+b { font-family: "arial bold" }
+
+i.2 {  font-family: "arial narrow italic";
+       font-weight: bold;
+    }
+
+a:link { text-decoration: none;  color: gray; }
+a:visited {text-decoration: none; }
+
+ol.tab { list-style-type: lower-alpha;
+         list-style-position: outside; 
+         font-size: 7pt;
+         color: black;
+         bgcolor: white;
+       } 

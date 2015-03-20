@@ -1,0 +1,133 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Configure PCMCIA Support</TITLE>
+<META NAME="description" CONTENT="Configure PCMCIA Support">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="next" HREF="node28.html">
+<LINK REL="previous" HREF="node26.html">
+<LINK REL="up" HREF="node18.html">
+<LINK REL="next" HREF="node28.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html960"
+  HREF="node28.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html954"
+  HREF="node18.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html948"
+  HREF="node26.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html956"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html958"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html961"
+  HREF="node28.html">Configure Device Driver Modules</A>
+<B> Up:</B> <A NAME="tex2html955"
+  HREF="node18.html">Step-by-Step Installation</A>
+<B> Previous:</B> <A NAME="tex2html949"
+  HREF="node26.html">Install Operating System Kernel</A>
+ &nbsp <B>  <A NAME="tex2html957"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html959"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION04390000000000000000"></A><A NAME="710"></A><A NAME="711"></A>
+<BR>
+Configure PCMCIA Support
+</H1>
+
+<P>
+<A NAME="712"></A><A NAME="713"></A><A NAME="714"></A><A NAME="715"></A>There is an alternate step, <SPAN  CLASS="textit">before</SPAN> the ``Configure Device Driver Modules''
+menu selection, called ``Configure PCMCIA Support.'' This menu is used to
+enable PCMCIA support.    
+
+<P>
+If you do have PCMCIA but are not installing your Debian system using it (i.e.,
+installation with a PCMCIA Ethernet card), you need not configure PCMCIA at
+this point.  You can easily configure and enable PCMCIA at a later point, after
+installation is complete.  However, if you are installing by way of a PCMCIA
+network device, this alternate must be selected, and PCMCIA support must be
+configured prior to configuring the network.    
+
+<P>
+If you need to install PCMCIA, select the alternate below ``Configure Device
+Driver Modules.''  You will be asked which PCMCIA controller your system contains.
+ In most cases, this will be <TT>i82365</TT>. In some cases, it will be <TT>tcic</TT>;
+your laptop's vendor-supplied specifications should provide the information.
+ You can generally leave the next few sets of options blank.  Again, certain
+hardware has special needs; the <A NAME="tex2html25"
+  HREF="http://metalab.unc.edu/LDP/HOWTO/PCMCIA-HOWTO.html">Linux PCMCIA HOWTO</A>
+contains plenty of information in case the default doesn't work.    
+
+<P>
+In some unusual cases, you may also need to modify the file <TT>/etc/pcmcia/config.opts</TT>.
+ You can open your second virtual terminal (<TT><SPAN  CLASS="textit"><SPAN  CLASS="textit">Left&nbsp;Alt-F2</SPAN></SPAN></TT>)
+and edit the file there and then reconfigure your PCMCIA, or you can manually
+force a reload of the modules using <TT>insmod</TT> and <TT>rmmod</TT>.    
+
+<P>
+Once PCMCIA is properly configured and installed, you should configure your
+device drivers as described in the next section.  
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html960"
+  HREF="node28.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html954"
+  HREF="node18.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html948"
+  HREF="node26.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html956"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html958"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html961"
+  HREF="node28.html">Configure Device Driver Modules</A>
+<B> Up:</B> <A NAME="tex2html955"
+  HREF="node18.html">Step-by-Step Installation</A>
+<B> Previous:</B> <A NAME="tex2html949"
+  HREF="node26.html">Install Operating System Kernel</A>
+ &nbsp <B>  <A NAME="tex2html957"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html959"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>

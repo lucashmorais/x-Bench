@@ -1,0 +1,298 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Choosing Your Installation Media</TITLE>
+<META NAME="description" CONTENT="Choosing Your Installation Media">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="next" HREF="node17.html">
+<LINK REL="previous" HREF="node15.html">
+<LINK REL="up" HREF="node12.html">
+<LINK REL="next" HREF="node17.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html769"
+  HREF="node17.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html763"
+  HREF="node12.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html757"
+  HREF="node15.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html765"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html767"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html770"
+  HREF="node17.html">Booting the Installation System</A>
+<B> Up:</B> <A NAME="tex2html764"
+  HREF="node12.html">Getting Started</A>
+<B> Previous:</B> <A NAME="tex2html758"
+  HREF="node15.html">Partitioning Your Hard Drive</A>
+ &nbsp <B>  <A NAME="tex2html766"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html768"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html771"
+  HREF="#SECTION04241000000000000000">Installing from a CD-ROM</A>
+<LI><A NAME="tex2html772"
+  HREF="#SECTION04242000000000000000">Booting from Floppies</A>
+<UL>
+<LI><A NAME="tex2html773"
+  HREF="#SECTION04242100000000000000">Creating Floppies from Disk Images</A>
+<LI><A NAME="tex2html774"
+  HREF="#SECTION04242200000000000000">Booting Debian</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION04240000000000000000"></A><A NAME="454"></A>
+<BR>
+Choosing Your Installation Media
+</H1>
+
+<P>
+First, choose the boot media for the installation system.  Next, choose the
+method you will use to install the base system.
+
+<P>
+To boot the installation system, you have the following choices: bootable CD-ROM,
+floppies, or a non-Linux boot loader.
+
+<P>
+CD-ROM booting is one of the easiest ways to install. Not all machines can boot
+directly from the CD-ROM so you may still need to use floppies. Booting from
+floppies is supported for most platforms. Floppy booting is described in section
+<A HREF="node16.html#boot-from-floppies">2.4.2</A> on page <A HREF="node16.html#boot-from-floppies"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>.<A NAME="457"></A><A NAME="458"></A><A NAME="459"></A> <A NAME="460"></A><A NAME="461"></A><A NAME="462"></A><A NAME="463"></A><A NAME="464"></A><A NAME="465"></A>
+
+<P>
+
+<H2><A NAME="SECTION04241000000000000000"></A><A NAME="466"></A>
+<BR>
+Installing from a CD-ROM
+</H2>
+
+<P>
+If your system supports booting from a CD-ROM, you don't need any floppies.
+ Put the CD-ROM into the drive, turn your computer off, and then turn it back
+on. You should see a Welcome screen with a <TT>boot</TT> prompt at the bottom.
+Now you can skip down to section <A HREF="node17.html#installation-boot">2.5</A>.
+
+<P>
+If your computer didn't ``see'' the Debian CD-ROM, the easiest option is to
+make two floppies for booting (described in section <A HREF="node16.html#create-floppy">2.4.2</A>) and
+then use them to start Debian. Don't worry; after Debian is finished with those
+two floppies, it will find your CD-ROM with no trouble.
+
+<P>
+
+<H2><A NAME="SECTION04242000000000000000"></A><A NAME="boot-from-floppies"></A><A NAME="471"></A>
+<BR>
+Booting from Floppies
+</H2>
+
+<P>
+<A NAME="472"></A><A NAME="473"></A><A NAME="474"></A>It's not hard at all to boot from floppies. In fact, your CD-ROM contains all
+the information necessary to create boot disks for you. For these instructions,
+you will need to get two disks. Label the first one ``Debian 2.1 Install/Rescue
+Disk'' and the second ``Debian 2.1 Modules/Drivers Disk.''
+
+<P>
+
+<H3><A NAME="SECTION04242100000000000000"></A><A NAME="create-floppy"></A>
+<BR>
+Creating Floppies from Disk Images
+</H3>
+
+<P>
+<A NAME="476"></A><A NAME="477"></A><A NAME="478"></A><A NAME="479"></A><A NAME="480"></A><A NAME="481"></A>Disk images are files containing the complete contents of a floppy disk in <SPAN  CLASS="textit">raw</SPAN>
+form.  Disk images, such as <TT>resc1440.bin</TT>, cannot simply be copied to
+floppy drives. A special program is used to write the image files to floppy
+disk in <SPAN  CLASS="textit">raw</SPAN> mode.
+
+<P>
+First, you need to get to a DOS prompt. In Windows 95 and above, you can do
+this by double-clicking on an MS-DOS icon or by going to Start<SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="\( \rightarrow \)"></SPAN>Programs<SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.png"
+ ALT="\( \rightarrow \)"></SPAN>MS-DOS
+prompt. Then, insert your Debian GNU/Linux CD-ROM into your CD-ROM drive. First,
+you change to your CD-ROM drive. In most cases, this is D:.
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>C:&#92;WINDOWS&gt;<SPAN  CLASS="textbf">D:</SPAN>
+</DD>
+</DL>Now, change to the directory containing the disk images.
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>D:&#92;&gt;<SPAN  CLASS="textbf">CD&nbsp;</SPAN>
+
+<P>
+<SPAN  CLASS="textbf">&#92;DISTS&#92;SLINK&#92;MAIN&#92;DISKS-I386&#92;2.1.8-1999-02-22</SPAN>
+</DD>
+</DL>If you get an error, double-check what you're typing. If the error persists,
+manually issue <TT>CD&nbsp;&#92;DISTS&#92;SLINK&#92;MAIN&#92;DISKS-I386</TT>,
+then run <TT>DIR</TT>, and then <TT>CD</TT> into the directory
+indicated.  Note that the above commands, and some other examples
+below, may appear as a single line on your display even if they are
+wrapped here.
+
+<P>
+Now, you're ready to create the first of two disks. Start the program to write
+them out, <TT>rawrite2</TT>:<A NAME="505"></A><A NAME="506"></A><A NAME="507"></A><A NAME="508"></A><A NAME="509"></A><A NAME="510"></A>
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>D:&#92;DISTS&#92;SLINK&#92;MAIN&#92;DISKS-I386&#92;
+
+<P>
+2.1.8-1999-02-22&gt;<SPAN  CLASS="textbf">rawrite2</SPAN>
+
+<P>
+RaWrite&nbsp;2.0&nbsp;-&nbsp;Write&nbsp;disk&nbsp;file&nbsp;to&nbsp;
+
+<P>
+raw&nbsp;floppy&nbsp;diskette
+</DD>
+</DL>Rawrite2 starts and displays its welcome message. Next, it asks for the filename
+and diskette drive. You tell it to write <TT>resc1440.bin</TT> to <TT>a:</TT>
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>Enter&nbsp;disk&nbsp;image&nbsp;source&nbsp;file&nbsp;name:&nbsp;<SPAN  CLASS="textbf">resc1440.bin</SPAN>
+
+<P>
+Enter&nbsp;target&nbsp;diskette&nbsp;drive:&nbsp;<SPAN  CLASS="textbf">a:</SPAN>
+</DD>
+</DL>Rawrite2 now asks you to insert a disk into the floppy drive. Do so and press
+Enter.
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>Plese&nbsp;insert&nbsp;a&nbsp;formatted&nbsp;diskette&nbsp;into&nbsp;
+
+<P>
+drive&nbsp;A:&nbsp;and&nbsp;press&nbsp;-ENTER-&nbsp;:
+</DD>
+</DL>At this point, rawrite2 will create the first of the two disks. Now, you need
+to repeat the process for the second disk:
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>D:&#92;DISTS&#92;SLINK&#92;MAIN&#92;DISKS-I386&#92;
+
+<P>
+2.1.8-1999-02-22&gt;<SPAN  CLASS="textbf">rawrite2</SPAN>
+
+<P>
+RaWrite&nbsp;2.0&nbsp;-&nbsp;Write&nbsp;disk&nbsp;file&nbsp;to
+
+<P>
+raw&nbsp;floppy&nbsp;diskette
+
+<P>
+Enter&nbsp;disk&nbsp;image&nbsp;source&nbsp;file&nbsp;name:&nbsp;<SPAN  CLASS="textbf">drv1440.bin</SPAN>
+
+<P>
+Enter&nbsp;target&nbsp;diskette&nbsp;drive:&nbsp;<SPAN  CLASS="textbf">a:</SPAN>
+
+<P>
+Please&nbsp;insert&nbsp;a&nbsp;formatted&nbsp;diskette&nbsp;into
+
+<P>
+drive&nbsp;A:&nbsp;and&nbsp;press&nbsp;-ENTER-&nbsp;:
+</DD>
+</DL>By now, your disks are created. You can now use the first one to boot.
+
+<P>
+
+<H3><A NAME="SECTION04242200000000000000">
+Booting Debian</A>
+</H3>
+
+<P>
+<A NAME="538"></A><A NAME="539"></A><A NAME="540"></A>You are now ready to boot into Debian! Shut down your existing operating system,
+turn off your computer, and place the Install/Rescue Disk into the floppy drive.
+Now turn your computer back on. You should get a Welcome screen with a <TT>boot</TT>
+prompt at the bottom.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html769"
+  HREF="node17.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html763"
+  HREF="node12.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html757"
+  HREF="node15.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html765"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html767"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html770"
+  HREF="node17.html">Booting the Installation System</A>
+<B> Up:</B> <A NAME="tex2html764"
+  HREF="node12.html">Getting Started</A>
+<B> Previous:</B> <A NAME="tex2html758"
+  HREF="node15.html">Partitioning Your Hard Drive</A>
+ &nbsp <B>  <A NAME="tex2html766"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html768"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>

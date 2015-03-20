@@ -1,0 +1,263 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Environment Variables</TITLE>
+<META NAME="description" CONTENT="Environment Variables">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="next" HREF="node56.html">
+<LINK REL="previous" HREF="node54.html">
+<LINK REL="up" HREF="node54.html">
+<LINK REL="next" HREF="node56.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1386"
+  HREF="node56.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1380"
+  HREF="node54.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1374"
+  HREF="node54.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1382"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1384"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1387"
+  HREF="node56.html">Where Commands Reside: The</A>
+<B> Up:</B> <A NAME="tex2html1381"
+  HREF="node54.html">Using the Shell</A>
+<B> Previous:</B> <A NAME="tex2html1375"
+  HREF="node54.html">Using the Shell</A>
+ &nbsp <B>  <A NAME="tex2html1383"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1385"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION04610000000000000000"></A><A NAME="2152"></A>
+<BR>
+Environment Variables
+</H1>
+
+<P>
+<A NAME="2153"></A><A NAME="2154"></A><A NAME="2155"></A><A NAME="2156"></A><A NAME="2157"></A>Every process has an <SPAN  CLASS="textit">environment</SPAN> associated with it. An environment
+is a collection of <SPAN  CLASS="textit">environment variables</SPAN>. A variable is a changeable
+value with a fixed name. For example, the name <TT>EMAIL</TT> could refer to
+the value <TT>joe@nowhere.com</TT>. The value can vary; <TT>EMAIL</TT> could
+also refer to <TT>jane@somewhere.com</TT>.
+
+<P>
+Because your shell is a process like any other, it has an environment. You can
+view your shell's environment by entering the <TT>printenv</TT> command.
+
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="Sample_printenv_output"></A><A NAME="5380"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.1:</STRONG>
+Sample <TT>printenv</TT> output<A NAME="2168"></A></CAPTION>
+<TR><TD><IMG
+ WIDTH="333" HEIGHT="357" BORDER="0"
+ SRC="img5.png"
+ ALT="\begin{figure}\par\par\begin{list}{}{
+\setlength{\rightmargin}{\leftmargin} \ra...
+...ables}\index{shells!environments}
+\par\_=/usr/bin/printenv\end{list}\end{figure}"></TD></TR>
+</TABLE>
+</DIV><P></P>
+Figure <A HREF="node55.html#Sample_printenv_output">6.1</A> on page <A HREF="node55.html#Sample_printenv_output"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>
+has some sample output from <TT>printenv</TT>. On your system, the output will
+be different but similar.
+
+<P>
+Environment variables are one way to configure the system. For example, the
+<TT>EDITOR</TT> variable lets you select your preferred editor for posting news,
+writing e-mail, and so on.
+
+<P>
+Setting environment variables is simple. For practice, try customizing your
+shell's prompt and your text file viewer with environment variables. First,
+let's get a bit of background information.
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>man&nbsp;less
+</DD>
+</DL><A NAME="2183"></A><A NAME="2184"></A><A NAME="2185"></A><A NAME="2186"></A><A NAME="2187"></A><A NAME="2188"></A><A NAME="2189"></A>This command lets you view the online manual for the <TT>less</TT> command.
+In order to show you the text one screenful at a time, <TT>man</TT> invokes
+a <SPAN  CLASS="textit">pager</SPAN> that shows you a new page of text each time you press the space
+bar. By default, it uses the pager called <TT>more</TT>. 
+
+<P>
+<A NAME="2194"></A>Go ahead and glance over the man page for
+<TT>less</TT>, which is an enhanced pager. Scroll to a new page by pressing
+space; press <TT>q</TT> to quit. <TT>more</TT> will also quit automatically
+when you reach the end of the man page. 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>export&nbsp;PAGER=less
+</DD>
+</DL>After reading about the advantages of <TT>less</TT>, you might want to use it
+to read man pages. To do this, you set the environment variable <TT>PAGER</TT>. 
+
+<P>
+<A NAME="2202"></A><A NAME="2203"></A>The command to set an environment variable within <TT>bash</TT> always has this
+format:
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>export&nbsp;NAME=value
+</DD>
+</DL><TT>export</TT> means to move the variable from the shell into the environment.
+This means that programs other than the shell (for instance, a file
+viewer) will be able to access it. <A NAME="2208"></A><A NAME="2209"></A><A NAME="2210"></A><A NAME="2211"></A><A NAME="2212"></A><A NAME="2213"></A>
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>echo&nbsp;$PAGER
+</DD>
+</DL>This is the easiest way to see the value of a variable. <TT>$PAGER</TT> tells
+the shell to insert the value of the <TT>PAGER</TT> variable <SPAN  CLASS="textit">before</SPAN>
+invoking the command. <TT>echo</TT> echoes back its argument: in this case,
+it echoes the current <TT>PAGER</TT> value, <TT>less</TT>. 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>man&nbsp;more
+</DD>
+</DL>Displays the <TT>more</TT> manual. This time, <TT>man</TT> should have invoked
+the <TT>less</TT> pager. 
+
+<P>
+<TT>less</TT> has lots of features that <TT>more</TT> lacks. For example, you
+can scroll backward with the <TT>b</TT> key. You can also move up and down (even
+sideways) with the arrow keys. <TT>less</TT> won't exit when it reaches the
+end of the man page; it will wait for you to press <TT>q</TT>.
+
+<P>
+You can try out some <TT>less</TT>-specific commands, like <TT>b</TT>, to verify
+that they don't work with <TT>more</TT> and that you are indeed using <TT>more</TT>. 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>unset&nbsp;PAGER
+</DD>
+</DL>If you don't want to specify a pager anymore, you can <TT>unset</TT> the variable.
+<TT>man</TT> will then use <TT>more</TT> by default, just as it did before you
+set the variable. 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>echo&nbsp;$PAGER
+</DD>
+</DL>Because <TT>PAGER</TT> has been unset, <TT>echo</TT> won't print anything. 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>PS1=hello:
+</DD>
+</DL>
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="FIG:_changing_shell_prompt"></A><A NAME="5381"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.2:</STRONG>
+Changing the prompt<A NAME="2249"></A><A NAME="2250"></A></CAPTION>
+<TR><TD><IMG
+ WIDTH="234" HEIGHT="108" BORDER="0"
+ SRC="img6.png"
+ ALT="\begin{figure}\par\par\begin{list}{}{
+\setlength{\rightmargin}{\leftmargin} \ra...
+...o~My~prompt~is~\$PS1}
+\par My~prompt~is~hello:
+\par hello:\end{list}\end{figure}"></TD></TR>
+</TABLE>
+</DIV><P></P>
+Just for fun, change your shell prompt. <TT>$</TT> should now change; see Figure
+<A HREF="node55.html#FIG:_changing_shell_prompt">6.2</A> for details.
+
+<P>
+<TT>export</TT> is not necessary, because you're changing the shell's own behavior.
+There's no reason to export the variable into the environment for other programs
+to see. Technically, <TT>PS1</TT> is a <SPAN  CLASS="textit">shell variable</SPAN> rather than an
+environment variable. 
+
+<P>
+If you wanted to, you could <TT>export</TT> the shell variable, transforming
+it into an environment variable. If you do this, programs you run from the shell
+can see it. <A NAME="2263"></A><A NAME="2264"></A><A NAME="2265"></A>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1386"
+  HREF="node56.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1380"
+  HREF="node54.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1374"
+  HREF="node54.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1382"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1384"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1387"
+  HREF="node56.html">Where Commands Reside: The</A>
+<B> Up:</B> <A NAME="tex2html1381"
+  HREF="node54.html">Using the Shell</A>
+<B> Previous:</B> <A NAME="tex2html1375"
+  HREF="node54.html">Using the Shell</A>
+ &nbsp <B>  <A NAME="tex2html1383"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1385"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>

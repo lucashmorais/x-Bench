@@ -1,0 +1,263 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Regular Expressions </TITLE>
+<META NAME="description" CONTENT="Regular Expressions ">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="next" HREF="node91.html">
+<LINK REL="previous" HREF="node89.html">
+<LINK REL="up" HREF="node89.html">
+<LINK REL="next" HREF="node91.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1927"
+  HREF="node91.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1921"
+  HREF="node89.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1915"
+  HREF="node89.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1923"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1925"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1928"
+  HREF="node91.html">Advanced Files</A>
+<B> Up:</B> <A NAME="tex2html1922"
+  HREF="node89.html">Advanced Topics</A>
+<B> Previous:</B> <A NAME="tex2html1916"
+  HREF="node89.html">Advanced Topics</A>
+ &nbsp <B>  <A NAME="tex2html1924"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1926"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION041310000000000000000">
+Regular Expressions </A>
+</H1>
+
+<P>
+<A NAME="3690"></A><A NAME="3691"></A><A NAME="3692"></A><A NAME="3693"></A><A NAME="3694"></A>A regular expression is a description of a set of characters. This description
+can be used to search through a file by looking for text that <SPAN  CLASS="textit">matches</SPAN>
+the regular expression. Regular expressions are analogous to shell wildcards
+(see section <A HREF="node60.html#expansion">6.6</A> on page <A HREF="node60.html#expansion"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>), but they are both
+more complicated and more powerful. 
+
+<P>
+A regular expression is made up of text and <SPAN  CLASS="textit">metacharacters</SPAN>. A metacharacter
+is just a character with a special meaning. Metacharacters include the following:
+<TT>.&nbsp;*&nbsp;[]&nbsp;-&nbsp;&#92;^&nbsp;$</TT>.
+
+<P>
+If a regular expression contains only text (no metacharacters), it matches that
+text. For example, the regular expression ``<TT>my regular expression</TT>''
+matches the text ``<TT>my&nbsp;regular&nbsp;expression</TT>,'' and nothing else. Regular
+expressions are usually case sensitive. 
+
+<P>
+You can use the <TT>egrep</TT> command to display all lines in a file that contain
+a regular expression. Its syntax is as follows:
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>egrep&nbsp;'regexp'&nbsp;filename1&nbsp;...
+</DD>
+</DL>The single quotation marks are not always needed, but they never hurt.
+
+<P>
+For example, to find all lines in the GPL that contain the word GNU, you type
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>egrep&nbsp;'GNU'&nbsp;/usr/doc/copyright/GPL
+</DD>
+</DL><TT>egrep</TT> will print the lines to standard output.
+<A NAME="3712"></A><A NAME="3713"></A><A NAME="3714"></A><A NAME="3715"></A><A NAME="3716"></A>
+If you want all lines that contain <TT>freedom</TT> followed by some indeterminate
+text, followed by <TT>GNU</TT>, you can do this:
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD><A NAME="3720"></A><A NAME="3721"></A><A NAME="3722"></A><A NAME="3723"></A><A NAME="3724"></A><A NAME="3725"></A><A NAME="3726"></A><A NAME="3727"></A><A NAME="3728"></A>egrep&nbsp;'freedom.*GNU'&nbsp;/usr/doc/copyright/GPL&nbsp;
+</DD>
+</DL>The <TT>.</TT> means ``any character,'' and the <TT>*</TT> means ``zero
+or more of the preceding thing,'' in this case ``zero or more of any character.''
+So <TT>.*</TT> matches pretty much any text at all. <TT>egrep</TT> only matches
+on a line-by-line basis, so <TT>freedom</TT> and <TT>GNU</TT> have to be on
+the same line. 
+
+<P>
+Here's a summary of regular expression metacharacters:
+
+<P>
+<DL>
+<DT><STRONG><TT>.</TT></STRONG></DT>
+<DD>Matches any single character except newline.
+</DD>
+<DT><STRONG><TT>*</TT></STRONG></DT>
+<DD>Matches zero or more occurrences of the preceding thing. So the
+expression <TT>a*</TT> matches zero or more lowercase a, and <TT>.*</TT>
+matches zero or more characters. 
+</DD>
+<DT><STRONG><TT>[<SPAN  CLASS="textit">characters</SPAN>]</TT></STRONG></DT>
+<DD>The brackets must contain
+one or more characters; the whole bracketed expression matches exactly one character
+out of the set. So <TT>[abc]</TT>matches one a, one b, or one c; it does
+not match zero characters, and it does not match a character other than these
+three. 
+</DD>
+<DT><STRONG><TT>^</TT></STRONG></DT>
+<DD>Anchors your search at the beginning of the line. The expression
+<TT>^The</TT> matches <TT>The</TT> when it appears at the beginning of a
+line; there can't be spaces or other text before <TT>The</TT>. If you want to
+allow spaces, you can permit 0 or more space characters like this: <TT>^
+*The</TT>. 
+</DD>
+<DT><STRONG><TT>$</TT></STRONG></DT>
+<DD>Anchors at the end of the line. <TT>end$</TT> requires the text
+<TT>end</TT> to be at the end of the line, with no intervening spaces or text. 
+</DD>
+<DT><STRONG><TT>[^<SPAN  CLASS="textit">characters</SPAN>]</TT></STRONG></DT>
+<DD>This reverses the sense
+of a bracketed character list. So <TT>[^abc]</TT> matches any single
+character, <SPAN  CLASS="textit">except</SPAN> a, b, or c. 
+</DD>
+<DT><STRONG><TT>[<SPAN  CLASS="textit">character</SPAN>-<SPAN  CLASS="textit">character</SPAN>]</TT></STRONG></DT>
+<DD>You
+can include ranges in a bracketed character list. To match any lowercase letter,
+use <TT>[a-z]</TT>. You can have more than one range; so to match the first
+three or last three letters of the alphabet, try <TT>[a-cx-z]</TT>. To get
+any letter, any case, try <TT>[a-zA-Z]</TT>. You can mix ranges with single
+characters and with the <TT>^</TT>metacharacter; for example, <TT>[^a-zBZ]</TT>means
+``anything except a lowercase letter, capital B, or capital Z.''
+</DD>
+<DT><STRONG><TT>()</TT></STRONG></DT>
+<DD>You can use parentheses to group parts of the regular expression,
+just as you do in a mathematical expression.
+</DD>
+<DT><STRONG><TT>|</TT></STRONG></DT>
+<DD><TT>|</TT>means ``or.'' You can use it to provide a series of
+alternative expressions. Usually you want to put the alternatives in parentheses,
+like this: <TT>c(ad|ab|at)</TT>matches cad or cab or cat. Without the parentheses,
+it would match cad or ab or at instead 
+</DD>
+<DT><STRONG><TT>&#92;</TT></STRONG></DT>
+<DD>Escapes any special characters; if you want to find
+a literal <TT>*</TT>, you type <TT>&#92;*</TT>. The slash means
+to ignore <TT>*</TT>'s usual special meaning. 
+</DD>
+</DL>
+Here are some more examples to help you get a feel for things: 
+<A NAME="3789"></A><A NAME="3790"></A><A NAME="3791"></A><A NAME="3792"></A><A NAME="3793"></A>
+<DL>
+<DT><STRONG><TT>c.pe</TT></STRONG></DT>
+<DD>matches cope, cape, caper.
+</DD>
+<DT><STRONG><TT>c&#92;&nbsp;.pe</TT></STRONG></DT>
+<DD>matches c.pe, c.per.
+</DD>
+<DT><STRONG><TT>sto*p</TT></STRONG></DT>
+<DD>matches stp, stop, stoop.
+</DD>
+<DT><STRONG><TT>car.*n</TT></STRONG></DT>
+<DD>matches carton, cartoon, carmen.
+</DD>
+<DT><STRONG><TT>xyz.*</TT></STRONG></DT>
+<DD>matches xyz and anything after it; some tools, like <TT>egrep</TT>,
+only match until the end of the line. 
+</DD>
+<DT><STRONG><TT>^The</TT></STRONG></DT>
+<DD>matches The at the beginning of a line.
+</DD>
+<DT><STRONG><TT>atime$</TT></STRONG></DT>
+<DD>matches atime at the end of a line.
+</DD>
+<DT><STRONG><TT>^Only$</TT></STRONG></DT>
+<DD>matches a line that consists solely of the word Only -
+no spaces, no other characters, nothing. Only Only is allowed.
+</DD>
+<DT><STRONG><TT>b[aou]rn</TT></STRONG></DT>
+<DD>matches barn, born, burn.
+</DD>
+<DT><STRONG><TT>Ver[D-F]</TT></STRONG></DT>
+<DD>matches VerD, VerE, VerF.
+</DD>
+<DT><STRONG><TT>Ver[^0-9]</TT></STRONG></DT>
+<DD>matches Ver followed by any non-digit.
+</DD>
+<DT><STRONG><TT>the[ir][re]</TT></STRONG></DT>
+<DD>matches their, therr, there, theie.
+</DD>
+<DT><STRONG><TT>[A-Za-z][A-Za-z]*</TT></STRONG></DT>
+<DD>matches any word which consists of only
+letters, and at least one letter. It will not match numbers or spaces.
+</DD>
+</DL>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1927"
+  HREF="node91.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1921"
+  HREF="node89.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1915"
+  HREF="node89.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1923"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1925"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1928"
+  HREF="node91.html">Advanced Files</A>
+<B> Up:</B> <A NAME="tex2html1922"
+  HREF="node89.html">Advanced Topics</A>
+<B> Previous:</B> <A NAME="tex2html1916"
+  HREF="node89.html">Advanced Topics</A>
+ &nbsp <B>  <A NAME="tex2html1924"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1926"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>

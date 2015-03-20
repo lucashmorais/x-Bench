@@ -1,0 +1,242 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>The Command Line and Man Pages</TITLE>
+<META NAME="description" CONTENT="The Command Line and Man Pages">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="next" HREF="node48.html">
+<LINK REL="previous" HREF="node46.html">
+<LINK REL="up" HREF="node46.html">
+<LINK REL="next" HREF="node48.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1264"
+  HREF="node48.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1258"
+  HREF="node46.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1252"
+  HREF="node46.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1260"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1262"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1265"
+  HREF="node48.html">Files and Directories</A>
+<B> Up:</B> <A NAME="tex2html1259"
+  HREF="node46.html">The Basics</A>
+<B> Previous:</B> <A NAME="tex2html1253"
+  HREF="node46.html">The Basics</A>
+ &nbsp <B>  <A NAME="tex2html1261"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1263"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html1266"
+  HREF="#SECTION04511000000000000000">Describing the Command Line </A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION04510000000000000000"></A><A NAME="1458"></A><A NAME="man_pages"></A>
+<BR>
+The Command Line and Man Pages
+</H1>
+
+<P>
+We've already discussed the <SPAN  CLASS="textit"><SPAN  CLASS="textit">command line</SPAN></SPAN> - that is, commands
+you type after the shell prompt. This section describes the structure of more
+complicated command lines. <A NAME="1461"></A>
+
+<P>
+<A NAME="1462"></A><A NAME="1463"></A><A NAME="1464"></A><A NAME="1465"></A><A NAME="1466"></A><A NAME="1467"></A><A NAME="1468"></A>A minimal command line contains just a command name, such as <TT>whoami</TT>.
+But other things are possible. For example, you might type: <TT>man&nbsp;whoami</TT>.
+This command requests the online manual for the <TT>whoami</TT> program (you
+may have to press the space bar to scroll through the documentation or press
+<TT>q</TT> to quit). A more complicated example is <TT>man&nbsp;-k&nbsp;PostScript</TT>.
+This command line has three parts. It begins with the command name, <TT>man</TT>.
+Then it has an <SPAN  CLASS="textit">option</SPAN> or <SPAN  CLASS="textit">switch</SPAN>, <TT>-k</TT>, followed by
+an <SPAN  CLASS="textit">argument</SPAN>, <TT>PostScript</TT>. Some people refer to everything except
+the command name as the <SPAN  CLASS="textit">parameters</SPAN> of the command. So, options and
+arguments are both parameters. 
+
+<P>
+Options change the behavior of a command, switching on particular features or
+functionality. They usually have a <TT>-</TT> before them. The <A NAME="1482"></A><A NAME="1483"></A>GNU utilities
+also have ``long forms'' for the options; the long form of <TT>-k</TT> is
+<TT>-apropos</TT>. You can enter <TT>man&nbsp;-h</TT> or <TT>man&nbsp;-help</TT>
+to get a full list of options for the <TT>man</TT> command. Every command will
+have its own set of options, though most have <TT>-help</TT> and <TT>-version</TT>
+options. Some commands, such as <TT>tar</TT>, do not require the ``<TT>-</TT>''
+before their options for historical reasons. 
+
+<P>
+Anything that isn't an option and isn't the command name is an <SPAN  CLASS="textit">argument</SPAN>
+(in this case, <TT>PostScript</TT>). Arguments can serve many purposes; most
+commonly, they are filenames that the command should operate on. In this case,
+<TT>PostScript</TT> is the word you want <TT>man</TT> to search for. In the
+case of <TT>man&nbsp;whoami</TT>, the argument was the command you wanted information
+about. 
+
+<P>
+Here's a breakdown of the <TT>man&nbsp;-k&nbsp;PostScript</TT> command line: 
+
+<P>
+<DL>
+<DT><STRONG><TT>man</TT>.</STRONG></DT>
+<DD>The command name, tells the computer to look at the manual pages.
+These provide documentation for commands. For example, <TT>man&nbsp;whoami</TT> will
+give you documentation on the <TT>whoami</TT> command. 
+</DD>
+<DT><STRONG><TT>-k</TT>.</STRONG></DT>
+<DD>The option, changes the behavior of <TT>man</TT>. Normally <TT>man</TT>
+expects a command name, such as <TT>whoami</TT>, for an argument and looks for
+documentation of that command. But with the <TT>-k</TT> or <TT>-apropos</TT>
+option, it expects the argument to be a keyword. It then gives a list of all
+manual pages with that keyword in their description. 
+</DD>
+<DT><STRONG><TT>PostScript</TT>.</STRONG></DT>
+<DD>is the argument; because we used the <TT>-k</TT> option,
+it's the keyword to search for. 
+</DD>
+</DL>
+<TT>-k</TT> and <TT>PostScript</TT> are both parameters. 
+
+<P>
+Go ahead and type <TT>man&nbsp;-k&nbsp;PostScript</TT>, and you will see a list of all
+the manual pages on your system that have something to do with PostScript. If
+you haven't installed much software, you might see the message <TT>PostScript:&nbsp;nothing
+appropriate</TT> instead.
+
+<P>
+
+<H2><A NAME="SECTION04511000000000000000">
+Describing the Command Line </A>
+</H2>
+
+<P>
+<A NAME="1517"></A><A NAME="1518"></A><A NAME="1519"></A>Note: You can skip this section if you want to move on. 
+
+<P>
+There's a traditional, concise way of describing command <SPAN  CLASS="textit">syntax. Syntax</SPAN>
+means the correct ways to combine various options and arguments. For example,
+if you type <TT>man&nbsp;man</TT> to get the manual page about <TT>man</TT>, you'll
+see several syntax descriptions beginning with the command name <TT>man</TT>.
+One of them will look like this: <TT>man&nbsp;-k&nbsp;[-M&nbsp;path]&nbsp;keyword&nbsp;...</TT> 
+
+<P>
+Anything in brackets (<TT>[]</TT>) is an optional unit. In this case you
+don't have to use the <TT>-M</TT> option, but if you do, you must use a <TT>path</TT>
+argument. You must use the <TT>-k</TT> option and the <TT>keyword</TT> argument.
+The <TT>...</TT> means that you could have more of whatever came before it,
+so you could look up several keywords. 
+
+<P>
+Let's look at one of the more complex descriptions from the <TT>man</TT> manual
+page: 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD><SPAN  CLASS="textbf">man</SPAN>&nbsp;[<SPAN  CLASS="textbf">-c</SPAN>|<SPAN  CLASS="textbf">-w</SPAN>|<SPAN  CLASS="textbf">-tZT</SPAN>&nbsp;device]&nbsp;[<SPAN  CLASS="textbf">-adhu7V</SPAN>]
+
+<P>
+[<SPAN  CLASS="textbf">-m</SPAN>&nbsp;system[,...]]&nbsp;[<SPAN  CLASS="textbf">-L</SPAN>&nbsp;locale]&nbsp;[<SPAN  CLASS="textbf">-p</SPAN>&nbsp;string]
+
+<P>
+[<SPAN  CLASS="textbf">-M</SPAN>&nbsp;path]&nbsp;[<SPAN  CLASS="textbf">-P</SPAN>&nbsp;pager]&nbsp;[<SPAN  CLASS="textbf">-r</SPAN>&nbsp;prompt]&nbsp;[<SPAN  CLASS="textbf">-S</SPAN>&nbsp;list]
+
+<P>
+[<SPAN  CLASS="textbf">-e</SPAN>&nbsp;extension]&nbsp;[[section]&nbsp;page&nbsp;...]&nbsp;...
+</DD>
+</DL>There's no need to go through all of this (and don't worry about what it all
+means), but do pay attention to the organization of the description. 
+
+<P>
+First, clusters of options usually mean you can use one or more of them in different
+combinations, so <TT>-adhu7V</TT> means you can also use <TT>-h</TT>. However,
+you can't always use all combinations; this description doesn't make that clear.
+For example, <TT>-h</TT> is incompatible with other options, but you could do
+<TT>man&nbsp;-du</TT>. Unfortunately, the description's format does not make this
+clear. <A NAME="1579"></A><A NAME="1580"></A><A NAME="1581"></A>
+
+<P>
+Second, the | symbol means ``or.'' So you can use <SPAN  CLASS="textit"></SPAN>the <TT>-c</TT>,
+the <TT>-w</TT>, <SPAN  CLASS="textit">or</SPAN> the <TT>-tZT</TT> option, followed by a <TT>device</TT>
+argument. 
+
+<P>
+Third, notice that you can nest the brackets, because they indicate optional
+<SPAN  CLASS="textit">unit</SPAN>s. So if you have a <TT>section</TT>, you must also have a <TT>page</TT>,
+because e <TT>page</TT> is not optional within the <TT>[[section]
+page]</TT> unit. 
+
+<P>
+There's no need to memorize any of this, just refer to this section as you read
+documentation. 
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1264"
+  HREF="node48.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1258"
+  HREF="node46.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1252"
+  HREF="node46.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1260"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1262"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1265"
+  HREF="node48.html">Files and Directories</A>
+<B> Up:</B> <A NAME="tex2html1259"
+  HREF="node46.html">The Basics</A>
+<B> Previous:</B> <A NAME="tex2html1253"
+  HREF="node46.html">The Basics</A>
+ &nbsp <B>  <A NAME="tex2html1261"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1263"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>

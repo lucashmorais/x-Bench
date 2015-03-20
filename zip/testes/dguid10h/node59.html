@@ -1,0 +1,244 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Controlling Input and Output</TITLE>
+<META NAME="description" CONTENT="Controlling Input and Output">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="next" HREF="node60.html">
+<LINK REL="previous" HREF="node58.html">
+<LINK REL="up" HREF="node54.html">
+<LINK REL="next" HREF="node60.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1443"
+  HREF="node60.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1437"
+  HREF="node54.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1431"
+  HREF="node58.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1439"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1441"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1444"
+  HREF="node60.html">Filename Expansion</A>
+<B> Up:</B> <A NAME="tex2html1438"
+  HREF="node54.html">Using the Shell</A>
+<B> Previous:</B> <A NAME="tex2html1432"
+  HREF="node58.html">Aliases</A>
+ &nbsp <B>  <A NAME="tex2html1440"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1442"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html1445"
+  HREF="#SECTION04651000000000000000"><TT>stdin</TT>, <TT>stdout</TT>, Pipelines, and Redirection</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION04650000000000000000">
+Controlling Input and Output</A>
+</H1>
+
+<P>
+Throughout your experiences with Linux, you will most likely find that manipulating
+application input and output can be a very powerful thing to do. This section
+describes some of the things that controlling input and output can do for you.
+
+<P>
+
+<H2><A NAME="SECTION04651000000000000000"></A><A NAME="2371"></A><A NAME="2372"></A><A NAME="2373"></A>
+<BR>
+<TT>stdin</TT>, <TT>stdout</TT>, Pipelines, and Redirection
+</H2>
+
+<P>
+<A NAME="2374"></A><A NAME="2375"></A><A NAME="2376"></A><A NAME="2377"></A><A NAME="2378"></A><A NAME="2379"></A><A NAME="2380"></A><A NAME="2381"></A><A NAME="2382"></A>Every process has at least three connections to the outside world. The <SPAN  CLASS="textit">standard
+input</SPAN> is one source of the process's data; the <SPAN  CLASS="textit">standard output</SPAN> is
+one place the process sends data; and the <SPAN  CLASS="textit">standard error</SPAN> is a place
+the process can send error messages. (These are often abbreviated <TT>stdin</TT>,
+<TT>stdout</TT>, and <TT>stderr</TT>.) 
+
+<P>
+The words ``source'' and ``place'' are intentionally vague. These standard
+input and output locations can be changed by the user; they could be the screen,
+the keyboard, a file, even a network connection. You can specify which locations
+to use. 
+
+<P>
+When you run a program from the shell, usually standard input comes from your
+keyboard, and standard output and error both go to your screen. However, you
+can ask the shell to change these defaults. 
+
+<P>
+For example, the <TT>echo</TT> command sends it output to standard output, normally
+the screen. <A NAME="2390"></A><A NAME="2391"></A><A NAME="2392"></A><A NAME="2393"></A><A NAME="2394"></A><A NAME="2395"></A>But you can send it to a file instead with the <SPAN  CLASS="textit">output redirection
+operator</SPAN>, <TT>&gt;</TT>. For example, to put the word ``Hello'' in the file
+<TT>myfile</TT>, use this command:
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>echo&nbsp;Hello&nbsp;&gt;&nbsp;myfile
+</DD>
+</DL>Use <TT>cat</TT> or your text file pager (<TT>more</TT> or <TT>less</TT>) to
+view <TT>myfile</TT>'s contents; see Figure <A HREF="node59.html#FIG:_Redirecting_Output">6.3</A> on
+page <A HREF="node59.html#FIG:_Redirecting_Output"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>.
+
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="FIG:_Redirecting_Output"></A><A NAME="5389"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 6.3:</STRONG>
+Redirecting output</CAPTION>
+<TR><TD><IMG
+ WIDTH="176" HEIGHT="71" BORDER="0"
+ SRC="img7.png"
+ ALT="\begin{figure}\par\par\begin{list}{}{
+\setlength{\rightmargin}{\leftmargin} \ra...
+...llo~&gt;~myfile}
+\par\$~\textbf{cat~myfile}
+\par Hello
+\par\$\end{list}\end{figure}"></TD></TR>
+</TABLE>
+</DIV><P></P>
+
+<P>
+You can change the standard input of a command with the <SPAN  CLASS="textit">input redirection
+operator</SPAN>, <TT>&lt;</TT>. For example,&nbsp;<TT>cat&nbsp;&lt;&nbsp;myfile</TT> will display the contents
+of <TT>myfile</TT>. This is not useful in practice; for convenience, the <TT>cat</TT>
+command accepts a filename argument. So you can simply say <TT>cat&nbsp;myfile</TT>,
+and the effect will be the same. redirection operators<A NAME="2421"></A><A NAME="2422"></A><A NAME="2423"></A><A NAME="2424"></A><A NAME="2425"></A>
+
+<P>
+Under the hood, <TT>cat&nbsp;&lt;&nbsp;myfile</TT> means that the shell opens <TT>myfile</TT>
+and then feeds its contents to the standard input of <TT>cat</TT>.&nbsp;<TT>cat
+myfile</TT>, without the redirection operator, means that the <TT>cat</TT> command
+receives one argument (<TT>myfile</TT>) opens the file itself, and then displays
+the file.
+
+<P>
+There's a reason for the double functionality, however. For example, you can
+connect the standard output of one command to the standard input of another.
+<A NAME="2432"></A><A NAME="2433"></A><A NAME="2434"></A><A NAME="2435"></A><A NAME="2436"></A>This is called a <SPAN  CLASS="textit">pipeline</SPAN>, and it uses the <SPAN  CLASS="textit">pipe operator</SPAN><A NAME="tex2html35"
+  HREF="footnode.html#foot5570"><SUP><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A>, <TT>|</TT>.
+
+<P>
+<A NAME="2441"></A><A NAME="2442"></A><A NAME="2443"></A><A NAME="2444"></A><A NAME="2445"></A><A NAME="2446"></A>Perhaps you want to see the GNU General Public License in reverse. To do this,
+you use the <TT>tac</TT> command (it's <TT>cat</TT>, only backward). Try it
+out:
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>tac&nbsp;/usr/doc/copyright/GPL&nbsp;
+</DD>
+</DL>Unfortunately, it goes by too quickly to read. So you only get to see a couple
+of paragraphs. The solution is a pipeline:
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>tac&nbsp;/usr/doc/copyright/GPL&nbsp;|&nbsp;less
+</DD>
+</DL>This takes the standard output of <TT>tac</TT>, which is the GPL in reverse,
+and sends it to the standard input of <TT>less</TT>. 
+
+<P>
+You can chain as many commands together as you like. Say you have an inexplicable
+desire to replace every <TT>G</TT> with <TT>Q</TT>. For this you use the command
+<TT>tr&nbsp;G&nbsp;Q</TT>, like this: 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>tac&nbsp;/usr/doc/copyright/GPL&nbsp;|&nbsp;tr&nbsp;G&nbsp;Q&nbsp;|&nbsp;less&nbsp;
+</DD>
+</DL>You could get the same effect using temporary files and redirection, for example:
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>tac&nbsp;/usr/doc/copyright/GPL&nbsp;&gt;&nbsp;tmpfile
+
+<P>
+tr&nbsp;G&nbsp;Q&nbsp;&lt;&nbsp;tmpfile&nbsp;&gt;&nbsp;tmpfile2
+
+<P>
+less&nbsp;&lt;&nbsp;tmpfile2
+
+<P>
+rm&nbsp;tmpfile&nbsp;tmpfile2&nbsp;
+</DD>
+</DL>Clearly a pipeline is more convenient. 
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1443"
+  HREF="node60.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1437"
+  HREF="node54.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1431"
+  HREF="node58.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1439"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1441"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1444"
+  HREF="node60.html">Filename Expansion</A>
+<B> Up:</B> <A NAME="tex2html1438"
+  HREF="node54.html">Using the Shell</A>
+<B> Previous:</B> <A NAME="tex2html1432"
+  HREF="node58.html">Aliases</A>
+ &nbsp <B>  <A NAME="tex2html1440"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1442"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,604 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Partitioning Your Hard Drive</TITLE>
+<META NAME="description" CONTENT="Partitioning Your Hard Drive">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="next" HREF="node16.html">
+<LINK REL="previous" HREF="node14.html">
+<LINK REL="up" HREF="node12.html">
+<LINK REL="next" HREF="node16.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html746"
+  HREF="node16.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html740"
+  HREF="node12.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html734"
+  HREF="node14.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html742"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html744"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html747"
+  HREF="node16.html">Choosing Your Installation Media</A>
+<B> Up:</B> <A NAME="tex2html741"
+  HREF="node12.html">Getting Started</A>
+<B> Previous:</B> <A NAME="tex2html735"
+  HREF="node14.html">Before You Start</A>
+ &nbsp <B>  <A NAME="tex2html743"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html745"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html748"
+  HREF="#SECTION04231000000000000000">Background</A>
+<LI><A NAME="tex2html749"
+  HREF="#SECTION04232000000000000000">Planning Use of the System</A>
+<LI><A NAME="tex2html750"
+  HREF="#SECTION04233000000000000000">PC Disk Limitations</A>
+<LI><A NAME="tex2html751"
+  HREF="#SECTION04234000000000000000">Device Names in Linux</A>
+<LI><A NAME="tex2html752"
+  HREF="#SECTION04235000000000000000">Recommended Partitioning Scheme</A>
+<LI><A NAME="tex2html753"
+  HREF="#SECTION04236000000000000000">Partitioning Prior to Installation</A>
+<UL>
+<LI><A NAME="tex2html754"
+  HREF="#SECTION04236100000000000000">Partitioning from DOS or Windows</A>
+<LI><A NAME="tex2html755"
+  HREF="#SECTION04236200000000000000">Lossless Repartitioning</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html756"
+  HREF="#SECTION04237000000000000000">Debian Installation Steps</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION04230000000000000000"></A><A NAME="249"></A>
+<BR>
+Partitioning Your Hard Drive
+</H1>
+
+<P>
+<A NAME="250"></A><A NAME="251"></A><A NAME="252"></A><A NAME="253"></A><A NAME="254"></A><A NAME="255"></A><A NAME="256"></A><A NAME="257"></A>Before you install Debian on your computer, it is generally a good idea to plan
+how the contents of your hard drive will be arranged. One part of this process
+involves partitioning your hard drive.
+
+<P>
+
+<H2><A NAME="SECTION04231000000000000000"></A><A NAME="partition-intro"></A>
+<BR>
+Background
+</H2>
+
+<P>
+Partitioning your disk simply refers to the act of breaking up your disk into
+sections. Each section is then independent of the others. It's roughly equivalent
+to putting up walls in a house; after that, adding furniture to one room doesn't
+affect any other room.    
+
+<P>
+If you already have an operating system on your system (Windows 95, Windows
+NT, DOS, etc.) and you want to install Debian GNU/Linux on the same disk, you
+will probably need to repartition the disk. In general, changing a partition
+that already has a filesystem on it will destroy any information in that filesystem.
+Therefore, you should always make backups before doing any repartitioning. Using
+the analogy of the house, you would probably want to move all the furniture
+out of the way before moving a wall or you risk destroying your furniture. Luckily,
+there is an alternative for some users; see section <A HREF="node15.html#Lossless">2.3.6</A> on page
+<A HREF="node15.html#Lossless"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A> for more information.
+
+<P>
+<A NAME="261"></A><A NAME="262"></A><A NAME="263"></A><A NAME="264"></A><A NAME="265"></A><A NAME="266"></A><A NAME="267"></A><A NAME="268"></A>At a bare minimum, GNU/Linux needs one partition for itself. You can have a
+single partition containing the entire operating system, applications, and your
+personal files. Most people choose to give GNU/Linux more than the minimum number
+of partitions, however.  There are two reasons you might want to break up the
+filesystem into a number of smaller partitions. The first is for safety.  If
+something happens to corrupt the filesystem, generally only one partition is
+affected. Thus, you only have to replace (from the backups you've been carefully
+keeping) a portion of your system. At the very least, you should consider creating
+what is commonly called  <A NAME="269"></A><A NAME="270"></A><A NAME="271"></A>a ``root partition.'' This contains the most essential
+components of the system. If any other partitions get corrupted, you can still
+boot into GNU/Linux to fix the system. This can save you the trouble of having
+to reinstall the system from scratch.    
+
+<P>
+The second reason is generally more important in a business setting, but it
+really depends on your use of the machine. Suppose something runs out of control
+and starts eating disk space.  If the process causing the problem happens to
+have root privileges (the system keeps a percentage of the disk away from users),
+you could suddenly find yourself out of disk space. This is not good since the
+operating system needs to use real files (besides swap space) for many things.
+ It may not even be a problem of local origin.  For example, unsolicited e-mail
+(``spam'') can easily fill a partition.  By using more partitions, you protect
+the system from many of these problems. Using e-mail as an example again, by
+putting the directory <TT>/var/spool/mail</TT> on its own partition, the bulk
+of the system will work even if unsolicited e-mail fills that partition.
+
+<P>
+Another reason applies only if you have a large IDE disk drive and are using
+neither LBA addressing nor overlay drivers<A NAME="tex2html17"
+  HREF="footnode.html#foot273"><SUP><SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A>.  In this case, you will have to put the root partition into the first 1,024
+cylinders of your hard drive, usually around 524 megabytes. See section <A HREF="node15.html#disk_limitations">2.3.3</A>
+on page <A HREF="node15.html#disk_limitations"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A> for more information on this issue.
+
+<P>
+Most people feel that a swap partition<A NAME="276"></A><A NAME="277"></A><A NAME="278"></A><A NAME="279"></A> is also a necessity, although this isn't
+strictly true. ``Swap'' is scratch space for an operating system, which allows
+the system to use disk storage as ``virtual memory'' in addition to physical
+memory. Putting swap on a separate partition allows Linux to make much more
+efficient use of it.  It is possible to force Linux to use a regular file as
+swap, but this is not recommended.
+
+<P>
+The only real drawback to using more partitions is that it is often difficult
+to know in advance what your needs will be. If you make a partition too small,
+either you will have to reinstall the system, or you will be constantly moving
+things around to make room in the undersized partition. On the other hand, if
+you make the partition too big, you may be wasting space that could be used
+elsewhere. <A NAME="280"></A><A NAME="281"></A><A NAME="282"></A><A NAME="283"></A><A NAME="284"></A><A NAME="285"></A><A NAME="286"></A><A NAME="287"></A>
+
+<P>
+
+<H2><A NAME="SECTION04232000000000000000"></A><A NAME="disk_planning"></A>
+<BR>
+Planning Use of the System
+</H2>
+
+<P>
+Disk space requirements and your partitioning scheme are influenced by the type
+of installation you decide to create.
+
+<P>
+<A NAME="289"></A><A NAME="290"></A><A NAME="291"></A>For your convenience, Debian offers a number of default ``profiles'' some
+of which are listed later in this section. Profiles are simply preselected sets
+of packages designed to provide certain desired capabilities on your system.
+Installation is easier since packages that fit your desired profile are automatically
+marked for installation. Each given profile lists the size of the resulting
+system after installation is complete.  Even if you don't use these profiles,
+this discussion is important for planning, since it will give you a sense of
+how large your partition or partitions need to be. The following are some of
+the available profiles and their sizes<A NAME="292"></A>:
+
+<P>
+<DL>
+<DD><A NAME="294"></A>
+</DD>
+<DT><STRONG>Server_std.</STRONG></DT>
+<DD>This is a small server profile, useful for a stripped-down server,
+that does not have a lot of niceties for shell users.  It basically has an FTP
+server, a web server, DNS, NIS, and POP. It will take up around 50MB.  Of course,
+this is just the size of the software; any data you serve would be
+additional.
+<P>
+<A NAME="295"></A>
+</DD>
+<DT><STRONG>Dialup.</STRONG></DT>
+<DD>This profile would be good for a standard desktop box, including the
+X Window system, graphics applications, sound, editors, etc.  The size of the
+packages will be around 500MB.
+<A NAME="296"></A>
+</DD>
+<DT><STRONG>Work_std.</STRONG></DT>
+<DD>This profile is suitable for a stripped-down user machine without
+the X Window system or X applications.  It is also suitable for a laptop or
+mobile computer.  The size is around 140MB.  It is possible to have a simple
+laptop setup including X with less than 100MB.
+<A NAME="297"></A>
+</DD>
+<DT><STRONG>Devel_comp.</STRONG></DT>
+<DD>This is a desktop setup profile with all the popular development
+packages, such as Perl, C, and C++.  It requires around 475MB.  Assuming you
+are adding X and some additional packages for other uses, you should plan for
+approximately 800MB of disk space for this type of installation.
+</DD>
+</DL>
+Remember that these sizes don't include all the other materials that are normally
+found, such as user files, mail, and data.  It is always best to be generous
+when considering the space for your own files and data.  Notably, the Debian
+<TT>/var</TT> directory contains a lot of state information.  The installed
+package management files can easily consume 20MB of disk space. In general,
+you should allocate at least 50MB for the <TT>/var</TT> directory because system
+log files are also stored there.
+
+<P>
+
+<H2><A NAME="SECTION04233000000000000000"></A><A NAME="disk_limitations"></A>
+<BR>
+PC Disk Limitations
+</H2>
+
+<P>
+<A NAME="302"></A><A NAME="303"></A><A NAME="304"></A><A NAME="305"></A><A NAME="306"></A><A NAME="307"></A>A PC BIOS generally adds additional constraints for disk partitioning. There
+is a limit to how many ``primary'' and ``logical'' partitions a drive can
+contain.  Additionally, there are limits to where on the drive the BIOS looks
+for boot information.  More information can be found in the <A NAME="tex2html18"
+  HREF="http://metalab.unc.edu/LDP/HOWTO/mini/Partition.html">Linux Partition
+mini-HOWTO</A>. This section
+will include a brief overview to help you plan most situations.
+
+<P>
+``Primary'' partitions are the original partitioning scheme for PC hard disks.
+ However, there can be only four of them.  To get past this limitation, ``extended''
+or ``logical'' partitions were invented.  By setting one of your primary partitions
+as an extended partition, you can subdivide all the space allocated to that
+partition into logical partitions. The number of logical partitions you can
+create is much less limited than the number of primary partitions you can create;
+however, you can have only one extended partition per drive.
+
+<P>
+<A NAME="310"></A><A NAME="311"></A><A NAME="312"></A><A NAME="313"></A><A NAME="314"></A><A NAME="315"></A><A NAME="316"></A>Linux limits the number of partitions per drive to 15 partitions for SCSI drives
+(3 usable primary partitions, 12 logical partitions), and 63 partitions for
+IDE drives (3 usable primary partitions, 60 logical partitions).
+
+<P>
+The last issue you need to know about a PC BIOS is that your boot partition
+- that is, the partition containing your kernel image - needs to be contained
+within the first 1,024 cylinders of the drive.  Because the root partition is
+usually your boot partition, you need to make sure your root partition fits
+into the first 1,024 cylinders.
+
+<P>
+If you have a large disk, you may have to use <A NAME="317"></A><A NAME="318"></A><A NAME="319"></A>cylinder translation techniques,
+which you can set in your BIOS, such as LBA translation mode.  (More information
+about large disks can be found in the <A NAME="tex2html19"
+  HREF="http://metalab.unc.edu/LDP/HOWTO/mini/Large-Disk.html">Large Disk mini-HOWTO</A>.)
+If you are using a cylinder translation scheme, your boot partition must fit
+within the <SPAN  CLASS="textit">translated</SPAN> representation of cylinder 1,024.
+
+<P>
+
+<H2><A NAME="SECTION04234000000000000000"></A><A NAME="323"></A>
+<BR>
+Device Names in Linux
+</H2>
+
+<P>
+<A NAME="324"></A><A NAME="325"></A><A NAME="326"></A>Linux disks and partition names may be different from those in other operating
+systems.  You should know the names that Linux uses when you create and mount
+partitions. The basic scheme can be found in Table <A HREF="#Tab:_Linux_Device_Names">2.1</A>
+on page <A HREF="#Tab:_Linux_Device_Names"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>. 
+<BR><P></P>
+<DIV ALIGN="CENTER"><A NAME="5213"></A>
+<TABLE>
+<CAPTION><STRONG>Table 2.1:</STRONG>
+Linux Device Names</CAPTION>
+<TR><TD>
+<P>
+
+<DIV ALIGN="CENTER">
+
+</DIV><TABLE COLS=2 BORDER FRAME=BOX RULES=GROUPS>
+<COLGROUP><COL ALIGN=JUSTIFY WIDTH="2in"><COLGROUP><COL ALIGN=CENTER>
+<TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT WIDTH="144"> <A NAME="333"></A><A NAME="334"></A><A NAME="335"></A>
+Device</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+Linux Name</TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT WIDTH="144">First floppy drive</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+/dev/fd0</TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT WIDTH="144">Second floppy drive</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+/dev/fd1</TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT WIDTH="144">First partition on /dev/hda (typically C: in other OSs)</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+/dev/hda1</TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT WIDTH="144">Fifth partition on /dev/hdc</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+/dev/hdc5</TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT WIDTH="144">Second partition on /dev/sdb</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+/dev/sdb2</TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT WIDTH="144">Entire Primary-Master IDE hard disk or CD-ROM</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+/dev/hda</TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT WIDTH="144">Entire Primary-Slave IDE hard disk or CD-ROM</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+/dev/hdb</TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT WIDTH="144">Entire Secondary-Master IDE hard disk or CD-ROM</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+/dev/hdc</TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT WIDTH="144">Entire Secondary-Slave IDE hard disk or CD-ROM</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+/dev/hdd</TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT WIDTH="144">First SCSI disk</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+/dev/sda</TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT WIDTH="144">Second and remaining SCSI disks</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+/dev/sdb and so forth</TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT WIDTH="144">First serial port (COM1 in other OSs)</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+/dev/ttyS0</TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT WIDTH="144">Second, third, etc. serial ports</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+/dev/ttyS1, /dev/ttyS2, etc.</TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT WIDTH="144">SCSI tape units (automatic rewind)</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+/dev/st0, /dev/st1, etc.</TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT WIDTH="144">SCSI tape units (no automatic rewind)</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+/dev/nst0, /dev/nst1, etc.</TD></TR>
+</TBODY><TBODY>
+<TR><TD VALIGN=BASELINE ALIGN=LEFT WIDTH="144">SCSI CD-ROMs</TD><TD VALIGN=BASELINE ALIGN=CENTER NOWRAP>
+/dev/scd0, /dev/scd1, etc.</TD></TR>
+</TBODY>
+</TABLE>
+
+<P>
+</TD></TR>
+</TABLE>
+</DIV><P></P>
+<BR>
+
+<P>
+<A NAME="338"></A><A NAME="339"></A><A NAME="340"></A><A NAME="341"></A><A NAME="342"></A><A NAME="343"></A>The partitions on each disk are represented by appending a number to the disk
+name.  For example, the names <TT>hda1</TT> and <TT>hda2</TT> represent the first and second partitions
+of the first IDE disk drive in your system.    Linux represents the primary
+partitions with the drive name plus the numbers 1 through 4.  For example, the
+first primary partition on the first IDE drive is <TT>/dev/hda1</TT>. The logical
+partitions are numbered starting at 5, so the first logical partition on that
+same drive is <TT>/dev/hda5</TT>.  Remember that the extended partition - that
+<A NAME="348"></A><A NAME="349"></A>is, the primary partition holding the logical partitions - is not usable by
+itself.  This applies to SCSI drives as well as IDE drives.  
+
+<P>
+Let's assume you have a system with two SCSI disks, one at SCSI address 2 and
+the other at SCSI address 4. The first disk (at address 2) is then named <TT>sda</TT>
+and the second <TT>sdb</TT>.  If the <TT>sda</TT> drive has three partitions
+on it, these will be named <TT>sda1</TT>, <TT>sda2</TT>, and <TT>sda3</TT>.
+<A NAME="356"></A>The same applies to the <TT>sdb</TT> disk and its partitions. Note that if you
+have two SCSI host bus adapters (i.e., controllers), the order of the drives
+can get confusing.  The best solution in this case is to watch the boot messages, assuming you know the drive models.
+
+<P>
+
+<H2><A NAME="SECTION04235000000000000000"></A><A NAME="partition-scheme-recommended"></A>
+<BR>
+Recommended Partitioning Scheme
+</H2>
+
+<P>
+As described above, you should have a separate smaller root partition and a
+larger <TT>/usr</TT> partition if you have the space.  For most users, the two
+partitions initially mentioned are sufficient.  This is especially appropriate
+when you have a single small disk, because creating lots of partitions can waste
+space.    
+
+<P>
+<A NAME="360"></A><A NAME="361"></A><A NAME="362"></A>In some cases, you might need a separate <TT>/usr/local</TT> partition if you
+plan to install many programs that are not part of the Debian distribution.
+ If your machine will be a mail server, you may need to make <TT>/var/spool/mail</TT>
+a separate partition.  Putting <TT>/tmp</TT> on its own 20 to 32MB partition,
+for instance, is a good idea.  If you are setting up a server with lots of user
+accounts, it's generally good to have a separate, large <TT>/home</TT> partition
+to store user home directories.  In general, the partitioning situation varies
+from computer to computer depending on its uses.    
+
+<P>
+<A NAME="367"></A><A NAME="368"></A>For very complex systems, you should see the <A NAME="tex2html21"
+  HREF="http://metalab.unc.edu/LDP/HOWTO/Multi-Disk-HOWTO.html">Multi Disk HOWTO</A>.
+It contains in-depth information, mostly of interest to people setting up servers.
+
+<P>
+<A NAME="371"></A><A NAME="372"></A><A NAME="373"></A><A NAME="374"></A><A NAME="375"></A>Swap partition sizes should also be considered. There are many views about swap
+partition sizes.  One rule of thumb that works well is to use as much swap as
+you have system memory, although there probably isn't much point in going over
+64MB of swap for most users. It also shouldn't be smaller than 16MB, in most
+cases.  Of course, there are exceptions to these rules. If you are trying to
+solve 10,000 simultaneous equations on a machine with 256MB of memory, you may
+need a gigabyte (or more) of swap space.
+
+<P>
+As an example, consider a machine that has 32MB of RAM and a 1.7GB IDE drive
+on <TT>/dev/hda</TT>. There is a 500MB partition for another operating system
+on <TT>/dev/hda1</TT>. A 32MB swap partition is used on <TT>/dev/hda3</TT> and
+the rest, about 1.2GB, on <TT>/dev/hda2</TT> is the Linux partition. 
+<A NAME="380"></A><A NAME="381"></A><A NAME="382"></A><A NAME="383"></A><A NAME="384"></A>
+
+<P>
+
+<H2><A NAME="SECTION04236000000000000000">
+Partitioning Prior to Installation</A>
+</H2>
+
+<P>
+<A NAME="Lossless"></A><A NAME="387"></A><A NAME="388"></A>There are two different times that you can partition: prior to or during the
+installation of Debian.  If your computer will be solely dedicated to Debian
+you should partition during installation as described in section <A HREF="node23.html#partition-create">3.5</A>
+on page <A HREF="node23.html#partition-create"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>. If you have a machine with more than one
+operating system on it, you should generally let the other operating system
+create its own partitions.
+
+<P>
+The following sections contain information regarding partitioning in your native
+operating system prior to Debian installation.  Note that you'll have to map
+between how the other operating system names partitions and how Linux names
+partitions; see Table <A HREF="#Tab:_Linux_Device_Names">2.1</A> on page <A HREF="#Tab:_Linux_Device_Names"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>.
+
+<P>
+
+<H3><A NAME="SECTION04236100000000000000">
+Partitioning from DOS or Windows</A>
+</H3>
+
+<P>
+<A NAME="394"></A><A NAME="395"></A><A NAME="396"></A><A NAME="397"></A><A NAME="398"></A>If you are manipulating existing FAT or NTFS partitions, it is recommended that
+you use either the scheme below or native Windows or DOS tools.  Otherwise,
+it is not really necessary to partition from DOS or Windows; the Linux partitioning
+tools will generally do a better job.
+
+<P>
+
+<H3><A NAME="SECTION04236200000000000000"></A><A NAME="399"></A>
+<BR>
+Lossless Repartitioning
+</H3>
+
+<P>
+One of the most common installations is onto a system that already contains
+DOS (including Windows 3.1), Win32 (such as Windows 95, 98, NT), or OS/2 and
+it is desired to put Debian onto the same disk without destroying the previous
+system.  As explained in section <A HREF="node15.html#partition-intro">2.3.1</A> on page <A HREF="node15.html#partition-intro"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>,
+<A NAME="402"></A><A NAME="403"></A><A NAME="404"></A><A NAME="405"></A><A NAME="406"></A><A NAME="407"></A>decreasing the size of an existing partition will almost certainly damage the
+data on that partition unless certain precautions are taken.  The method described
+here, while not guaranteed to protect your data, works extremely well in practice.
+ As a precaution, you should <SPAN  CLASS="textit">make a backup</SPAN>.
+
+<P>
+Before going any further, you should have decided how you will divide up the
+disk.<A NAME="409"></A><A NAME="410"></A> The method in this section will only split a partition into two pieces.
+One will contain the original operating system, and the other will be used for
+Debian.  During the installation of Debian, you will be given the opportunity
+to use the Debian portion of the disk as you see fit, i.e., as swap or as a
+filesystem.
+
+<P>
+The idea is to move all the data on the partition to the beginning before changing
+the partition information, so that nothing will be lost.  It is important that
+you do as little as possible between the data movement and repartitioning to
+minimize the chance of a file being written near the end of the partition as
+this will decrease the amount of space you can take from the partition.
+
+<P>
+<A NAME="411"></A><A NAME="412"></A><A NAME="413"></A>The first thing you need is a copy of FIPS, which is available in the <TT>tools</TT>
+directory on your Debian CD-ROM. This disk must be bootable. Under DOS, a bootable
+floppy can be created using the command <TT>sys&nbsp;a:</TT> for a previously formatted
+floppy or <TT>format&nbsp;a:&nbsp;/s</TT> for an unformatted floppy<TT>.</TT> Unzip the
+archive and copy the files <TT>RESTORRB.EXE</TT>, <TT>FIPS.EXE</TT> and <TT>ERRORS.TXT</TT>
+to the bootable floppy.  <TT>FIPS</TT> comes with very good documentation that
+you may want to read.  You should definitely read the documentation if you use
+a disk compression driver or a disk manager.  Create the disk and read the documentation
+<SPAN  CLASS="textit">before</SPAN> you continue.
+
+<P>
+The next thing to be done is to move all the data to the beginning of the partition.
+<TT>DEFRAG</TT>, which comes standard with DOS 6.0 and later, can easily do
+the job.  See the FIPS documentation for a list of other software that may also
+work.  Note that if you have Windows 95 or higher, you must run <TT>DEFRAG</TT>
+from there, because DOS doesn't understand VFAT, which is used to support long
+filenames in Windows 95 and higher.
+
+<P>
+After running the defragmenter (which can take a while on a large disk), reboot
+with the <TT>FIPS</TT> floppy disk you created.  Simply type <TT>a:&#92;
+fips</TT> and follow the directions.
+
+<P>
+<A NAME="427"></A><A NAME="428"></A><A NAME="429"></A>Note that there are many other other partition managers out there, in case <TT>FIPS</TT>
+doesn't work for you.
+
+<P>
+
+<H2><A NAME="SECTION04237000000000000000">
+Debian Installation Steps</A>
+</H2>
+
+<P>
+As you initially install Debian, you will proceed through several
+different steps: <A NAME="432"></A><A NAME="433"></A><A NAME="434"></A><A NAME="435"></A><A NAME="436"></A>
+
+<P>
+
+<OL>
+<LI>Boot the installation system
+</LI>
+<LI>Initial system configuration
+</LI>
+<LI>Install the base system
+</LI>
+<LI>Boot the newly installed base system
+</LI>
+<LI>Install the rest of the system
+</LI>
+</OL>
+Booting the Debian installation system, the first step, is generally done with
+the Rescue Floppy or from the CD-ROM. 
+
+<P>
+Once you've booted into Linux, the <TT>dbootstrap</TT> program will launch and
+guide you through the second step, the initial<A NAME="440"></A><A NAME="441"></A><A NAME="442"></A> <A NAME="443"></A><A NAME="444"></A><A NAME="445"></A>system configuration.  This step
+is described in detail in section <A HREF="node18.html#init-config">3</A> on page <A HREF="node18.html#init-config"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>.
+
+<P>
+The ``Debian base system'' is a core set of packages that are required to
+run Debian in a minimal, stand-alone fashion. <TT>dbootstrap</TT> will install
+it from your CD-ROM, as described in section <A HREF="node30.html#install-base">3.12</A> on page <A HREF="node30.html#install-base"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>.
+Once you have configured and installed the base system, your machine can ``stand
+on its own.''
+
+<P>
+The final step is the installation of the remainder of the Debian system.  This
+would include the applications and documents that you actually use on your computer,
+such as the X Window system, editors, shells, and development environments.
+The rest of the Debian system can be installed from CD-ROM. At this point, you'll
+be using the standard Debian package management tools, such as <TT>dselect</TT>.
+ This step is described in section <A HREF="node38.html#install-packages">3.20</A> on page <A HREF="node38.html#install-packages"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html746"
+  HREF="node16.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html740"
+  HREF="node12.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html734"
+  HREF="node14.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html742"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html744"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html747"
+  HREF="node16.html">Choosing Your Installation Media</A>
+<B> Up:</B> <A NAME="tex2html741"
+  HREF="node12.html">Getting Started</A>
+<B> Previous:</B> <A NAME="tex2html735"
+  HREF="node14.html">Before You Start</A>
+ &nbsp <B>  <A NAME="tex2html743"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html745"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>

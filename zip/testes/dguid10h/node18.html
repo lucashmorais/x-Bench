@@ -1,0 +1,209 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Step-by-Step Installation</TITLE>
+<META NAME="description" CONTENT="Step-by-Step Installation">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="next" HREF="node40.html">
+<LINK REL="previous" HREF="node12.html">
+<LINK REL="up" HREF="node6.html">
+<LINK REL="next" HREF="node19.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html799"
+  HREF="node19.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html793"
+  HREF="node6.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html787"
+  HREF="node17.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html795"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html797"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html800"
+  HREF="node19.html">Select Color or Monochrome</A>
+<B> Up:</B> <A NAME="tex2html794"
+  HREF="node6.html">Guide</A>
+<B> Previous:</B> <A NAME="tex2html788"
+  HREF="node17.html">Booting the Installation System</A>
+ &nbsp <B>  <A NAME="tex2html796"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html798"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION04300000000000000000"></A><A NAME="init-config"></A>
+<BR>
+Step-by-Step Installation
+</H1>
+
+<P>
+<A NAME="551"></A><A NAME="552"></A><A NAME="553"></A><A NAME="554"></A><A NAME="555"></A><TT>dbootstrap</TT> is the name of the program that is run after you have booted
+into the installation system.  It is responsible for initial system configuration
+and the installation of the ``base system.''
+
+<P>
+The main job of <TT>dbootstrap</TT> and the main purpose of your initial system
+configuration is to configure certain core elements of your system.  For instance,
+this includes your IP address, host name, and other aspects of your networking
+setup, if any.  This also includes the configuration of ``kernel modules,''
+which are drivers that are loaded into the kernel.  These modules include storage
+hardware drivers, network drivers, special language support, and support for
+other peripherals. Configuring these fundamental things is done first, because
+it is often necessary for the system to function properly for the next steps
+of installation.    
+
+<P>
+<TT>dbootstrap</TT> is a simple, character-based application. It is very easy
+to use; generally, it will guide you through each step of the installation process
+in a linear fashion. You can also go back and repeat steps if you made a mistake.
+Navigation within <TT>dbootstrap</TT> is accomplished with the arrow keys, <TT><SPAN  CLASS="textit"><SPAN  CLASS="textit">Enter</SPAN></SPAN></TT>,
+and <TT><SPAN  CLASS="textit"><SPAN  CLASS="textit">Tab</SPAN></SPAN></TT>.    
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html801"
+  HREF="node19.html">Select Color or Monochrome Display</A>
+<LI><A NAME="tex2html802"
+  HREF="node20.html">Debian GNU/Linux Installation Main Menu</A>
+<LI><A NAME="tex2html803"
+  HREF="node21.html">Configure the Keyboard</A>
+<LI><A NAME="tex2html804"
+  HREF="node22.html">Last Chance to Back Up!</A>
+<LI><A NAME="tex2html805"
+  HREF="node23.html">Partition a Hard Disk</A>
+<LI><A NAME="tex2html806"
+  HREF="node24.html">Initialize and Activate a Swap Partition</A>
+<LI><A NAME="tex2html807"
+  HREF="node25.html">Initialize a Linux Partition</A>
+<UL>
+<LI><A NAME="tex2html808"
+  HREF="node25.html#SECTION04371000000000000000">Mount a Previously-Initialized Partition</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html809"
+  HREF="node26.html">Install Operating System Kernel and Modules</A>
+<LI><A NAME="tex2html810"
+  HREF="node27.html">Configure PCMCIA Support</A>
+<LI><A NAME="tex2html811"
+  HREF="node28.html">Configure Device Driver Modules</A>
+<LI><A NAME="tex2html812"
+  HREF="node29.html">Configure the Network</A>
+<LI><A NAME="tex2html813"
+  HREF="node30.html">Install the Base System</A>
+<UL>
+<LI><A NAME="tex2html814"
+  HREF="node30.html#SECTION043121000000000000000">Configure the Base System</A>
+<LI><A NAME="tex2html815"
+  HREF="node30.html#SECTION043122000000000000000">Make Linux Bootable Directly from the Hard Disk</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html816"
+  HREF="node31.html">Make a Boot Floppy</A>
+<LI><A NAME="tex2html817"
+  HREF="node32.html">The Moment of Truth    </A>
+<LI><A NAME="tex2html818"
+  HREF="node33.html">Set the Root Password</A>
+<LI><A NAME="tex2html819"
+  HREF="node34.html">Create an Ordinary User    </A>
+<LI><A NAME="tex2html820"
+  HREF="node35.html">Shadow Password Support    </A>
+<LI><A NAME="tex2html821"
+  HREF="node36.html">Remove PCMCIA</A>
+<LI><A NAME="tex2html822"
+  HREF="node37.html">Select and Install Profiles</A>
+<LI><A NAME="tex2html823"
+  HREF="node38.html">Package Installation with <TT>dselect</TT></A>
+<UL>
+<LI><A NAME="tex2html824"
+  HREF="node38.html#SECTION043201000000000000000">Introduction       </A>
+<LI><A NAME="tex2html825"
+  HREF="node38.html#SECTION043202000000000000000">Once <TT>dselect</TT> Is Launched       </A>
+<UL>
+<LI><A NAME="tex2html826"
+  HREF="node38.html#SECTION043202100000000000000">Access </A>
+<LI><A NAME="tex2html827"
+  HREF="node38.html#SECTION043202200000000000000">Update</A>
+<LI><A NAME="tex2html828"
+  HREF="node38.html#SECTION043202300000000000000">Select</A>
+<LI><A NAME="tex2html829"
+  HREF="node38.html#SECTION043202400000000000000">Install</A>
+<LI><A NAME="tex2html830"
+  HREF="node38.html#SECTION043202500000000000000">Configure</A>
+<LI><A NAME="tex2html831"
+  HREF="node38.html#SECTION043202600000000000000">Remove</A>
+<LI><A NAME="tex2html832"
+  HREF="node38.html#SECTION043202700000000000000">Quit</A>
+</UL>
+<LI><A NAME="tex2html833"
+  HREF="node38.html#SECTION043203000000000000000">A Few Hints in Conclusion</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html834"
+  HREF="node39.html">Glossary</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html799"
+  HREF="node19.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html793"
+  HREF="node6.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html787"
+  HREF="node17.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html795"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html797"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html800"
+  HREF="node19.html">Select Color or Monochrome</A>
+<B> Up:</B> <A NAME="tex2html794"
+  HREF="node6.html">Guide</A>
+<B> Previous:</B> <A NAME="tex2html788"
+  HREF="node17.html">Booting the Installation System</A>
+ &nbsp <B>  <A NAME="tex2html796"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html798"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>

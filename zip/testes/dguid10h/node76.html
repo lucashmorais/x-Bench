@@ -1,0 +1,252 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Customizing Your X Startup </TITLE>
+<META NAME="description" CONTENT="Customizing Your X Startup ">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="previous" HREF="node75.html">
+<LINK REL="up" HREF="node72.html">
+<LINK REL="next" HREF="node77.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1701"
+  HREF="node77.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1695"
+  HREF="node72.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1691"
+  HREF="node75.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1697"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1699"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1702"
+  HREF="node77.html">Filesystems</A>
+<B> Up:</B> <A NAME="tex2html1696"
+  HREF="node72.html">The X Window System</A>
+<B> Previous:</B> <A NAME="tex2html1692"
+  HREF="node75.html">Basic X Operations</A>
+ &nbsp <B>  <A NAME="tex2html1698"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1700"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION04940000000000000000">
+Customizing Your X Startup </A>
+</H1>
+
+<P>
+<A NAME="3195"></A><A NAME="3196"></A><A NAME="3197"></A><A NAME="3198"></A><A NAME="3199"></A>When you start X, Debian runs some shell scripts that start your window manager
+and other X clients. By default, a window manager, an <TT>xconsole</TT>, and
+an <TT>xterm</TT> are started for you. 
+
+<P>
+<A NAME="3202"></A><A NAME="3203"></A>To customize your X startup, the file <TT>/etc/X11/config</TT> must contain
+the line <TT>allow-user-xsession</TT>. If it does not, log in as root and add
+the line now. Then log back in as yourself and continue the tutorial.
+
+<P>
+You can see how Debian's X startup works in the file <TT>/etc/X11/
+Xsession</TT>.
+Note that you can change the behavior of <TT>/etc/X11/Xsession</TT> by modifying
+the file <TT>/etc/X11/config</TT>, which specifies a few system-wide preferences.
+
+<P>
+To run the clients of your choice when X starts, you create an executable shell
+script called <TT>.xsession</TT> in your home directory.<A NAME="3210"></A><A NAME="3211"></A><A NAME="3212"></A><A NAME="3213"></A><A NAME="3214"></A>
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>$&nbsp;<SPAN  CLASS="textbf">touch&nbsp;~/.xsession</SPAN>
+</DD>
+</DL>This creates the file. 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>$&nbsp;<SPAN  CLASS="textbf">chmod&nbsp;u+x&nbsp;~/.xsession</SPAN>
+</DD>
+</DL>This makes the file executable. 
+
+<P>
+Once <TT>.xsession</TT> is created, you need to edit it to do something useful
+with your favorite text editor. You can do anything you want to in this script.
+However, when the script's process terminates, X also terminates.
+
+<P>
+In practical terms, this means that you often end the script with a call to
+<TT>exec</TT>. Whatever program you <TT>exec</TT> will replace the script process
+with itself, so commands found after the <TT>exec</TT> line will be ignored.
+The program you exec will become the new owner of the script process, which
+means that X will terminate when this new program's process terminates. 
+
+<P>
+Say you end your <TT>.xsession</TT> with the line <TT>exec&nbsp;fvwm</TT>. This means
+that the <TT>fvwm</TT> window manager will be run when X starts. When you quit
+the <TT>fvwm</TT> window manager, your X session will end, and all other clients
+will be shut down. You do not have to use a window manager here; you could <TT>exec
+xterm</TT>, in which case typing <TT>exit</TT> in that particular <TT>xterm</TT>
+would cause the entire X session to end. 
+
+<P>
+If you want to run other clients before you use <TT>exec</TT>, you will need
+to run them in the background. Otherwise <TT>.xsession</TT> will pause until
+each client exits and then continue to the next line. See the previous section
+on running jobs in the background (basically you want to put an ampersand at
+the end, as in <TT>xterm&nbsp;&amp;</TT>). 
+
+<P>
+You can take advantage of this behavior, though. If you want to run commands
+at the end of your X session, you can have your <TT>.xsession</TT> run a window
+manager or the like and wait for it to finish. That is, leave off the <TT>exec</TT>
+and the <TT>&amp;</TT>; just enter <TT>fvwm</TT> by itself. Then put the commands
+of your choice after <TT>fvwm</TT>.
+
+<P>
+It would probably help to look at a few sample <TT>.xsession</TT> files. In
+all the examples, replace <TT>fvwm</TT> with the window manager of your choice.
+
+<P>
+The simplest <TT>.xsession</TT> just runs a window manager:
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>exec&nbsp;fvwm
+</DD>
+</DL>This will run <TT>fvwm</TT>, and the X session will end when <TT>fvwm</TT> exits.
+<A NAME="3247"></A><A NAME="3248"></A><A NAME="3249"></A><A NAME="3250"></A><A NAME="3251"></A>If you do it without the <TT>exec</TT>, everything will appear to behave the
+same way, but behind the scenes <TT>.xsession</TT> will hang around waiting
+for <TT>fvwm</TT>, and <TT>.xsession</TT> will exit after <TT>fvwm</TT> does.
+Using <TT>exec</TT> is slightly better because <TT>fvwm</TT> replaces <TT>.xsession</TT>
+instead of leaving it waiting. You can use the <TT>ps</TT> or <TT>top</TT> command
+to verify this. 
+
+<P>
+A more useful <TT>.xsession</TT> runs a few clients before starting the window
+manager. For example, you might want some <TT>xterm</TT>s and an <TT>xclock</TT>
+whenever you start X. No problem; just enter <TT>xterm&nbsp;&amp;&nbsp;xterm&nbsp;&amp;&nbsp;xclock
+&amp;&nbsp;exec&nbsp;fvwm</TT>. Two <TT>xterm</TT>s and an <TT>xclock</TT> start up in the background,
+and then the window manager is launched. When you quit the window manager, you'll
+also quit X. 
+
+<P>
+You might try it without the backgrounding just to see what happens. Enter this
+command: <TT>xterm&nbsp;xclock&nbsp;exec&nbsp;fvwm</TT>. <TT>xterm</TT> will start, and wait
+for you to exit it. Then <TT>xclock</TT> will start; you'll have to exit <TT>xclock</TT>
+before <TT>fvwm</TT> will start. The commands are run in sequence, since the
+script waits for each one to exit. 
+
+<P>
+You can use sequential execution to your advantage. Perhaps you want to keep
+track of when you stop working every day:
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>xterm&nbsp;&amp;
+
+<P>
+xclock&nbsp;&amp;
+
+<P>
+fvwm&nbsp;
+
+<P>
+date&nbsp;&gt;&gt;&nbsp;~/logout-time
+</DD>
+</DL>This will fork off an <TT>xterm</TT> and an <TT>xclock</TT> and then run <TT>fvwm</TT>
+and wait for it to finish. When you exit <TT>fvwm</TT>, it will move on to the
+last line, which appends the current date and time to the file <TT>~/logout-time</TT>. 
+
+<P>
+Finally, you can have a program other than the window manager determine when
+X exits:<A NAME="3282"></A><A NAME="3283"></A><A NAME="3284"></A><A NAME="3285"></A>
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>xclock&nbsp;&amp;
+
+<P>
+fvwm&nbsp;&amp;
+
+<P>
+exec&nbsp;xterm
+</DD>
+</DL>This script will run <TT>xclock</TT> and <TT>fvwm</TT> in the background and
+then replace itself with <TT>xterm</TT>. When you exit the <TT>xterm</TT>, your
+X session will end.<A NAME="3292"></A><A NAME="3293"></A><A NAME="3294"></A><A NAME="3295"></A>
+
+<P>
+The best way to learn how to use <TT>.xsession</TT> is to try some of these
+things out. Again, be sure you use <TT>chmod</TT> to make it executable; failure
+to do so is a common error.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1701"
+  HREF="node77.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1695"
+  HREF="node72.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1691"
+  HREF="node75.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1697"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1699"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1702"
+  HREF="node77.html">Filesystems</A>
+<B> Up:</B> <A NAME="tex2html1696"
+  HREF="node72.html">The X Window System</A>
+<B> Previous:</B> <A NAME="tex2html1692"
+  HREF="node75.html">Basic X Operations</A>
+ &nbsp <B>  <A NAME="tex2html1698"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1700"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>

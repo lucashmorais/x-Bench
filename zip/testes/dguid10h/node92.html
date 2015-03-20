@@ -1,0 +1,139 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Security</TITLE>
+<META NAME="description" CONTENT="Security">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="next" HREF="node93.html">
+<LINK REL="previous" HREF="node91.html">
+<LINK REL="up" HREF="node89.html">
+<LINK REL="next" HREF="node93.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1964"
+  HREF="node93.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1958"
+  HREF="node89.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1952"
+  HREF="node91.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1960"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1962"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1965"
+  HREF="node93.html">Software Development with Debian</A>
+<B> Up:</B> <A NAME="tex2html1959"
+  HREF="node89.html">Advanced Topics</A>
+<B> Previous:</B> <A NAME="tex2html1953"
+  HREF="node91.html">Advanced Files</A>
+ &nbsp <B>  <A NAME="tex2html1961"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1963"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION041330000000000000000">
+Security</A>
+</H1>
+
+<P>
+<A NAME="4071"></A><A NAME="4072"></A><A NAME="4073"></A>Back in section <A HREF="node62.html#Permissions">7.1</A> on page <A HREF="node62.html#Permissions"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>, we discussed
+file permissions in Linux. This is a fundamental way to keep your system secure.
+If you are running a multi-user system or a server, it is important to make
+sure that permissions are correct. A good rule of thumb is to set files to have
+the minimum permissions necessary for use.
+
+<P>
+If you are running a network server, there are some other things to be aware
+of as well. First, you ought to uninstall or turn off any network services you're
+not using. A good place to start is the file <TT>/etc/inetd.conf</TT>; you can
+probably disable some of these. For most network services, it's also possible
+to control who has access to them; the <TT>/etc/hosts.allow</TT> and <TT>/etc/hosts.deny</TT>
+files (documented in <TT>man&nbsp;5&nbsp;hosts_access</TT>) can control who has access
+to which services. You also ought to keep up-to-date with patches or updates
+to Debian; these can be found on your nearest Debian FTP mirror.
+
+<P>
+Some other commonsense rules apply:
+
+<P>
+
+<UL>
+<LI>Never tell anyone your password.
+</LI>
+<LI>Never send your password in cleartext across the Internet by using something
+like telnet or FTP. Instead, use encrypted protocols or avoid logging in remotely.
+</LI>
+<LI>Avoid using root as much as possible.
+</LI>
+<LI>Don't install untrusted software, and don't install it as root.
+</LI>
+<LI>Avoid making things world-writable whenever possible. <TT>/tmp</TT> is one exception
+to this rule.
+</LI>
+</UL>
+While this is probably not of as much use to somebody not running a server,
+it is still pays to know a bit about security. Debian's security mechanism is
+what protects your system from many viruses.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1964"
+  HREF="node93.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1958"
+  HREF="node89.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1952"
+  HREF="node91.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1960"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1962"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1965"
+  HREF="node93.html">Software Development with Debian</A>
+<B> Up:</B> <A NAME="tex2html1959"
+  HREF="node89.html">Advanced Topics</A>
+<B> Previous:</B> <A NAME="tex2html1953"
+  HREF="node91.html">Advanced Files</A>
+ &nbsp <B>  <A NAME="tex2html1961"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1963"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>

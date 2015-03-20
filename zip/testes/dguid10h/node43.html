@@ -1,0 +1,180 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Working as Root</TITLE>
+<META NAME="description" CONTENT="Working as Root">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="next" HREF="node44.html">
+<LINK REL="previous" HREF="node42.html">
+<LINK REL="up" HREF="node40.html">
+<LINK REL="next" HREF="node44.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1199"
+  HREF="node44.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1193"
+  HREF="node40.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1187"
+  HREF="node42.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1195"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1197"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1200"
+  HREF="node44.html">Virtual Consoles</A>
+<B> Up:</B> <A NAME="tex2html1194"
+  HREF="node40.html">Logging In</A>
+<B> Previous:</B> <A NAME="tex2html1188"
+  HREF="node42.html">Command History and Editing</A>
+ &nbsp <B>  <A NAME="tex2html1196"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1198"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION04430000000000000000"></A><A NAME="Working_as_root"></A>
+<BR>
+Working as Root
+</H1>
+
+<P>
+<A NAME="1359"></A><A NAME="1360"></A><A NAME="1361"></A><A NAME="1362"></A><A NAME="1363"></A>Because Debian is a multiuser system, it's designed to keep any one user or
+program from breaking the entire system. The kernel will not allow normal users
+to change important system files. This means that things stay the way they're
+supposed to, safe from accidents, viruses, and even malicious pranks. Unlike
+other operating systems, Debian is safe from these threats. You won't need an
+anti-virus program. 
+
+<P>
+However, sometimes you need to change important system files; for example, you
+might want to install new software or configure your network connection. To
+do so, you have to have greater powers than a normal user; you must become the
+<SPAN  CLASS="textit">root user</SPAN> (also called the <SPAN  CLASS="textit">superuser</SPAN>). 
+
+<P>
+To become root, just log on with the username <TT>root</TT> and the root password;
+this was set during installation, as described in section <A HREF="node33.html#Set_the_Root_Password">3.15</A>
+on page <A HREF="node33.html#Set_the_Root_Password"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>.<A NAME="1369"></A><A NAME="1370"></A><A NAME="1371"></A><A NAME="1372"></A><A NAME="1373"></A><A NAME="1374"></A>
+
+<P>
+At many sites, only the system administrator has the root password, and only
+the system administrator can do the things that one must be root to do. If you're
+using your own personal computer, <SPAN  CLASS="textit">you</SPAN> are the system administrator,
+of course. If you don't have root privileges, you will have to rely on your
+system administrator to perform any tasks that require root privileges.
+
+<P>
+Sometimes you'll have the root password even on a shared corporate or educational
+server, because the system administrator trusts you to use it properly. In that
+case, you'll be able to help administer the system and customize it for your
+needs. But you should be sure to use the password responsibly, respecting other
+users at all times. 
+
+<P>
+If you have the password, try logging on as root now. <A NAME="1376"></A><A NAME="1377"></A>Enter the <TT>whoami</TT>
+command to verify your identity. Then <SPAN  CLASS="textit">log out immediately</SPAN>. When you're
+root, the kernel will not protect you from yourself, because root has permission
+to do anything at all to the system. Don't experiment while you're root. In
+fact, don't do anything as root unless absolutely necessary. This isn't a matter
+of security, but rather of stability. Your system will run much better if it
+can keep you from making mistakes. 
+
+<P>
+You may find the <TT>su</TT> command more convenient than logging in as root.
+su allows you to assume the identity of another user, usually root unless you
+specify someone else. (You can remember that su stands for Super User, though
+some say it stands for Set UserID.) 
+
+<P>
+Here's something to try. Log on as yourself - that is, not as root. Then your
+session will look something like the one in Figure <A HREF="node43.html#Fig:_Sample_Session_with_su">4.1</A>.<A NAME="1382"></A><A NAME="1383"></A>
+
+<P>
+When you're doing system administration tasks, you should do as much as possible
+as yourself. Then use <TT>su</TT>, do the part that requires root privileges,
+and use the <TT>exit</TT> command to turn off privileges so you can no longer
+harm anything. 
+
+<P>
+You can use <TT>su</TT> to assume the identity of any user on the system, not
+just root. To do this, type <TT>su</TT>&nbsp;<TT><SPAN  CLASS="textit">user</SPAN></TT> where <SPAN  CLASS="textit">user</SPAN>
+is the user you want to become. You'll have to know the user's password, of
+course, unless you're root at the time or the user has no password. 
+
+<P>
+
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="Fig:_Sample_Session_with_su"></A><A NAME="5566"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4.1:</STRONG>
+Sample session with <TT>su</TT></CAPTION>
+<TR><TD><IMG
+ WIDTH="390" HEIGHT="150" BORDER="0"
+ SRC="img4.png"
+ ALT="\begin{figure}\par\par\begin{list}{}{
+\setlength{\rightmargin}{\leftmargin} \ra...
+...~~~~~~~~~~~~~}\textrm{\textit{Exit your \lq\lq normal'' shell}}\end{list}\end{figure}"></TD></TR>
+</TABLE>
+</DIV><P></P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1199"
+  HREF="node44.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1193"
+  HREF="node40.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1187"
+  HREF="node42.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1195"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1197"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1200"
+  HREF="node44.html">Virtual Consoles</A>
+<B> Up:</B> <A NAME="tex2html1194"
+  HREF="node40.html">Logging In</A>
+<B> Previous:</B> <A NAME="tex2html1188"
+  HREF="node42.html">Command History and Editing</A>
+ &nbsp <B>  <A NAME="tex2html1196"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1198"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>

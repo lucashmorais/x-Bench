@@ -1,0 +1,191 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Partition a Hard Disk</TITLE>
+<META NAME="description" CONTENT="Partition a Hard Disk">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="next" HREF="node24.html">
+<LINK REL="previous" HREF="node22.html">
+<LINK REL="up" HREF="node18.html">
+<LINK REL="next" HREF="node24.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html903"
+  HREF="node24.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html897"
+  HREF="node18.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html891"
+  HREF="node22.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html899"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html901"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html904"
+  HREF="node24.html">Initialize and Activate a</A>
+<B> Up:</B> <A NAME="tex2html898"
+  HREF="node18.html">Step-by-Step Installation</A>
+<B> Previous:</B> <A NAME="tex2html892"
+  HREF="node22.html">Last Chance to Back</A>
+ &nbsp <B>  <A NAME="tex2html900"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html902"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION04350000000000000000"></A><A NAME="partition-create"></A>
+<BR>
+Partition a Hard Disk
+</H1>
+
+<P>
+<A NAME="599"></A><A NAME="600"></A><A NAME="601"></A><A NAME="602"></A>Whatever the ``Next'' menu selection is, you can use the down-arrow key to
+select ``Partition a Hard Disk.'' Go ahead and do this now, then press <TT>Enter</TT>.
+
+<P>
+<A NAME="604"></A><A NAME="605"></A><A NAME="606"></A><A NAME="607"></A><A NAME="608"></A><A NAME="609"></A>
+The ``Partition a Hard Disk'' menu item presents you with a list of disk drives
+you can partition and runs a partitioning application called <TT>cfdisk<A NAME="610"></A></TT>.
+You must create at least one ``Linux native'' (type 83) disk partition, and
+you probably want at least one ``Linux swap'' (type 82) partition, as explained
+in later in this section.
+
+<P>
+You will now create the partitions that you need to install Debian. For this
+example, the assumption is that you are partitioning an empty hard disk.
+
+<P>
+The boot partition must reside within the first 1,024 of cylinders of your hard
+disk (see section <A HREF="node15.html#disk_limitations">2.3.3</A> on page <A HREF="node15.html#disk_limitations"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>).
+Keeping that in mind, use the right-arrow key to highlight the ``New'' menu
+selection, and then press <TT>Enter</TT>. You will be presented with the choice
+of creating a <SPAN  CLASS="textit">primary</SPAN> partition or a <SPAN  CLASS="textit">logical</SPAN> partition. To help
+ensure that the partition containing the boot information is within the first
+1,024 cylinders, create a primary partition first. This primary partition will
+be your ``Linux native'' partition. 
+
+<P>
+Highlight the ``Primary'' menu selection and press <TT>Enter</TT>. Next you
+will need to enter how large you want that partition to be. Review section <A HREF="node15.html#disk_planning">2.3.2</A>
+on page <A HREF="node15.html#disk_planning"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A> if you're not sure how large it should be.
+Remember to leave enough space for your swap partition (see section <A HREF="node15.html#partition-scheme-recommended">2.3.5</A>
+on page <A HREF="node15.html#partition-scheme-recommended"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>). Enter the parition size you
+want and then press <TT>Enter</TT>. Next you will be asked if you want to place
+the partition at the beginning of free space or at the end. Place it at the
+beginning to help ensure that it lies within the first 1,024 cylinders. Highlight
+``Beginning'' and press <TT>Enter</TT>. At this point you will be brought
+back to the main screen. Notice that the partition you created is listed. By
+default, a Linux native partition was created. This partition must now be made
+bootable. Make sure that the ``Bootable'' menu selection is highlighted and
+press <TT>Enter</TT>. The partition should now have the word ``Boot'' listed
+under the ``Flags'' column.
+
+<P>
+With the remaining space, create another primary partition. Using the down-arrow
+key, highlight the <SPAN  CLASS="textit">free space</SPAN> entry in the partition list. Now highlight
+the ``New'' menu selection and proceed just as you did when you created the
+first primary partition. Notice that the partition is listed as a Linux native
+partition. Because this partition will be your swap partition, it must be denoted<A NAME="625"></A><A NAME="626"></A><A NAME="627"></A><A NAME="628"></A><A NAME="629"></A><A NAME="630"></A><A NAME="631"></A><A NAME="632"></A><A NAME="633"></A><A NAME="634"></A>
+as such. Make sure the partition you just created (your swap partition) is highlighted
+and then press the left-arrow key until the ``Type'' menu selection is highlighted,
+then press <TT>Enter</TT>. You will be presented with a list of supported partition
+types. The Linux swap partition type should already be selected. If it is not,
+enter the number from the list that corresponds to the Linux swap partition
+(82), and then press <TT>Enter</TT>. Your swap partition should now be listed
+as a Linux swap partition under the ``FS Type'' column in the main screen.
+
+<P>
+Your <TT>cfdisk</TT> screen should look something like the screenshot in Figure
+<A HREF="node23.html#Fig:_cfdisk">3.1</A> on page <A HREF="node23.html#Fig:_cfdisk"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>. The numbers may not be the
+same, but the Flags and FS Type column shoulds be similar.
+
+<P>
+Until now, nothing on your disk has been altered. If you are satisfied that
+the partition scheme you created is what you want, press the left-arrow key
+until ``Write'' is highlighted, and press <TT>Enter</TT>. Your hard disk has
+now been partitioned. Quit the <TT>cfdisk</TT> application by selecting the
+``Quit'' menu selection. Once you have left <TT>cfdisk</TT>, you should be
+back in Debian's <TT>dbootstrap</TT> installation application. 
+
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="Fig:_cfdisk"></A><A NAME="5239"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 3.1:</STRONG>
+<TT>cfdisk</TT> screenshot</CAPTION>
+<TR><TD><P>
+
+<P>
+<DIV ALIGN="CENTER">
+
+</DIV><!-- MATH
+ $\resizebox*{4in}{!}{\includegraphics{images/cfdisk.eps}}$
+ -->
+<IMG
+ WIDTH="459" HEIGHT="300" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="\resizebox*{4in}{!}{\includegraphics{images/cfdisk.eps}}"> 
+<P>
+</TD></TR>
+</TABLE>
+</DIV><P></P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html903"
+  HREF="node24.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html897"
+  HREF="node18.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html891"
+  HREF="node22.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html899"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html901"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html904"
+  HREF="node24.html">Initialize and Activate a</A>
+<B> Up:</B> <A NAME="tex2html898"
+  HREF="node18.html">Step-by-Step Installation</A>
+<B> Previous:</B> <A NAME="tex2html892"
+  HREF="node22.html">Last Chance to Back</A>
+ &nbsp <B>  <A NAME="tex2html900"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html902"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>

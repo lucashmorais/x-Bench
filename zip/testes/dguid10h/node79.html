@@ -1,0 +1,397 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>mount and /etc/fstab</TITLE>
+<META NAME="description" CONTENT="mount and /etc/fstab">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="next" HREF="node80.html">
+<LINK REL="previous" HREF="node78.html">
+<LINK REL="up" HREF="node77.html">
+<LINK REL="next" HREF="node80.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1751"
+  HREF="node80.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1745"
+  HREF="node77.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1739"
+  HREF="node78.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1747"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1749"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1752"
+  HREF="node80.html">Backup Tools</A>
+<B> Up:</B> <A NAME="tex2html1746"
+  HREF="node77.html">Filesystems</A>
+<B> Previous:</B> <A NAME="tex2html1740"
+  HREF="node78.html">Concepts</A>
+ &nbsp <B>  <A NAME="tex2html1748"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1750"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html1753"
+  HREF="#SECTION041021000000000000000">Mounting a Filesystem</A>
+<LI><A NAME="tex2html1754"
+  HREF="#SECTION041022000000000000000">Example: Mounting a CD-ROM </A>
+<LI><A NAME="tex2html1755"
+  HREF="#SECTION041023000000000000000"><TT>/etc/fstab</TT>: Automating the Mount Process</A>
+<LI><A NAME="tex2html1756"
+  HREF="#SECTION041024000000000000000">Removable Disks (Floppies, Zip Disks, Etc.) </A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION041020000000000000000">
+<TT>mount</TT> and <TT>/etc/fstab</TT></A>
+</H1>
+
+<P>
+This section describes how to mount a floppy or Zip disk, discusses the <TT>/dev</TT>
+directory, and addresses distributing the directory tree over multiple physical
+devices or partitions.
+
+<P>
+
+<H2><A NAME="SECTION041021000000000000000">
+Mounting a Filesystem</A>
+</H2>
+
+<P>
+<A NAME="3321"></A><A NAME="3322"></A><A NAME="3323"></A><A NAME="3324"></A><A NAME="3325"></A><A NAME="3326"></A>On a GNU/Linux system there's no necessary correspondence between directories
+and physical devices as there is in Windows, in which each drive has its own
+directory tree beginning with a letter (such as <TT>C:&#92;</TT>).
+
+<P>
+<A NAME="3328"></A><A NAME="3329"></A>Instead, each physical device such as a hard disk or floppy disk has one or
+more filesystems on it. In order to make a filesystem accessible, it's assigned
+to a particular directory in another filesystem. To avoid circularity, the root
+filesystem (which contains the root directory <TT>/</TT>) is not stored within
+any other filesystem. You have access to it automatically when you boot Debian.
+
+<P>
+A directory in one filesystem that contains another filesystem is known as a
+<SPAN  CLASS="textit">mount point</SPAN>. A mount point<A NAME="3332"></A><A NAME="3333"></A><A NAME="3334"></A><A NAME="3335"></A><A NAME="3336"></A><A NAME="3337"></A> is a directory in a first filesystem on
+one device (such as your hard disk) that ``contains'' a second filesystem,
+perhaps on another device (such as a floppy disk). To access a filesystem, you
+must mount it at some mount point. <A NAME="3338"></A>
+
+<P>
+So, for example, you might mount a CD at the mount point <TT>/cdrom</TT>. This
+means that if you look in the directory <TT>/cdrom</TT>, you'll see the contents
+of the CD. The <TT>/cdrom</TT> directory itself is actually on your hard disk.
+For all practical purposes, the contents of the CD become a part of the root
+filesystem, and when you type commands and use programs, it doesn't make any
+difference what the actual physical location of the files is. You could have
+created a directory on your hard disk called <TT>/cdrom</TT> and put some files
+in it, and everything would behave in exactly the same way. Once you mount a
+filesystem, there's no need to pay any attention to physical devices.
+
+<P>
+However, before you can mount a filesystem or actually create a filesystem on
+a disk that doesn't have one yet, it's necessary to refer to the devices themselves.
+All devices have names, which are located in the <TT>/dev</TT> directory. If
+you type <TT>ls&nbsp;/dev</TT> now, you'll see a pretty lengthy list of every possible
+device you could have on your Debian system. For a summary of some devices,
+see Table <A HREF="#Tab:_Linux_Device_Names">2.1</A> on page <A HREF="#Tab:_Linux_Device_Names"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>.
+A more thorough list can be found on your system in the file <TT>/usr/src/linux/Documentation/devices.txt</TT>.
+
+<P>
+To mount a filesystem, we want to tell Linux to associate whatever filesystem
+it finds on a particular device with a particular mount point. In the process,
+we might have to tell Linux what kind of filesystem to look for. <A NAME="3348"></A><A NAME="3349"></A><A NAME="3350"></A><A NAME="3351"></A><A NAME="3352"></A><A NAME="3353"></A>
+
+<P>
+
+<H2><A NAME="SECTION041022000000000000000">
+Example: Mounting a CD-ROM </A>
+</H2>
+
+<P>
+<A NAME="3355"></A><A NAME="3356"></A><A NAME="3357"></A><A NAME="3358"></A><A NAME="3359"></A><A NAME="3360"></A><A NAME="3361"></A><A NAME="3362"></A>As a simple demonstration, we'll go through mounting a CD-ROM, such as the one
+you may have used to install Debian. You'll need to be root to do this, so be
+careful; whenever you're root, you have the power to manipulate the whole system,
+not just your own files. Also, these commands assume there's a CD in your drive;
+you should put one in the drive now. Then start with the following command:
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>su
+</DD>
+</DL>If you haven't already, you need to either log in as root or gain root privileges
+with the <TT>su</TT> (super user) command. If you use <TT>su</TT>, enter the
+root password when prompted. 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>ls&nbsp;/cdrom
+</DD>
+</DL>Use this command to see what's in the <TT>/cdrom</TT> directory before you start.
+If you don't have a <TT>/cdrom</TT> directory, you may have to make one using
+<TT>mkdir&nbsp;/cdrom</TT>. 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>mount
+</DD>
+</DL>Simply typing <TT>mount</TT> with no arguments lists the currently mounted filesystems. <A NAME="3375"></A><A NAME="3376"></A><A NAME="3377"></A><A NAME="3378"></A>
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>mount&nbsp;-t&nbsp;iso9660&nbsp;<SPAN  CLASS="textit">CD-device</SPAN>&nbsp;/cdrom
+</DD>
+</DL>For this command, you should substitute the name of your CD-ROM device for <TT><SPAN  CLASS="textit">CD-device</SPAN></TT>
+in the above command line. If you aren't sure, <TT>/dev/cdrom</TT> is a good
+guess because the install process should have created this symbolic link on
+the system. If that fails, try the different IDE devices: <TT>/dev/hdc</TT>,
+etc. You should see a message like this: <TT>mount: block device /dev/hdc
+is write-protected, mounting read-only</TT>.
+
+<P>
+<A NAME="3386"></A><A NAME="3387"></A><A NAME="3388"></A><A NAME="3389"></A><A NAME="3390"></A><A NAME="3391"></A><A NAME="3392"></A><A NAME="3393"></A>The <TT>-t</TT> option specifies the type of the filesystem, in this case <TT>iso9660</TT>.
+Most CDs are <TT>iso9660</TT>. The next argument is the name of the device to
+mount, and the final argument is the mount point. There are many other arguments
+for <TT>mount</TT>; see the manual page for details. 
+
+<P>
+Once a CD is mounted, you may find that your drive tray will not open. You must
+unmount the CD before removing it. 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>ls&nbsp;/cdrom
+</DD>
+</DL>Confirms that <TT>/cdrom</TT> now contains whatever is on the CD in your drive. 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>mount
+</DD>
+</DL>Displays the list of filesystems again; notice that your CD drive is now mounted. 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>umount&nbsp;/cdrom
+</DD>
+</DL>This  <A NAME="3405"></A><A NAME="3406"></A>unmounts the CD. It's now safe to remove the CD from the drive. Notice
+that the command is <TT>umount</TT> with no ``n,'' even though it's used to
+u<SPAN  CLASS="textit">n</SPAN>mount the filesystem. 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>exit
+</DD>
+</DL>Don't leave yourself logged on as root. Log out immediately, just to be safe. 
+
+<P>
+
+<H2><A NAME="SECTION041023000000000000000">
+<TT>/etc/fstab</TT>: Automating the Mount Process</A>
+</H2>
+
+<P>
+<A NAME="3412"></A><A NAME="3413"></A><A NAME="3414"></A><A NAME="3415"></A><A NAME="3416"></A><A NAME="3417"></A>The file <TT>/etc/fstab</TT> (it stands for ``filesystem table'') contains
+descriptions of filesystems that you mount often. These filesystems can then
+be mounted with a shorter command, such as <TT>mount&nbsp;/cdrom</TT>. You can also
+configure filesystems to mount automatically when the system boots. You'll probably
+want to mount all of your hard disk filesystems when you boot, so Debian automatically
+adds entries to <TT>fstab</TT> to do this for you.
+
+<P>
+Look at this file now by typing <TT>more&nbsp;/etc/fstab</TT>. It will have two or
+more entries that were configured automatically when you installed the system.
+It probably looks something like this: 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD><SMALL CLASS="SMALL">#&nbsp;/etc/fstab:&nbsp;static&nbsp;file&nbsp;system&nbsp;information.</SMALL>
+<P>
+
+
+<P>
+<SMALL CLASS="SMALL">#</SMALL>
+<P>
+
+
+<P>
+<SMALL CLASS="SMALL">#&nbsp;&lt;file&nbsp;system&gt;&nbsp;&lt;mount&nbsp;point&gt;&nbsp;&lt;type&gt;&nbsp;&lt;options&gt; #&lt;dump&nbsp;&gt;&nbsp;&lt;pass&gt;</SMALL>
+<P>
+
+
+<P>
+<SMALL CLASS="SMALL">/dev/hda1&nbsp;/&nbsp;ext2&nbsp;defaults&nbsp;0&nbsp;1</SMALL>
+<P>
+
+
+<P>
+<SMALL CLASS="SMALL">/dev/hda3&nbsp;none&nbsp;swap&nbsp;sw&nbsp;0&nbsp;0</SMALL>
+<P>
+
+
+<P>
+<SMALL CLASS="SMALL">proc&nbsp;/proc&nbsp;proc&nbsp;defaults&nbsp;0&nbsp;0</SMALL>
+<P>
+
+
+<P>
+<SMALL CLASS="SMALL">/dev/hda5&nbsp;/tmp&nbsp;ext2&nbsp;defaults&nbsp;0&nbsp;2</SMALL>
+<P>
+
+
+<P>
+<SMALL CLASS="SMALL">/dev/hda6&nbsp;/home&nbsp;ext2&nbsp;defaults&nbsp;0&nbsp;2</SMALL>
+<P>
+
+
+<P>
+<SMALL CLASS="SMALL">/dev/hda7&nbsp;/usr&nbsp;ext2&nbsp;defaults&nbsp;0&nbsp;2</SMALL>
+<P>
+
+
+<P>
+<SMALL CLASS="SMALL">/dev/hdc&nbsp;/cdrom&nbsp;iso9660&nbsp;ro,noauto&nbsp;0&nbsp;0</SMALL>
+<P>
+
+
+<P>
+<SMALL CLASS="SMALL">/dev/fd0&nbsp;/floppy&nbsp;auto&nbsp;noauto,sync&nbsp;0&nbsp;0</SMALL>
+<P>
+
+</DD>
+</DL>The first column lists the device the filesystem resides on. The second lists
+the mount point, the third indicates the filesystem type. The line beginning
+by <TT>proc</TT> is a special filesystem. Notice that the swap partition (<TT>/dev/hda3</TT>
+in the example) has no mount point, so the mount point column contains <TT>none</TT>. <A NAME="3449"></A><A NAME="3450"></A><A NAME="3451"></A><A NAME="3452"></A><A NAME="3453"></A><A NAME="3454"></A>
+
+<P>
+The last three columns may require some explanation. 
+
+<P>
+The fifth column is used by the <TT>dump</TT> utility to decide when to back
+up the filesystem. In most cases, you can put <TT>0</TT> here. 
+
+<P>
+The sixth column is used by <TT>fsck</TT> to decide in what order to check filesystems
+when you boot the system. The root filesystem should have a <TT>1</TT> in this
+field, filesystems that don't need to be checked (such as the swap partition)
+should have a <TT>0</TT>, and all other filesystems should have a <TT>2</TT>.
+It's worth noting that the swap partition isn't exactly a filesystem in the
+sense that it does not contain files and directories but is just used by the
+Linux kernel as secondary memory. However, for historical reasons, the swap
+partitions are still listed in the same file as the filesystems. 
+
+<P>
+Column four contains one or more options to use when mounting the filesystem.
+You can check the <TT>mount</TT> manpage for a summary; see section <A HREF="node47.html#man_pages">5.1</A>
+on page <A HREF="node47.html#man_pages"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>.
+
+<P>
+
+<H2><A NAME="SECTION041024000000000000000"></A><A NAME="3464"></A><A NAME="3465"></A>
+<A NAME="3466"></A><A NAME="3467"></A><A NAME="3468"></A><A NAME="3469"></A><A NAME="3470"></A><A NAME="3471"></A><A NAME="3472"></A><A NAME="3473"></A><A NAME="3474"></A><A NAME="3475"></A>
+<BR>
+Removable Disks (Floppies, Zip Disks, Etc.) 
+</H2>
+Add the following lines to your <TT>/etc/fstab</TT> file: 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>/dev/sda1&nbsp;/mnt/zip&nbsp;ext2&nbsp;noauto,user&nbsp;0&nbsp;0&nbsp;
+
+<P>
+/dev/sda4&nbsp;/mnt/dos&nbsp;msdos&nbsp;noauto,user&nbsp;0&nbsp;0&nbsp;
+</DD>
+</DL>From now on, you'll be able to mount the DOS-formatted Zip disks with the command
+<TT>mount&nbsp;/mnt/dos</TT>, and you be able to mount Linux-formatted Zip disks
+with the command <TT>mount&nbsp;/mnt/zip</TT>. 
+
+<P>
+If you have SCSI hard disks in your system, you'll have to change <TT>sda</TT>
+to <TT>sdb</TT> or <TT>sdc</TT> in the example above.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1751"
+  HREF="node80.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1745"
+  HREF="node77.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1739"
+  HREF="node78.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1747"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1749"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1752"
+  HREF="node80.html">Backup Tools</A>
+<B> Up:</B> <A NAME="tex2html1746"
+  HREF="node77.html">Filesystems</A>
+<B> Previous:</B> <A NAME="tex2html1740"
+  HREF="node78.html">Concepts</A>
+ &nbsp <B>  <A NAME="tex2html1748"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1750"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>

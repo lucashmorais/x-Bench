@@ -1,0 +1,117 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Managing Your Identity </TITLE>
+<META NAME="description" CONTENT="Managing Your Identity ">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="previous" HREF="node52.html">
+<LINK REL="up" HREF="node46.html">
+<LINK REL="next" HREF="node54.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1350"
+  HREF="node54.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1344"
+  HREF="node46.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1340"
+  HREF="node52.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1346"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1348"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1351"
+  HREF="node54.html">Using the Shell</A>
+<B> Up:</B> <A NAME="tex2html1345"
+  HREF="node46.html">The Basics</A>
+<B> Previous:</B> <A NAME="tex2html1341"
+  HREF="node52.html">A Few bash Features</A>
+ &nbsp <B>  <A NAME="tex2html1347"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1349"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION04570000000000000000">
+Managing Your Identity </A>
+</H1>
+
+<P>
+<A NAME="2128"></A><A NAME="2129"></A><A NAME="2130"></A><A NAME="2131"></A><A NAME="2132"></A>Unix-like systems are multiuser, and so you have your own electronic identity
+as a user on the system. Type <TT>finger</TT>&nbsp;<TT><SPAN  CLASS="textit">yourusername</SPAN></TT> to
+look at some of the information about you that's publically available. To change
+the name and shell listed there, you can use the commands <TT>chfn</TT> and
+<TT>chsh</TT>. Only the superuser can change your login (username) and directory.
+You'll notice that it says ``No plan.'' A ``plan'' is just some information
+you can make available to others. To create a plan, you put whatever information
+you want people to see in a file called <TT>.plan</TT>. To do this you'll use
+a text editor; see section <A HREF="node70.html#editor">8.2</A> on page <A HREF="node70.html#editor"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="crossref.png"></A>. Then <TT>finger</TT>
+yourself to see your plan. Others can <TT>finger</TT> you to see your plan and
+to check whether you've received new mail or read your mail. 
+
+<P>
+<A NAME="2142"></A><A NAME="2143"></A><A NAME="2144"></A><A NAME="2145"></A><A NAME="2146"></A><A NAME="2147"></A>Note that this finger information is available to the entire Internet by default.
+If you don't want this, read about configuring <TT>inetd</TT> and the file <TT>/etc/services</TT>.
+Eventually the installation manual will describe this configuration, but for
+now you might try the man pages or just put nonsense in for your finger information.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1350"
+  HREF="node54.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1344"
+  HREF="node46.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1340"
+  HREF="node52.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1346"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1348"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1351"
+  HREF="node54.html">Using the Shell</A>
+<B> Up:</B> <A NAME="tex2html1345"
+  HREF="node46.html">The Basics</A>
+<B> Previous:</B> <A NAME="tex2html1341"
+  HREF="node52.html">A Few bash Features</A>
+ &nbsp <B>  <A NAME="tex2html1347"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1349"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>

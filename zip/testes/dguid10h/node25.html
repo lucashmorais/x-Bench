@@ -1,0 +1,159 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Initialize a Linux Partition</TITLE>
+<META NAME="description" CONTENT="Initialize a Linux Partition">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="next" HREF="node26.html">
+<LINK REL="previous" HREF="node24.html">
+<LINK REL="up" HREF="node18.html">
+<LINK REL="next" HREF="node26.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html931"
+  HREF="node26.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html925"
+  HREF="node18.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html919"
+  HREF="node24.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html927"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html929"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html932"
+  HREF="node26.html">Install Operating System Kernel</A>
+<B> Up:</B> <A NAME="tex2html926"
+  HREF="node18.html">Step-by-Step Installation</A>
+<B> Previous:</B> <A NAME="tex2html920"
+  HREF="node24.html">Initialize and Activate a</A>
+ &nbsp <B>  <A NAME="tex2html928"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html930"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html933"
+  HREF="#SECTION04371000000000000000">Mount a Previously-Initialized Partition</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION04370000000000000000"></A><A NAME="init-partition"></A><A NAME="672"></A>
+<BR>
+Initialize a Linux Partition
+</H1>
+
+<P>
+<A NAME="673"></A><A NAME="674"></A><A NAME="675"></A><A NAME="676"></A><A NAME="677"></A><A NAME="678"></A><A NAME="679"></A><A NAME="680"></A>At this point, the next menu item presented should be ``Initialize a Linux
+Partition.''  If it isn't, either you haven't completed the disk partitioning
+process, or you haven't made one of the menu choices dealing with your swap
+partition. 
+
+<P>
+You can initialize a Linux partition, or alternately you can mount a previously
+initialized one.  Note that <TT>dbootstrap</TT> will <SPAN  CLASS="textit">not</SPAN> upgrade an
+old system without destroying it.  If you're upgrading, Debian can usually upgrade
+itself, and you won't need to use <TT>dbootstrap</TT>. The Debian 2.1 release
+notes contain <A NAME="tex2html24"
+  HREF="http://www.debian.org/releases/slink/i386/release-notes/ch-upgrading.en.html">upgrade instructions</A>.
+
+<P>
+If you are using old disk partitions that are not empty, i.e., if you want to
+just throw away what is on them, you should initialize them (which erases all
+files).  Moreover, you must initialize any partitions that you created in the
+disk partitioning step.  About the only reason to mount a partition without
+initializing it at this point would be to mount a partition upon which you have
+already performed some part of the installation process using this same set
+of installation floppies.
+
+<P>
+<A NAME="686"></A><A NAME="687"></A><A NAME="688"></A><A NAME="689"></A><A NAME="690"></A><A NAME="691"></A><A NAME="692"></A><A NAME="693"></A><A NAME="694"></A>Select the ``Next'' menu item to initialize and mount the <TT>/</TT> disk
+partition. The first partition that you mount or initialize will be the one
+mounted as <TT>/</TT> (pronounced ``root''). You will be offered the choice
+to scan the disk partition for bad blocks, as you were when you initialized
+the swap partition. It never hurts to scan for bad blocks, but it could take
+10 minutes or more to do so if you have a large disk.
+
+<P>
+Once you've mounted the <TT>/</TT> partition, the ``Next'' menu item will
+be ``Install Operating System Kernel and Modules'' unless you've already performed
+some of the installation steps. You can use the arrow keys to select the menu
+items to initialize or to mount disk partitions if you have any more partitions
+to set up. If you have created separate partitions for <TT>/var</TT>, <TT>/usr</TT>,
+or other filesystems, you should initialize or mount them now.
+
+<P>
+
+<H2><A NAME="SECTION04371000000000000000">
+Mount a Previously-Initialized Partition</A>
+</H2>
+
+<P>
+<A NAME="701"></A><A NAME="702"></A><A NAME="703"></A>An alternative to the ``Initialize a Partition'' step is the ``Mount a Previously-Initialized
+Partition'' step.  Use this if you are resuming an installation that was interrupted
+or if you want to mount partitions that have already been initialized.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html931"
+  HREF="node26.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html925"
+  HREF="node18.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html919"
+  HREF="node24.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html927"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html929"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html932"
+  HREF="node26.html">Install Operating System Kernel</A>
+<B> Up:</B> <A NAME="tex2html926"
+  HREF="node18.html">Step-by-Step Installation</A>
+<B> Previous:</B> <A NAME="tex2html920"
+  HREF="node24.html">Initialize and Activate a</A>
+ &nbsp <B>  <A NAME="tex2html928"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html930"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>

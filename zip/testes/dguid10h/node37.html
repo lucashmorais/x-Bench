@@ -1,0 +1,142 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Select and Install Profiles</TITLE>
+<META NAME="description" CONTENT="Select and Install Profiles">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="next" HREF="node38.html">
+<LINK REL="previous" HREF="node36.html">
+<LINK REL="up" HREF="node18.html">
+<LINK REL="next" HREF="node38.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1102"
+  HREF="node38.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1096"
+  HREF="node18.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1090"
+  HREF="node36.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1098"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1100"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1103"
+  HREF="node38.html">Package Installation with dselect</A>
+<B> Up:</B> <A NAME="tex2html1097"
+  HREF="node18.html">Step-by-Step Installation</A>
+<B> Previous:</B> <A NAME="tex2html1091"
+  HREF="node36.html">Remove PCMCIA</A>
+ &nbsp <B>  <A NAME="tex2html1099"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1101"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION043190000000000000000">
+Select and Install Profiles</A>
+</H1>
+
+<P>
+<A NAME="825"></A><A NAME="826"></A><A NAME="827"></A><A NAME="828"></A><A NAME="829"></A><A NAME="830"></A>The system will now ask you if you want to use the pre-rolled software configurations
+offered by Debian. You can always choose package-by-package what you want to
+install on your new machine.  This is the purpose of the <TT>dselect</TT> program,
+described below.  But this can be a long task with the thousands of packages
+available in Debian!    
+
+<P>
+So, you have the ability to choose <SPAN  CLASS="textit">tasks</SPAN> or <SPAN  CLASS="textit">profiles</SPAN> instead.
+A <SPAN  CLASS="textit">task</SPAN> is work you will do with the machine, such as ``Perl programming''
+or ``HTML authoring'' or ``Chinese word processing.'' You can choose several
+tasks. A <SPAN  CLASS="textit">profile</SPAN> is a category your machine will be a member of, such
+as ``Network server'' or ``Personal workstation.'' Unlike with tasks, you
+can choose only one profile.
+
+<P>
+To summarize, if you are in a hurry, choose one profile. If you have more time,
+choose the Custom profile and select a set of tasks. If you have plenty of time
+and want very precise control on what is or is not installed, skip this step
+and use the full power of <TT>dselect</TT>.    
+
+<P>
+<A NAME="837"></A><A NAME="838"></A><A NAME="839"></A><A NAME="840"></A><A NAME="841"></A><A NAME="842"></A><A NAME="843"></A><A NAME="844"></A>Soon, you will enter into <TT>dselect</TT>. If you selected tasks or profiles,
+remember to skip the ``Select'' step of <TT>dselect</TT>, because the selections
+have already been made.    
+
+<P>
+<A NAME="847"></A><A NAME="848"></A><A NAME="849"></A><A NAME="850"></A><A NAME="851"></A><A NAME="852"></A>A word of warning about the size of the tasks as they are displayed: The size
+shown for each task is the sum of the sizes of its packages.  If you choose
+two tasks that share some packages, the actual disk requirement will be less
+than the sum of the sizes for the two tasks.    
+
+<P>
+Once you've added both logins (root and personal), you'll be dropped into the
+<TT>dselect</TT> program.&nbsp;<TT>dselect</TT> allows you to select <SPAN  CLASS="textit">packages</SPAN>
+to be installed on your system. If you have a CD-ROM or hard disk containing
+the additional Debian packages that you want to install on your system, or if
+you are connected to the Internet, this will be useful to you right away. Otherwise,
+you may want to quit <TT>dselect</TT> and start it later after you have transported
+the Debian package files to your system. You must be the superuser (root) when
+you run <TT>dselect</TT>.  Information on how to use <TT>dselect</TT> is given
+in section <A HREF="node38.html#dselect">3.20</A>.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1102"
+  HREF="node38.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1096"
+  HREF="node18.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1090"
+  HREF="node36.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1098"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1100"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1103"
+  HREF="node38.html">Package Installation with dselect</A>
+<B> Up:</B> <A NAME="tex2html1097"
+  HREF="node18.html">Step-by-Step Installation</A>
+<B> Previous:</B> <A NAME="tex2html1091"
+  HREF="node36.html">Remove PCMCIA</A>
+ &nbsp <B>  <A NAME="tex2html1099"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1101"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>

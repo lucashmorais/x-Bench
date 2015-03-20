@@ -1,0 +1,152 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Introduction to X </TITLE>
+<META NAME="description" CONTENT="Introduction to X ">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="next" HREF="node74.html">
+<LINK REL="previous" HREF="node72.html">
+<LINK REL="up" HREF="node72.html">
+<LINK REL="next" HREF="node74.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1657"
+  HREF="node74.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1651"
+  HREF="node72.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1645"
+  HREF="node72.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1653"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1655"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1658"
+  HREF="node74.html">Starting the X Environment</A>
+<B> Up:</B> <A NAME="tex2html1652"
+  HREF="node72.html">The X Window System</A>
+<B> Previous:</B> <A NAME="tex2html1646"
+  HREF="node72.html">The X Window System</A>
+ &nbsp <B>  <A NAME="tex2html1654"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1656"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION04910000000000000000">
+Introduction to X </A>
+</H1>
+
+<P>
+<A NAME="3078"></A><A NAME="3079"></A>A GUI (Graphical User Interface) is part and parcel of the Windows and Mac operating
+systems. It's basically impossible to write an application for those systems
+that does not use the GUI, and the systems can't be used effectively from the
+command line. GNU/Linux is more <SPAN  CLASS="textit">modular</SPAN>, that is, it's made up of many
+small, independent components that can be used or not according to one's needs
+and preferences. One of these components is the X Window system, or simply X.
+
+<P>
+This component is also sometimes called X11. Please note that ``X Windows''
+is <SPAN  CLASS="textit">not</SPAN> correct.
+
+<P>
+X itself is a means for programs to talk to your mouse and video card without
+knowing what kind of mouse and video card you have. That is, it's an <SPAN  CLASS="textit">abstraction</SPAN><A NAME="3083"></A><A NAME="3084"></A><A NAME="3085"></A><A NAME="3086"></A>
+of the graphics hardware. User applications talk to X in X's language; X then
+translates into the language of your particular hardware. This means that programs
+only have to be written once, and they work on everyone's computer. 
+
+<P>
+<A NAME="3087"></A><A NAME="3088"></A><A NAME="3089"></A><A NAME="3090"></A><A NAME="3091"></A>In X jargon, the program that speaks to the hardware is known as an <SPAN  CLASS="textit">X
+server</SPAN>. User applications that ask the X server to show windows or graphics
+on the screen are called <SPAN  CLASS="textit">X clients</SPAN>. The X server includes a <SPAN  CLASS="textit">video
+driver</SPAN>, so you must have an X server that matches your video card.
+
+<P>
+The X server doesn't provide any of the features one might expect from a GUI,
+such as resizing and rearranging windows. A special X client, called a <SPAN  CLASS="textit">window
+manager</SPAN><A NAME="3096"></A><A NAME="3097"></A><A NAME="3098"></A>, draws borders and title bars for windows, resizes and arranges windows,
+and provides facilities for starting other X clients from a menu. Specific window
+managers may have additional features. 
+
+<P>
+Window managers available on a Debian system include <TT>fvwm</TT>, <TT>fvwm2</TT>,
+<TT>icewm</TT>, <TT>afterstep</TT>, <TT>olvwm</TT>, <TT>wmaker</TT>, <TT>twm</TT>,
+and <TT>enlightenment</TT>. You'll probably want to try them all and pick your
+favorite. 
+
+<P>
+<A NAME="3107"></A><A NAME="3108"></A><A NAME="3109"></A><A NAME="3110"></A><A NAME="3111"></A><A NAME="3112"></A><A NAME="3113"></A><A NAME="3114"></A>Neither the X server nor the window manager provide a <SPAN  CLASS="textit">file manager</SPAN>;
+that is, there aren't any windows containing icons for your files and directories.
+You can launch a file manager as a separate application, and there are many
+of them available. The GNOME desktop project<A NAME="3116"></A> is developing an icon-based file
+manager and other GUI facilities. See the <A NAME="tex2html38"
+  HREF="http://www.gnome.org/">GNOME homepage</A>
+for the latest news on this.
+
+<P>
+<A NAME="3119"></A><A NAME="3120"></A><A NAME="3121"></A><A NAME="3122"></A><A NAME="3123"></A>A final feature of X is its <SPAN  CLASS="textit">network transparency</SPAN>, meaning that X clients
+don't care if they're talking to an X server on the same machine or an X server
+somewhere on the network. In practical terms, this means you can run a program
+on a more powerful remote machine but display it on your desktop computer. 
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1657"
+  HREF="node74.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1651"
+  HREF="node72.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1645"
+  HREF="node72.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1653"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1655"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1658"
+  HREF="node74.html">Starting the X Environment</A>
+<B> Up:</B> <A NAME="tex2html1652"
+  HREF="node72.html">The X Window System</A>
+<B> Previous:</B> <A NAME="tex2html1646"
+  HREF="node72.html">The X Window System</A>
+ &nbsp <B>  <A NAME="tex2html1654"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1656"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>

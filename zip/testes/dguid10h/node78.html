@@ -1,0 +1,133 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Concepts </TITLE>
+<META NAME="description" CONTENT="Concepts ">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="next" HREF="node79.html">
+<LINK REL="previous" HREF="node77.html">
+<LINK REL="up" HREF="node77.html">
+<LINK REL="next" HREF="node79.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1737"
+  HREF="node79.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1731"
+  HREF="node77.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1725"
+  HREF="node77.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1733"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1735"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1738"
+  HREF="node79.html">mount and /etc/fstab</A>
+<B> Up:</B> <A NAME="tex2html1732"
+  HREF="node77.html">Filesystems</A>
+<B> Previous:</B> <A NAME="tex2html1726"
+  HREF="node77.html">Filesystems</A>
+ &nbsp <B>  <A NAME="tex2html1734"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1736"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION041010000000000000000">
+Concepts </A>
+</H1>
+
+<P>
+It's probably a good idea to explain a little theory before discussing the mechanics
+of using disks. In particular, you must understand the concept of a <SPAN  CLASS="textit">filesystem</SPAN>.
+This can be a bit confusing because it has several meanings. 
+
+<P>
+<SPAN  CLASS="textit">The</SPAN> filesystem refers to the whole directory tree, starting with the
+root directory <TT>/</TT>, as described in earlier chapters. 
+
+<P>
+<A NAME="3304"></A><A NAME="3305"></A><A NAME="3306"></A><A NAME="3307"></A>A filesystem in general means any organization of files and directories on a
+particular physical device. ``Organization'' means the hierarchical directory
+structure and any other information about files one might want to keep track
+of: their size, who has permission to change them, etc. So you might have one
+filesystem on your hard disk, and another one on each floppy disk. 
+
+<P>
+``Filesystem'' is also used to mean a <SPAN  CLASS="textit">type</SPAN> of filesystem. For example,
+MS-DOS and Windows 3.1 organize files in a particular way, with particular rules:
+Filenames can have only eight characters, for example, and no permission information
+is stored. <A NAME="3309"></A><A NAME="3310"></A><A NAME="3311"></A><A NAME="3312"></A>Linux calls this the <TT>msdos</TT> filesystem. Linux also has its
+own filesystem, called the <TT>ext2</TT> filesystem (version two of the <TT>ext</TT>
+filesystem). You'll use the <TT>ext2</TT> filesystem most of the time unless
+you're accessing files from another operating system or have other special needs. 
+
+<P>
+Any physical device you wish to use for storing files must have at least one
+filesystem on it. This means a filesystem in the second sense - a hierarchy
+of files and directories, along with information about them. Of course, any
+filesystem has a type, so the third sense will come into play as well. If you
+have more than one filesystem on a single device, each filesystem can have a
+different type - for example, you might have both a DOS partition and a Linux
+partition on your hard disk.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1737"
+  HREF="node79.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1731"
+  HREF="node77.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1725"
+  HREF="node77.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1733"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1735"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1738"
+  HREF="node79.html">mount and /etc/fstab</A>
+<B> Up:</B> <A NAME="tex2html1732"
+  HREF="node77.html">Filesystems</A>
+<B> Previous:</B> <A NAME="tex2html1726"
+  HREF="node77.html">Filesystems</A>
+ &nbsp <B>  <A NAME="tex2html1734"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1736"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>

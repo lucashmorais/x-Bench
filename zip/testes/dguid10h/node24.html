@@ -1,0 +1,131 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Initialize and Activate a Swap Partition</TITLE>
+<META NAME="description" CONTENT="Initialize and Activate a Swap Partition">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="next" HREF="node25.html">
+<LINK REL="previous" HREF="node23.html">
+<LINK REL="up" HREF="node18.html">
+<LINK REL="next" HREF="node25.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html917"
+  HREF="node25.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html911"
+  HREF="node18.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html905"
+  HREF="node23.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html913"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html915"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html918"
+  HREF="node25.html">Initialize a Linux Partition</A>
+<B> Up:</B> <A NAME="tex2html912"
+  HREF="node18.html">Step-by-Step Installation</A>
+<B> Previous:</B> <A NAME="tex2html906"
+  HREF="node23.html">Partition a Hard Disk</A>
+ &nbsp <B>  <A NAME="tex2html914"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html916"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION04360000000000000000"></A><A NAME="651"></A>
+<BR>
+Initialize and Activate a Swap Partition
+</H1>
+
+<P>
+<A NAME="652"></A><A NAME="653"></A><A NAME="654"></A><A NAME="655"></A><A NAME="656"></A><A NAME="657"></A>This will be the ``Next'' menu item once you have created one disk partition.
+You have the choice of initializing and activating a new swap partition, activating
+a previously-initialized one, or doing without a swap partition.
+
+<P>
+A swap partition is strongly recommended, but you can do without one if you
+insist and if your system has more than 4MB RAM. If you wish to do this, select
+the ``Do Without a Swap Partition'' item from the menu and move on to the
+next section.
+
+<P>
+<A NAME="658"></A><A NAME="659"></A><A NAME="660"></A><A NAME="661"></A><A NAME="662"></A><A NAME="663"></A><A NAME="664"></A><A NAME="665"></A><A NAME="666"></A><A NAME="667"></A><A NAME="668"></A><A NAME="669"></A>It's always permissible to reinitialize a swap partition, so select ``Initialize
+and Activate a Swap Partition'' unless you are sure you know what you are doing.
+This menu choice will first present you with a dialog box reading ``Please
+select the partition to activate as a swap device.''  The default device presented
+should be the swap partition you've already set up; if so, just press <TT><SPAN  CLASS="textit"><SPAN  CLASS="textit">Enter</SPAN></SPAN></TT>.
+
+<P>
+Next you have the option to scan the entire partition for unreadable disk blocks
+caused by defects on the surface of the hard disk platters. This is useful if
+you have MFM, RLL, or older SCSI disks, and it never hurts (although it can
+be time-consuming).  Properly working disks in most modern systems don't require
+this step, because they have their own internal mechanisms for mapping out bad
+disk blocks.    
+
+<P>
+Finally, there is a confirmation message because initialization will destroy
+any data previously on the partition.  If all is well, select ``Yes.''  The
+screen will flash as the initialization program runs.  
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html917"
+  HREF="node25.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html911"
+  HREF="node18.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html905"
+  HREF="node23.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html913"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html915"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html918"
+  HREF="node25.html">Initialize a Linux Partition</A>
+<B> Up:</B> <A NAME="tex2html912"
+  HREF="node18.html">Step-by-Step Installation</A>
+<B> Previous:</B> <A NAME="tex2html906"
+  HREF="node23.html">Partition a Hard Disk</A>
+ &nbsp <B>  <A NAME="tex2html914"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html916"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,148 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Configuration Files</TITLE>
+<META NAME="description" CONTENT="Configuration Files">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="next" HREF="node58.html">
+<LINK REL="previous" HREF="node56.html">
+<LINK REL="up" HREF="node54.html">
+<LINK REL="next" HREF="node58.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1414"
+  HREF="node58.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1408"
+  HREF="node54.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1402"
+  HREF="node56.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1410"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1412"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1415"
+  HREF="node58.html">Aliases</A>
+<B> Up:</B> <A NAME="tex2html1409"
+  HREF="node54.html">Using the Shell</A>
+<B> Previous:</B> <A NAME="tex2html1403"
+  HREF="node56.html">Where Commands Reside: The</A>
+ &nbsp <B>  <A NAME="tex2html1411"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1413"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html1416"
+  HREF="#SECTION04631000000000000000">System-Wide Versus User-Specific
+<BR>
+Configuration</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION04630000000000000000">
+Configuration Files</A>
+</H1>
+
+<P>
+<A NAME="2313"></A><A NAME="2314"></A>Many applications on Linux systems allow you to alter how they behave at certain
+times by altering files containing configuration information. These configuration
+files may contain application start-up information, run-time settings and application
+shutdown settings. In general, a configuration filename is based on the name
+of the application for which it contains settings. Such a naming convention
+allows you to more readily determine which configuration file contains settings
+for a given application.
+
+<P>
+
+<H2><A NAME="SECTION04631000000000000000">
+System-Wide Versus User-Specific
+<BR>
+Configuration</A>
+</H2>
+
+<P>
+<A NAME="2316"></A><A NAME="2317"></A><A NAME="2318"></A><A NAME="2319"></A><A NAME="2320"></A><A NAME="2321"></A>It's important to remember that there are two different kinds of configurations
+on a Debian system. <SPAN  CLASS="textit">System-wide configuration</SPAN> affects all users. System-wide
+settings are made in the <TT>/etc</TT> directory, so you generally must be root
+in order to change system-wide settings. You might configure the way the system
+connects to the Internet, for example, or have web browsers on the system always
+start on the company home page. Since you want these settings to apply to all
+users, you make the changes in <TT>/etc</TT>. Sample configuration files in
+<TT>/etc</TT> include <TT>/etc/X11/XF86Config</TT>, <TT>/etc/lynx.cfg</TT>,
+and <TT>/etc/ppp/options</TT>. In fact, nearly all the files in <TT>/etc</TT>
+are configuration files. 
+
+<P>
+<A NAME="2330"></A><A NAME="2331"></A><A NAME="2332"></A><A NAME="2333"></A><A NAME="2334"></A><A NAME="2335"></A><SPAN  CLASS="textit">User configuration</SPAN> affects only a single user. Dotfiles <A NAME="2337"></A><A NAME="2338"></A><A NAME="2339"></A><A NAME="2340"></A>are used for
+user configuration. For example, the file <TT>~/.newsrc</TT> stores a list
+of which USENET (discussion group) articles you have read and which groups you
+subscribe to. This allows news readers such as&nbsp;<TT>trn</TT> or GNUS to display
+unread articles in the groups you're interested in. This information will be
+different for every user on the system, so each user has his own <TT>.newsrc</TT>
+file in his home directory.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1414"
+  HREF="node58.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1408"
+  HREF="node54.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1402"
+  HREF="node56.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1410"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1412"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1415"
+  HREF="node58.html">Aliases</A>
+<B> Up:</B> <A NAME="tex2html1409"
+  HREF="node54.html">Using the Shell</A>
+<B> Previous:</B> <A NAME="tex2html1403"
+  HREF="node56.html">Where Commands Reside: The</A>
+ &nbsp <B>  <A NAME="tex2html1411"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1413"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>

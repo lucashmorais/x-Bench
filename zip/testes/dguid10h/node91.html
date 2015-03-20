@@ -1,0 +1,630 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Advanced Files</TITLE>
+<META NAME="description" CONTENT="Advanced Files">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="next" HREF="node92.html">
+<LINK REL="previous" HREF="node90.html">
+<LINK REL="up" HREF="node89.html">
+<LINK REL="next" HREF="node92.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1941"
+  HREF="node92.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1935"
+  HREF="node89.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1929"
+  HREF="node90.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1937"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1939"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1942"
+  HREF="node92.html">Security</A>
+<B> Up:</B> <A NAME="tex2html1936"
+  HREF="node89.html">Advanced Topics</A>
+<B> Previous:</B> <A NAME="tex2html1930"
+  HREF="node90.html">Regular Expressions</A>
+ &nbsp <B>  <A NAME="tex2html1938"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1940"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html1943"
+  HREF="#SECTION041321000000000000000">The Real Nature of Files: Hard Links and Inodes</A>
+<LI><A NAME="tex2html1944"
+  HREF="#SECTION041322000000000000000">Types of Files</A>
+<UL>
+<LI><A NAME="tex2html1945"
+  HREF="#SECTION041322100000000000000">Symbolic Links </A>
+<LI><A NAME="tex2html1946"
+  HREF="#SECTION041322200000000000000">Device Files </A>
+<UL>
+<LI><A NAME="tex2html1947"
+  HREF="#SECTION041322210000000000000"><TT>/dev/null</TT></A>
+</UL>
+<LI><A NAME="tex2html1948"
+  HREF="#SECTION041322300000000000000">Named Pipes (FIFOs) </A>
+<LI><A NAME="tex2html1949"
+  HREF="#SECTION041322400000000000000">Sockets</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html1950"
+  HREF="#SECTION041323000000000000000">The <TT>proc</TT> Filesystem </A>
+<LI><A NAME="tex2html1951"
+  HREF="#SECTION041324000000000000000">Large-Scale Copying</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION041320000000000000000">
+Advanced Files</A>
+</H1>
+
+<P>
+Now that you have a basic understanding of files, it is time to learn more advanced
+things about them.
+
+<P>
+
+<H2><A NAME="SECTION041321000000000000000"></A><A NAME="advanced-files-hardlinks"></A>
+<BR>
+The Real Nature of Files: Hard Links and Inodes
+</H2>
+
+<P>
+<A NAME="3823"></A><A NAME="3824"></A><A NAME="3825"></A><A NAME="3826"></A><A NAME="3827"></A><A NAME="3828"></A><A NAME="3829"></A>Each file on your system is represented by an <SPAN  CLASS="textit">inode</SPAN> (for Information
+Node; pronounced ``eye-node''). An inode contains all the information about
+the file. However, the inode is not directly visible. Instead, each inode is
+linked into the filesystem by one or more <SPAN  CLASS="textit">hard links</SPAN>. Hard links contain
+the name of the file and the inode number. The inode contains the file itself,
+i.e., the location of the information being stored on disk, its access permissions,
+the file type, and so on. The system can find any inode if it has the inode
+number.
+
+<P>
+A single file can have more than one hard link. What this means is that multiple
+filenames refer to the same file (that is, they are associated with the same
+inode number). However, you can't make hard links across filesystems: All hard
+references to a particular file (inode) must be on the same filesystem. This
+is because each filesystem has its own set of inodes, and there can be duplicate
+inode numbers on different filesystems. <A NAME="3832"></A>
+
+<P>
+Because all hard links to a given inode refer to <SPAN  CLASS="textit">the same file</SPAN>, you
+can make changes to the file, referring to it by one name, and then see those
+changes when referring to it by a different name. Try this: 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>cd;&nbsp;echo&nbsp;&#34;hello&#34;&nbsp;&gt;&nbsp;firstlink
+</DD>
+</DL><TT>cd</TT> to your home directory and create a file called <TT>firstlink</TT>
+containing the word ``hello.'' What you've actually done is redirect the output
+of <TT>echo</TT> (<TT>echo</TT> just echoes back what you give to it), placing
+the output in <TT>firstlink</TT>. See the chapter on shells for a full explanation.
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>cat&nbsp;firstlink
+</DD>
+</DL>Confirms the contents of <TT>firstlink</TT>.
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>ln&nbsp;firstlink&nbsp;secondlink
+</DD>
+</DL>Creates a hard link: <TT>secondlink</TT> now points to the same inode as <TT>firstlink</TT>.
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>cat&nbsp;secondlink
+</DD>
+</DL>Confirms that <TT>secondlink</TT> is the same as <TT>firstlink</TT>.
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>ls&nbsp;-l
+</DD>
+</DL>Notice that the number of hard links listed for <TT>firstlink</TT> and <TT>secondlink</TT>files!inodes<A NAME="3859"></A><A NAME="3860"></A><A NAME="3861"></A><A NAME="3862"></A><A NAME="3863"></A><A NAME="3864"></A><A NAME="3865"></A><A NAME="3866"></A><A NAME="3867"></A><A NAME="3868"></A><A NAME="3869"></A>
+is 2. 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>echo&nbsp;&#34;change&#34;&nbsp;&gt;&gt;&nbsp;secondlink
+</DD>
+</DL>This is another shell redirection trick (don't worry about the details). You've
+appended the word ``change'' to <TT>secondlink</TT>. Confirm this with <TT>cat
+secondlink</TT>. 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>cat&nbsp;firstlink
+</DD>
+</DL><TT>firstlink</TT> also has the word ``change'' appended! That's because <TT>firstlink</TT>
+and <TT>secondlink</TT> refer to <SPAN  CLASS="textit">the same file</SPAN>. It doesn't matter what
+you call it when you change it. 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>chmod&nbsp;a+rwx&nbsp;firstlink
+</DD>
+</DL>Changes permissions on <TT>firstlink</TT>. Enter the command <TT>ls&nbsp;-l</TT>
+to confirm that permissions on <TT>secondlink</TT> were also changed. This means
+that permissions information is stored in the inode, not in links. 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>rm&nbsp;firstlink
+</DD>
+</DL>Deletes this link. This is a subtlety of <TT>rm</TT>. It really removes links,
+not files. Now type <TT>ls&nbsp;-l</TT> and notice that <TT>secondlink</TT> is still
+there. Also notice that the number of hard links for <TT>secondlink</TT> has
+been reduced to one.<A NAME="3894"></A><A NAME="3895"></A><A NAME="3896"></A><A NAME="3897"></A><A NAME="3898"></A> 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>rm&nbsp;secondlink
+</DD>
+</DL>Deletes the other link. When there are no more links to a file, Linux deletes
+the file itself, that is, its inode. 
+
+<P>
+All files work like this - even special types of files such as devices (e.g.
+<TT>/dev/hda</TT>). 
+
+<P>
+A directory is simply a list of filenames and inode numbers, that is, a list
+of hard links. When you create a hard link, you're just adding a name-number
+pair to a directory. When you delete a file, you're just removing a hard link
+from a directory. <A NAME="3902"></A>
+
+<P>
+
+<H2><A NAME="SECTION041322000000000000000"></A><A NAME="file-types"></A>
+<BR>
+Types of Files
+</H2>
+
+<P>
+One detail we've been concealing up to now is that the Linux kernel considers
+nearly everything to be a file. That includes directories and devices: They're
+just special kinds of files. 
+
+<P>
+As you may remember, the first character of an <TT>ls&nbsp;-l</TT> display represents
+the type of the file. For an ordinary file, this will be simply <TT>-</TT>.
+Other possibilities include the following:
+
+<P>
+<DL>
+<DT><STRONG><TT>d</TT></STRONG></DT>
+<DD>directory
+</DD>
+<DT><STRONG><TT>l</TT></STRONG></DT>
+<DD>symbolic link
+</DD>
+<DT><STRONG><TT>b</TT></STRONG></DT>
+<DD>block device
+</DD>
+<DT><STRONG><TT>c</TT></STRONG></DT>
+<DD>character device
+</DD>
+<DT><STRONG><TT>p</TT></STRONG></DT>
+<DD>named pipe
+</DD>
+<DT><STRONG><TT>s</TT></STRONG></DT>
+<DD>socket
+</DD>
+</DL>
+
+<P>
+
+<H3><A NAME="SECTION041322100000000000000">
+Symbolic Links </A>
+</H3>
+
+<P>
+<A NAME="3915"></A><A NAME="3916"></A><A NAME="3917"></A><A NAME="3918"></A><A NAME="3919"></A><A NAME="3920"></A><A NAME="3921"></A>Symbolic links (also called ``symlinks'' or ``soft links'') are the other
+kind of link besides hard links. A symlink is a special file that ``points
+to'' a hard link on any mounted filesystem. When you try to read the contents
+of a symlink, it gives the contents of the file it's pointing to rather than
+the contents of the symlink itself. Because directories, devices, and other
+symlinks are types of files, you can point a symlink at any of those things.
+
+<P>
+So a hard link is a filename and an inode number. A file is really an inode:
+a location on disk, file type, permissions mode, etc. A symlink is an inode
+that contains the name of a hard link. A symlink pairs one filename with a second
+filename, whereas a hard link pairs a filename with an inode number.
+
+<P>
+All hard links to the same file have equal status. That is, one is as good as
+another; if you perform any operation on one, it's just the same as performing
+that operation on any of the others. This is because the hard links all refer
+to the same inode. Operations on symlinks, on the other hand, sometimes affect
+the symlink's own inode (the one containing the name of a hard link) and sometimes
+affect the hard link being pointed to.
+
+<P>
+There are a number of important differences between symlinks and hard links.
+
+<P>
+<A NAME="3922"></A><A NAME="3923"></A><A NAME="3924"></A><A NAME="3925"></A>Symlinks can cross filesystems. This is because they contain complete filenames,
+starting with the root directory, and all complete filenames are unique. Because
+hard links point to inode numbers, and inode numbers are unique only within
+a single filesystem, they would be ambiguous if the filesystem wasn't known. 
+
+<P>
+You can make symlinks to directories, but you can't make hard links to them.
+Each directory has hard links - its listing in its parent directory, its <TT>.</TT><A NAME="3927"></A>
+entry, and the <TT>..</TT> entry in each of its subdirectories - but to impose
+order on the filesystem, no other hard links to directories are allowed. Consequently,
+the number of files in a directory is equal to the number of hard links to that
+directory minus two (you subtract the directory's name and the <TT>.</TT> link).
+comparing!hard links and symlinks<A NAME="3931"></A><A NAME="3932"></A>
+You can only make a hard link to a file that exists, because there must be an
+inode number to refer to. However, you can make a symlink to any filename, whether
+or not there actually is such a filename.
+
+<P>
+<A NAME="3933"></A><A NAME="3934"></A><A NAME="3935"></A><A NAME="3936"></A><A NAME="3937"></A>Removing a symlink removes only the link. It has no effect on the linked-to
+file. Removing the only hard link to a file removes the file.
+
+<P>
+Try this:
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>cd;&nbsp;ln&nbsp;-s&nbsp;/tmp/me&nbsp;MyTmp
+</DD>
+</DL><TT>cd</TT> to your home directory. <TT>ln</TT> with the <TT>-s</TT> option
+makes a symbolic link - in this case, one called <TT>MyTmp</TT> that points
+to the filename <TT>/tmp/me</TT>.
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>ls&nbsp;-l&nbsp;MyTmp
+</DD>
+</DL>Output should look like this:
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD><SMALL CLASS="SMALL">lrwxrwxrwx&nbsp;1&nbsp;havoc&nbsp;havoc&nbsp;7&nbsp;Dec&nbsp;6&nbsp;12:50&nbsp;MyTmp&nbsp;-&gt;&nbsp;/tmp/me</SMALL>&nbsp;
+</DD>
+</DL>The date and user/group names will be different for you, of course. Notice that
+the file type is <TT>l</TT>, indicating that this is a symbolic link. Also notice
+the permissions: Symbolic links always have these permissions. If you attempt
+to <TT>chmod</TT> a symlink, you'll actually change the permissions on the file
+being pointed to. 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>chmod&nbsp;700&nbsp;MyTmp
+</DD>
+</DL>You will get a <TT>No&nbsp;such&nbsp;file&nbsp;or&nbsp;directory</TT> error, because the file <TT>/tmp/me</TT>
+doesn't exist. Notice that you could create a symlink to it anyway. 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>mkdir&nbsp;/tmp/me
+</DD>
+</DL>Creates the directory <TT>/tmp/me</TT>. 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>chmod&nbsp;700&nbsp;MyTmp
+</DD>
+</DL>Should work now. 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>touch&nbsp;MyTmp/myfile
+</DD>
+</DL>Creates a file in <TT>MyTmp</TT>. 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>ls&nbsp;/tmp/me
+</DD>
+</DL>The file is actually created in <TT>/tmp/me</TT>. 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>rm&nbsp;MyTmp
+</DD>
+</DL>Removes the symbolic link. Notice that this removes the link, not what it points
+to. Thus you use <TT>rm</TT> not <TT>rmdir</TT>.
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>rm&nbsp;/tmp/me/myfile;&nbsp;rmdir&nbsp;/tmp/me
+</DD>
+</DL>Lets you clean up after yourself. symlinks!removing<A NAME="3974"></A><A NAME="3975"></A><A NAME="3976"></A><A NAME="3977"></A>
+
+<P>
+
+<H3><A NAME="SECTION041322200000000000000">
+Device Files </A>
+</H3>
+
+<P>
+<A NAME="3979"></A><A NAME="3980"></A><A NAME="3981"></A><A NAME="3982"></A><A NAME="3983"></A><A NAME="3984"></A><A NAME="3985"></A><A NAME="3986"></A>Device files refer to physical or virtual devices on your system, such as your
+hard disk, video card, screen, and keyboard. An example of a virtual device
+is the console, represented by <TT>/dev/console</TT>.
+
+<P>
+There are two kinds of devices:character and block. <SPAN  CLASS="textit">Character devices</SPAN>
+can be accessed one character at a time. Remember the smallest unit of data
+that can be written to or read from the device is a character (byte).
+
+<P>
+<SPAN  CLASS="textit">Block devices</SPAN> must be accessed in larger units called blocks<A NAME="3990"></A>, which
+contain a number of characters. Your hard disk is a block device.
+
+<P>
+<A NAME="3991"></A><A NAME="3992"></A>You can read and write device files just as you can from other kinds of files,
+though the file may well contain some strange incomprehensible-to-humans gibberish.
+Writing random data to these files is probably a bad idea. Sometimes it's useful,
+though. For example, you can dump a postscript file into the printer device
+<TT>/dev/lp0</TT> or send modem commands to the device file for the appropriate
+serial port.
+
+<P>
+
+<H4><A NAME="SECTION041322210000000000000">
+<TT>/dev/null</TT></A>
+</H4>
+
+<P>
+<TT>/dev/null</TT> is a special device file that discards anything you write
+to it. If you don't want something, throw it in <TT>/dev/null</TT>. It's essentially<A NAME="3997"></A><A NAME="3998"></A><A NAME="3999"></A><A NAME="4000"></A><A NAME="4001"></A><A NAME="4002"></A><A NAME="4003"></A><A NAME="4004"></A>
+a bottomless pit. If you read <TT>/dev/null</TT>, you'll get an end-of-file
+(EOF) character immediately. <TT>/dev/zero</TT> is similar, except that you
+read from it you get the <TT>&#92;0</TT> character (not the same
+as the number zero).
+
+<P>
+
+<H3><A NAME="SECTION041322300000000000000">
+Named Pipes (FIFOs) </A>
+</H3>
+
+<P>
+<A NAME="4009"></A><A NAME="4010"></A><A NAME="4011"></A><A NAME="4012"></A><A NAME="4013"></A><A NAME="4014"></A>A named pipe is a file that acts like a pipe. You put something into the file,
+and it comes out the other end. Thus it's called a FIFO, or First-In-First-Out,
+because the first thing you put in the pipe is the first thing to come out the
+other end.
+
+<P>
+If you write to a named pipe, the process that is writing to the pipe doesn't
+terminate until the information being written is read from the pipe. If you
+read from a named pipe, the reading process waits until there's something to
+read before terminating. The size of the pipe is always zero: It doesn't store
+data, it just links two processes like the shell <TT>|</TT>. However, because
+this pipe has a name, the two processes don't have to be on the same command
+line or even be run by the same user.
+
+<P>
+You can try it by doing the following:
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>cd;&nbsp;mkfifo&nbsp;mypipe
+</DD>
+</DL>Makes the pipe.
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>echo&nbsp;&#34;hello&#34;&nbsp;&gt;&nbsp;mypipe&nbsp;&amp;
+</DD>
+</DL>Puts a process in the background that tries to write ``hello'' to the pipe.
+Notice that the process doesn't return from the background; it is waiting for
+someone to read from the pipe.
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>cat&nbsp;mypipe
+</DD>
+</DL>At this point, the <TT>echo</TT> process should return, because <TT>cat</TT>
+read from the pipe, and the <TT>cat</TT> process will print <TT>hello</TT>.
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>rm&nbsp;mypipe
+</DD>
+</DL>You can delete pipes just like any other file.<A NAME="4030"></A>
+
+<P>
+
+<H3><A NAME="SECTION041322400000000000000">
+Sockets</A>
+</H3>
+
+<P>
+<A NAME="4032"></A><A NAME="4033"></A><A NAME="4034"></A>Sockets are similar to pipes, only they work over the network. This is how your
+computer does networking. You may have heard of ``WinSock,'' which is sockets
+for Windows.
+
+<P>
+We won't go into these further because you probably won't have occasion to use
+them unless you're programming. However, if you see a file marked with type
+<TT>s</TT>on your computer, you know what it is.
+
+<P>
+
+<H2><A NAME="SECTION041323000000000000000">
+The <TT>proc</TT> Filesystem </A>
+</H2>
+
+<P>
+<A NAME="4037"></A><A NAME="4038"></A><A NAME="4039"></A>The Linux kernel makes a special filesystem available, which is mounted under
+<TT>/proc</TT> on Debian systems. This is a ``pseudo-filesystem'' because
+it doesn't really exist on any of your physical devices. 
+
+<P>
+The <TT>proc</TT> filesystem contains information about the system and running
+processes. Some of the ``files'' in <TT>/proc</TT> are reasonably understandable
+to humans (try typing <TT>cat&nbsp;/proc/meminfo</TT> or <TT>cat&nbsp;/proc/cpuinfo</TT>);
+others are arcane collections of numbers. Often, system utilities use these
+to gather information and present it to you in a more understandable way. 
+
+<P>
+People frequently panic when they notice one file in particular - <TT>/proc/kcore</TT>
+- which is generally huge. This is (more or less) a copy of the contents of
+your computer's memory. It's used to debug the kernel. It doesn't actually exist
+anywhere, so don't worry about its size. 
+
+<P>
+If you want to know about all the things in <TT>/proc</TT>, type <TT>man
+5&nbsp;proc</TT>. 
+
+<P>
+
+<H2><A NAME="SECTION041324000000000000000">
+Large-Scale Copying</A>
+</H2>
+
+<P>
+<A NAME="4049"></A><A NAME="4050"></A><A NAME="4051"></A><A NAME="4052"></A>Sometimes you may want to copy one directory to another location. Maybe you're
+adding a new hard disk and you want to copy <TT>/usr/local</TT> to it. There
+are several ways you can do this.
+
+<P>
+The first is to use <TT>cp</TT>. The command <TT>cp&nbsp;-a</TT> will tell <TT>cp</TT>
+to do a copy preserving all the information it can. So, you might use
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>cp&nbsp;-a&nbsp;/usr/local&nbsp;/destination
+</DD>
+</DL>However, there are some things that <TT>cp&nbsp;-a</TT> won't catch<A NAME="tex2html40"
+  HREF="footnode.html#foot4060"><SUP><SPAN CLASS="arabic">13</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A>. So, the best way to do a large copy job is to chain two <TT>tar</TT> commands
+together, like so:
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>tar&nbsp;-cSpf&nbsp;-&nbsp;/usr/local&nbsp;|&nbsp;tar&nbsp;-xvSpf&nbsp;- -C&nbsp;/destination
+</DD>
+</DL>The first <TT>tar</TT> command will archive the existing directory and pipe
+it to the second. The second command will unpack the archive into the location
+you specify with <TT>-C</TT>.<A NAME="4066"></A><A NAME="4067"></A><A NAME="4068"></A><A NAME="4069"></A>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1941"
+  HREF="node92.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1935"
+  HREF="node89.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1929"
+  HREF="node90.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1937"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1939"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1942"
+  HREF="node92.html">Security</A>
+<B> Up:</B> <A NAME="tex2html1936"
+  HREF="node89.html">Advanced Topics</A>
+<B> Previous:</B> <A NAME="tex2html1930"
+  HREF="node90.html">Regular Expressions</A>
+ &nbsp <B>  <A NAME="tex2html1938"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1940"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>

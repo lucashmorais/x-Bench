@@ -1,0 +1,26 @@
+/* arctic.css -- color scheme Amazonia, for use with Gutenberg stylesheet */
+
+body
+{
+	background:  #FFFFFF; /* #ECF0FF; very light blue */
+}
+
+body, a.hidden
+{
+	color: black;
+}
+
+h1, h2, h3, h4, h5, h6, .noteref, span.leftnote, p.legend
+{
+	color: #001FA4; /* #001FA4; dark blue */
+}
+
+.navline, span.rightnote, span.pageno
+{
+	color: #AAAAAA; /* #A7B8FF;  light blue */
+}
+
+a.navline:hover, a.hidden:hover, a.noteref:hover
+{
+	color: red;
+}

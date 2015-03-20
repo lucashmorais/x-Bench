@@ -1,0 +1,157 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>File Compression with gzip</TITLE>
+<META NAME="description" CONTENT="File Compression with gzip">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="next" HREF="node65.html">
+<LINK REL="previous" HREF="node63.html">
+<LINK REL="up" HREF="node61.html">
+<LINK REL="next" HREF="node65.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1524"
+  HREF="node65.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1518"
+  HREF="node61.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1512"
+  HREF="node63.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1520"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1522"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1525"
+  HREF="node65.html">Finding Files</A>
+<B> Up:</B> <A NAME="tex2html1519"
+  HREF="node61.html">More on Files</A>
+<B> Previous:</B> <A NAME="tex2html1513"
+  HREF="node63.html">Files Present and Their</A>
+ &nbsp <B>  <A NAME="tex2html1521"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1523"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION04730000000000000000">
+File Compression with <TT>gzip</TT></A>
+</H1>
+
+<P>
+<A NAME="2846"></A><A NAME="2847"></A><A NAME="2848"></A><A NAME="2849"></A><A NAME="2850"></A><A NAME="2851"></A>Often it would be nice to make a file smaller - say, to download it faster,
+or so it takes up less space on your disk. The program to do this is called
+<TT>gzip</TT> (GNU zip). Here's how it works:
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>$&nbsp;<SPAN  CLASS="textbf">cd;&nbsp;cp&nbsp;/etc/profile&nbsp;./mysamplefile</SPAN>
+</DD>
+</DL>This switches to your home directory and copies an arbitrarily chosen file (<TT>/etc/profile</TT>)
+to your current directory, in the process renaming it <TT>mysamplefile</TT>.
+This gives you a file to play with when using <TT>gzip</TT>.
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>$&nbsp;<SPAN  CLASS="textbf">ls&nbsp;-l</SPAN>
+</DD>
+</DL>Lists the contents of the current directory. Note the size of <TT>mysamplefile</TT>. <A NAME="2863"></A><A NAME="2864"></A><A NAME="2865"></A><A NAME="2866"></A><A NAME="2867"></A><A NAME="2868"></A>
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>$&nbsp;<SPAN  CLASS="textbf">gzip&nbsp;mysamplefile</SPAN>
+</DD>
+</DL>Compresses <TT>mysamplefile</TT>. 
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>$&nbsp;<SPAN  CLASS="textbf">ls&nbsp;-l</SPAN>
+</DD>
+</DL>Observe the results of this command: <TT>mysamplefile</TT> is now called <TT>mysamplefile.gz</TT>
+. It's also a good bit smaller.
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>$&nbsp;<SPAN  CLASS="textbf">gunzip&nbsp;mysamplefile.gz;&nbsp;ls&nbsp;-l</SPAN>
+</DD>
+</DL>This uncompresses the file. Observe that <TT>mysamplefile</TT> has returned
+to its original state. Notice that to uncompress, one uses <TT>gunzip</TT>,
+not <TT>gzip</TT>.<A NAME="2884"></A><A NAME="2885"></A>
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>$&nbsp;<SPAN  CLASS="textbf">rm&nbsp;mysamplefile</SPAN>
+</DD>
+</DL>Use this command to remove the file, since it was just to practice with.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1524"
+  HREF="node65.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1518"
+  HREF="node61.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1512"
+  HREF="node63.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1520"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1522"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1525"
+  HREF="node65.html">Finding Files</A>
+<B> Up:</B> <A NAME="tex2html1519"
+  HREF="node61.html">More on Files</A>
+<B> Previous:</B> <A NAME="tex2html1513"
+  HREF="node63.html">Files Present and Their</A>
+ &nbsp <B>  <A NAME="tex2html1521"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1523"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,140 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>The Shell</TITLE>
+<META NAME="description" CONTENT="The Shell">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="next" HREF="node51.html">
+<LINK REL="previous" HREF="node49.html">
+<LINK REL="up" HREF="node46.html">
+<LINK REL="next" HREF="node51.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1309"
+  HREF="node51.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1303"
+  HREF="node46.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1297"
+  HREF="node49.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1305"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1307"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1310"
+  HREF="node51.html">Managing Processes with bash</A>
+<B> Up:</B> <A NAME="tex2html1304"
+  HREF="node46.html">The Basics</A>
+<B> Previous:</B> <A NAME="tex2html1298"
+  HREF="node49.html">Processes</A>
+ &nbsp <B>  <A NAME="tex2html1306"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1308"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION04540000000000000000"></A><A NAME="1922"></A>
+<BR>
+The Shell
+</H1>
+
+<P>
+<A NAME="1923"></A><A NAME="1924"></A><A NAME="1925"></A><A NAME="1926"></A><A NAME="1927"></A>The <SPAN  CLASS="textit">shell</SPAN> is a program that allows you to interact with your computer.
+It's called a shell because it provides an environment for you to work in -
+sort of a little electronic home for you as you compute. (Think hermit crab.) 
+
+<P>
+The simplest function of the shell is to launch other programs. You type the
+name of the program you want to run, followed by the arguments you want, and
+the shell asks the system to run the program for you. 
+
+<P>
+Of course, graphical windowing systems also fill this need. Technically, Windows
+95 provides a graphical shell, and the X Window system is another kind of graphical
+shell. But ``shell'' is commonly used to mean ``command-line shell.''
+
+<P>
+<A NAME="1929"></A><A NAME="1930"></A><A NAME="1931"></A><A NAME="1932"></A><A NAME="1933"></A><A NAME="1934"></A><A NAME="1935"></A><A NAME="1936"></A><A NAME="1937"></A><A NAME="1938"></A><A NAME="1939"></A>Needless to say, the hackers who work on shells aren't satisfied with simply
+launching commands. Your shell has a bewildering number of convenient
+and powerful features
+if you would like to take advantage of them. 
+
+<P>
+There are countless different shells available; most are based on either the
+<SPAN  CLASS="textit">Bourne shell</SPAN> or the <SPAN  CLASS="textit">C shell</SPAN>, two of the oldest shells. The
+original Bourne shell's program name is <TT>sh</TT>, while <TT>csh</TT> is the
+C shell. Bourne shell variants include the Bourne Again Shell from the GNU project
+(<TT>bash</TT>, the Debian default), the Korn shell<A NAME="1945"></A> (<TT>ksh</TT>), and the
+Z shell (<TT>zsh</TT>). There is also <TT>ash</TT>, a traditional implementation
+of the Bourne shell. The most common C shell variant is <TT>tcsh</TT> (the <TT>t</TT>
+pays tribute to the TENEX and TOPS-20 operating systems, which inspired some
+of <TT>tcsh</TT>'s improvements over <TT>csh</TT>). <A NAME="1953"></A>
+
+<P>
+<TT>bash</TT> is probably the best choice for new users. It is the default and
+has all the features you're likely to need. But all the shells have loyal followings;
+if you want to experiment, install some different shell packages and change
+your shell with the chsh command. Just type <TT>chsh</TT>, supply a password
+when asked, and choose a shell. When you next log in, you'll be using the new
+shell. 
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1309"
+  HREF="node51.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1303"
+  HREF="node46.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1297"
+  HREF="node49.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1305"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1307"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1310"
+  HREF="node51.html">Managing Processes with bash</A>
+<B> Up:</B> <A NAME="tex2html1304"
+  HREF="node46.html">The Basics</A>
+<B> Previous:</B> <A NAME="tex2html1298"
+  HREF="node49.html">Processes</A>
+ &nbsp <B>  <A NAME="tex2html1306"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1308"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>

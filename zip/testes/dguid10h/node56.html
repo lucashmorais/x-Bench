@@ -1,0 +1,157 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Where Commands Reside: The PATH Variable</TITLE>
+<META NAME="description" CONTENT="Where Commands Reside: The PATH Variable">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="next" HREF="node57.html">
+<LINK REL="previous" HREF="node55.html">
+<LINK REL="up" HREF="node54.html">
+<LINK REL="next" HREF="node57.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1400"
+  HREF="node57.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1394"
+  HREF="node54.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1388"
+  HREF="node55.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1396"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1398"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1401"
+  HREF="node57.html">Configuration Files</A>
+<B> Up:</B> <A NAME="tex2html1395"
+  HREF="node54.html">Using the Shell</A>
+<B> Previous:</B> <A NAME="tex2html1389"
+  HREF="node55.html">Environment Variables</A>
+ &nbsp <B>  <A NAME="tex2html1397"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1399"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION04620000000000000000"></A><A NAME="2267"></A>
+<BR>
+Where Commands Reside: The <TT>PATH</TT> Variable
+</H1>
+
+<P>
+<A NAME="2268"></A><A NAME="2269"></A><A NAME="2270"></A><A NAME="2271"></A><A NAME="2272"></A><A NAME="2273"></A>
+When you type a command into the shell, it has to find the program on your hard
+disk before executing it. If the shell had to look all over the disk, it would
+be very slow; instead, it looks in a list of directories contained in the <TT>PATH</TT>
+environment variable. This list of directories makes up the shell's <SPAN  CLASS="textit">search
+path</SPAN>; when you enter a command, it goes through each one in turn looking for
+the program you asked to run. 
+
+<P>
+You may need to change the <TT>PATH</TT> variable if you install programs yourself
+in a non-standard location. The value of <TT>PATH</TT> is a colon-separated
+list of directories. The default value on Debian systems is as follows:
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD><SMALL CLASS="SMALL">/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/games</SMALL>
+<P>
+
+</DD>
+</DL>This value is defined in the file <TT>/etc/profile</TT> and applies to all users.
+You can easily change the value, just as you can change any environment variable. 
+If you type the command <TT>ls</TT>, the shell will first look in <TT>/usr/local/bin</TT>;
+<TT>ls</TT> isn't there, so it will try <TT>/usr/bin</TT>; when that fails,
+it will check <TT>/bin</TT>. There it will discover <TT>/bin/ls</TT>, stop its
+search, and execute the program <TT>/bin/ls</TT>. If <TT>/usr/bin/X11/ls</TT>
+existed (it doesn't, but pretend), it would be ignored.
+
+<P>
+You can see which <TT>ls</TT> the shell is going to use with the <TT>type<A NAME="2292"></A></TT>
+command. <TT>type&nbsp;ls</TT> will give you the answer <TT>/bin/ls</TT>. Try it
+yourself. <A NAME="2295"></A><A NAME="2296"></A><A NAME="2297"></A><A NAME="2298"></A><A NAME="2299"></A><A NAME="2300"></A>
+
+<P>
+Try asking where <TT>type</TT> itself resides:
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>$&nbsp;type&nbsp;type
+
+<P>
+type&nbsp;is&nbsp;a&nbsp;shell&nbsp;builtin&nbsp;
+</DD>
+</DL><TT>type</TT> isn't actually a program; it's a function provided by the shell.
+However, you use it just like an external program.
+
+<P>
+<A NAME="2305"></A><A NAME="2306"></A><A NAME="2307"></A><A NAME="2308"></A>There are a number of commands like this; type <TT>man&nbsp;builtins</TT> to read
+the man page describing them. In general, you don't need to know whether a command
+is a builtin or a real program; however, builtins will not show up in the output
+of <TT>ps</TT> or <TT>top</TT> because they aren't separate processes. They're
+just part of the shell. 
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1400"
+  HREF="node57.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1394"
+  HREF="node54.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1388"
+  HREF="node55.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1396"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1398"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1401"
+  HREF="node57.html">Configuration Files</A>
+<B> Up:</B> <A NAME="tex2html1395"
+  HREF="node54.html">Using the Shell</A>
+<B> Previous:</B> <A NAME="tex2html1389"
+  HREF="node55.html">Environment Variables</A>
+ &nbsp <B>  <A NAME="tex2html1397"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1399"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>

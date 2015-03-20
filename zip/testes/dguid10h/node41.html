@@ -1,0 +1,163 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>First Steps</TITLE>
+<META NAME="description" CONTENT="First Steps">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="next" HREF="node42.html">
+<LINK REL="previous" HREF="node40.html">
+<LINK REL="up" HREF="node40.html">
+<LINK REL="next" HREF="node42.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1171"
+  HREF="node42.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1165"
+  HREF="node40.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1159"
+  HREF="node40.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1167"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1169"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1172"
+  HREF="node42.html">Command History and Editing</A>
+<B> Up:</B> <A NAME="tex2html1166"
+  HREF="node40.html">Logging In</A>
+<B> Previous:</B> <A NAME="tex2html1160"
+  HREF="node40.html">Logging In</A>
+ &nbsp <B>  <A NAME="tex2html1168"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1170"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION04410000000000000000">
+First Steps</A>
+</H1>
+
+<P>
+<A NAME="1289"></A><A NAME="1290"></A><A NAME="1291"></A><A NAME="1292"></A><A NAME="1293"></A>After you quit <TT>dselect</TT>, you'll be presented with the <TT>login:</TT>
+prompt.  You can now log in using the personal login and password you selected;
+your system is now ready to use. Let's examine what it means to log in and how
+this process works.
+
+<P>
+To use Debian, you must identify yourself to the system. This is so it knows
+who you are, what you have permission to do, and what your preferences are. 
+
+<P>
+To this end, you have a <SPAN  CLASS="textit">username</SPAN> or <SPAN  CLASS="textit">login</SPAN>. If you installed
+Debian yourself, you should have been asked to give such a name during installation.
+If you are logging on to a system administered by someone else, you'll have
+to ask him for an account on the system and a corresponding username.
+
+<P>
+You also have a password, so no one else can pretend to be you. If you don't
+have a password, anyone can log on to your computer from the Internet and do
+bad things. If you're worried about security, you should have a password.
+
+<P>
+Many people prefer to trust others not to do anything malicious with their account;
+hopefully your work environment doesn't encourage paranoia. This is a perfectly
+reasonable attitude; it depends on your personal priorities and your environment.
+Obviously a home system does not need to be as secure as a military installation.
+Debian allows you to be as secure or as insecure as you like. 
+
+<P>
+<A NAME="1298"></A><A NAME="1299"></A><A NAME="1300"></A><A NAME="1301"></A><A NAME="1302"></A>When you start Debian, you'll see a <SPAN  CLASS="textit">prompt</SPAN>: a request from the computer
+for some information. In this case, the prompt is <TT>login:</TT>. 
+
+<P>
+You should type your username and, when requested, your password. The password
+does not appear on the screen as you type it. Press <TT>Enter</TT> after both
+the username and the password. If you type your username or password incorrectly,
+you'll have to start over. 
+
+<P>
+If you do it correctly, you'll see a brief message and then a <TT>$</TT> prompt.
+The <TT>$</TT> is printed by a special program called the <SPAN  CLASS="textit">shell</SPAN> and
+is thus called a <SPAN  CLASS="textit">shell prompt</SPAN><A NAME="1310"></A>. This is where you give commands to the
+system. 
+
+<P>
+<A NAME="1311"></A><A NAME="1312"></A><A NAME="1313"></A>Try entering the command <TT>whoami</TT> now. There is a <SPAN  CLASS="textit">cursor</SPAN> to
+the right of the shell prompt. Your cursor is a small underscore or rectangle
+that indicates where you're typing; it should move as you type. Always press
+<TT>Enter</TT> when you're done typing a shell command. 
+
+<P>
+<TT>whoami</TT> tells your username. You'll then get a new shell prompt. 
+
+<P>
+For the rest of the book, when we say to enter a command, you should type it
+at the shell prompt and press the <TT>Enter</TT> key.
+
+<P>
+When you're done working, you may want to log out of the system. To exit the
+shell, enter the <TT>exit</TT> command. Keep in mind that if you remain logged
+in, someone could come along and use your account. Hopefully you can trust those
+in your office or home not to do this; but if you do not trust your environment,
+you should be certain to log out when you leave.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1171"
+  HREF="node42.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1165"
+  HREF="node40.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1159"
+  HREF="node40.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1167"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1169"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1172"
+  HREF="node42.html">Command History and Editing</A>
+<B> Up:</B> <A NAME="tex2html1166"
+  HREF="node40.html">Logging In</A>
+<B> Previous:</B> <A NAME="tex2html1160"
+  HREF="node40.html">Logging In</A>
+ &nbsp <B>  <A NAME="tex2html1168"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html1170"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>

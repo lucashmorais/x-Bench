@@ -1,0 +1,173 @@
+
+<!--Converted with LaTeX2HTML 2K.1beta (1.48)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Troubleshooting the Boot Process</TITLE>
+<META NAME="description" CONTENT="Troubleshooting the Boot Process">
+<META NAME="keywords" CONTENT="debian-tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2K.1beta">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="debian-tutorial.css">
+
+<LINK REL="previous" HREF="node98.html">
+<LINK REL="up" HREF="node97.html">
+<LINK REL="next" HREF="node100.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2090"
+  HREF="node100.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2084"
+  HREF="node97.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2080"
+  HREF="node98.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2086"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2088"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2091"
+  HREF="node100.html">Booting the System</A>
+<B> Up:</B> <A NAME="tex2html2085"
+  HREF="node97.html">Troubleshooting</A>
+<B> Previous:</B> <A NAME="tex2html2081"
+  HREF="node98.html">Common Difficulties</A>
+ &nbsp <B>  <A NAME="tex2html2087"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html2089"
+  HREF="node102.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION05220000000000000000"></A><A NAME="Troubleshooting_the_Boot_Process"></A>
+<BR>
+Troubleshooting the Boot Process
+</H1>
+
+<P>
+<A NAME="4282"></A><A NAME="4283"></A><A NAME="4284"></A><A NAME="4285"></A>If you have problems during the boot process, such as the kernel hangs during
+the boot process, the kernel doesn't recognize peripherals you actually have,
+or drives are not recognized properly, the first things to check are the boot
+parameters. They can be found by pressing <TT>F1</TT> when booting from the
+rescue disk.
+
+<P>
+Often, problems can be solved by removing add-ons and peripherals and then booting
+again. Internal modems, sound cards, and Plug-n-Play devices are especially
+problematic.
+
+<P>
+Tecras and other notebooks, and some non-portables fail to flush the cache when
+switching on the A20 gate, which is provoked by bzImage kernels but not by zImage
+kernels.  If your computer suffers from this problem, you'll see a message during
+boot saying&nbsp;<TT>A20&nbsp;gating&nbsp;failed</TT>.  In this case, you'll have to use the
+`tecra' boot images.
+
+<P>
+<A NAME="4288"></A><A NAME="4289"></A><A NAME="4290"></A>If you still have problems, please submit a bug report.  Send an email to <A NAME="tex2html47"
+  HREF="mailto:submit@bugs.debian.org"><TT>submit@bugs.debian.org</TT></A>.
+
+You <SPAN  CLASS="textit">must</SPAN> include the following as the first lines of the email:
+
+<P>
+
+<DL COMPACT>
+<DT>
+<DD>Package:&nbsp;boot-floppies
+
+<P>
+Version:&nbsp;<SPAN  CLASS="textit">version</SPAN>
+</DD>
+</DL>Make sure you fill in <TT><SPAN  CLASS="textit">version</SPAN></TT> with the version of the boot-floppies
+set that you used. If you don't know the <SPAN  CLASS="textit"></SPAN>version, use the date you
+downloaded the floppies, and include the distribution you got them from (e.g.,
+``stable'' or ``frozen'').    
+
+<P>
+You should also include the following information in your bug report:
+
+<P>
+<DL>
+<DT><STRONG>architecture</STRONG></DT>
+<DD>i386
+</DD>
+<DT><STRONG>model</STRONG></DT>
+<DD>your general hardware vendor and model
+</DD>
+<DT><STRONG>memory</STRONG></DT>
+<DD>amount of RAM
+</DD>
+<DT><STRONG>scsi</STRONG></DT>
+<DD>SCSI host adapter, if any
+</DD>
+<DT><STRONG>cd-rom</STRONG></DT>
+<DD>CD-ROM model and interface type, i.e., ATAPI
+</DD>
+<DT><STRONG>network&nbsp;card</STRONG></DT>
+<DD>network interface card, if any
+</DD>
+<DT><STRONG>pcmcia</STRONG></DT>
+<DD>details of any PCMCIA devices    
+</DD>
+</DL>
+Depending on the nature of the bug, it also might be useful to report the disk
+model, the disk capacity, and the model of video card.    
+
+<P>
+In the bug report, describe what the problem is, including the last visible
+kernel messages in the event of a kernel hang.  Describe the steps you performed
+that put the system into the problem state.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2090"
+  HREF="node100.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2084"
+  HREF="node97.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2080"
+  HREF="node98.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2086"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2088"
+  HREF="node102.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2091"
+  HREF="node100.html">Booting the System</A>
+<B> Up:</B> <A NAME="tex2html2085"
+  HREF="node97.html">Troubleshooting</A>
+<B> Previous:</B> <A NAME="tex2html2081"
+  HREF="node98.html">Common Difficulties</A>
+ &nbsp <B>  <A NAME="tex2html2087"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp <B>  <A NAME="tex2html2089"
+  HREF="node102.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+John Goerzen / Ossama Othman
+</ADDRESS>
+</BODY>
+</HTML>
