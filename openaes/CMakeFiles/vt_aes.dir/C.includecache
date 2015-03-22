@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/mino/Documents/unicamp/MC723/lab1/openaes/test/vt_aes.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+oaes_lib.h
+/home/mino/Documents/unicamp/MC723/lab1/openaes/test/oaes_lib.h
+
+inc/oaes_common.h
+stdint.h
+-
+
+inc/oaes_lib.h
+oaes_common.h
+-
+
