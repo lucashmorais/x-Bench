@@ -1,0 +1,15 @@
+../mozversion/errors.py
+../mozversion/__init__.py
+../mozversion/mozversion.py
+../mozversion/errors.pyc
+../mozversion/__init__.pyc
+../mozversion/mozversion.pyc
+./
+SOURCES.txt
+PKG-INFO
+dependency_links.txt
+requires.txt
+not-zip-safe
+entry_points.txt
+top_level.txt
+../../../../bin/mozversion
