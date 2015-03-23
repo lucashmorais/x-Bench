@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/mino/Documents/unicamp/MC723/lab1/openaes/src/oaes.c
+/home/lucas/Dropbox/Eclipse Workspace/x-Bench/openaes/src/oaes.c
 stdio.h
 -
 stdlib.h
@@ -14,10 +14,16 @@ stdlib.h
 string.h
 -
 oaes_lib.h
-/home/mino/Documents/unicamp/MC723/lab1/openaes/src/oaes_lib.h
+/home/lucas/Dropbox/Eclipse Workspace/x-Bench/openaes/src/oaes_lib.h
 oaes_base64.h
-/home/mino/Documents/unicamp/MC723/lab1/openaes/src/oaes_base64.h
+/home/lucas/Dropbox/Eclipse Workspace/x-Bench/openaes/src/oaes_base64.h
 io.h
+-
+windows.h
+-
+process.h
+-
+pthread.h
 -
 
 inc/oaes_base64.h

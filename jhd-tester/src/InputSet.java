@@ -3,16 +3,18 @@ public class InputSet {
 	final int numSmallFiles;
 	final int numMediumFiles;
 	final int numLargeFiles;
+	final int maxReads;
 	final String inputName;
 	
 	TimeMeasure[] writeMeasures;
 	TimeMeasure[] readMeasures;
 	
-	public InputSet (int nSmall, int nMedium, int nLarge, String name)
+	public InputSet (int nSmall, int nMedium, int nLarge, int nReads, String name)
 	{
 		numSmallFiles = nSmall;
 		numMediumFiles = nMedium;
 		numLargeFiles = nLarge;
+		maxReads = nReads;
 		
 		writeMeasures = new TimeMeasure[3];
 		readMeasures = new TimeMeasure[3];
@@ -89,6 +91,55 @@ public class InputSet {
 			speed[i] = numFiles[i] * numPagesInFile[i] / (Constants.pagesInMB * time[i]);
 			System.out.println("\t|" + string[i] + ": " + time[i] + "\t\t( " + speed[i] + "MB/s )");
 		}
+	}
+	
+	public float accumulatedReadTime()
+	{
+		float sum = 0;
+		
+		for (int i = 0; i < 3; i++)
+		{
+			sum += readMeasures[i].elapsedTime() / 1000000000.f;
+		}
+		
+		return sum;
+	}
+	
+	public float accumulatedWriteTime()
+	{
+		float sum = 0;
+		
+		for (int i = 0; i < 3; i++)
+		{
+			sum += writeMeasures[i].elapsedTime() / 1000000000.f;
+		}
+		
+		return sum;
+	}
+	
+	public float accumulatedTime()
+	{
+		float sum = 0;
+		
+		sum += accumulatedReadTime();
+		sum += accumulatedWriteTime();
+		
+		return sum;
+	}
+	
+	public void printAccumulatedReadTime()
+	{
+		System.out.println(accumulatedReadTime());
+	}
+	
+	public void printAccumulatedWriteTime()
+	{
+		System.out.println(accumulatedWriteTime());
+	}
+	
+	public void printAccumulatedTime()
+	{
+		System.out.println(accumulatedTime());
 	}
 	
 	public void printDetailedInfo() {

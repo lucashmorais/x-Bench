@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/mino/Documents/unicamp/MC723/lab1/openaes/test/test_encrypt.c
+/home/lucas/Dropbox/Eclipse Workspace/x-Bench/openaes/test/test_encrypt.c
 stdio.h
 -
 stdlib.h
@@ -14,7 +14,7 @@ stdlib.h
 string.h
 -
 oaes_lib.h
-/home/mino/Documents/unicamp/MC723/lab1/openaes/test/oaes_lib.h
+/home/lucas/Dropbox/Eclipse Workspace/x-Bench/openaes/test/oaes_lib.h
 
 inc/oaes_common.h
 stdint.h

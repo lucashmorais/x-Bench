@@ -13,24 +13,17 @@ public class RandomWriter {
 		random = new Random();
 	}
 	
-	void writeFile(String dir, int byteSize, String name, TimeMeasure measure)
+	void writeFile(String dir, int byteSize, String name, TimeMeasure measure) throws IOException
 	{
 		byte[] bytes = new byte[byteSize];		
 		random.nextBytes(bytes);
 		
-		try
-		{
-			if (measure != null) measure.start();
-				FileOutputStream out = new FileOutputStream(dir + "/" + name);
-				out.write(bytes);
-				out.flush();
-			if (measure != null) measure.stop();			
-			out.close();
-		}
-		catch (IOException e)
-		{
-			e.printStackTrace();
-		}		
+		if (measure != null) measure.start();
+			FileOutputStream out = new FileOutputStream(dir + "/" + name);
+			out.write(bytes);
+			out.flush();
+		if (measure != null) measure.stop();			
+		out.close();
 	}
 	
 	void writeBigFile(int MBSize, String name)
@@ -41,14 +34,13 @@ public class RandomWriter {
 			clearDir(dir);
 	}
 	
-	void writeManyFiles(String subfolder, int pageSize, int numOfFiles, TimeMeasure measure)
+	void writeManyFiles(String subfolder, int pageSize, int numOfFiles, TimeMeasure measure) throws IOException
 	{
 		String dir;
 		if (subfolder != null)
 			dir = outputDir + "/" + subfolder + "/" + String.valueOf(pageSize) + "pgs";
 		else
 			dir = outputDir + "/" + String.valueOf(pageSize) + "pgs";
-		
 		
 		if (!createDir(dir))
 			clearDir(dir);
@@ -57,7 +49,7 @@ public class RandomWriter {
 			writeFile(dir, pageSize * Constants.pageByteSize, i + ".rnd", measure);
 	}
 	
-	void writeTotalSize(int totalMBSize, int pageSize, TimeMeasure measure)
+	void writeTotalSize(int totalMBSize, int pageSize, TimeMeasure measure) throws IOException
 	{
 		int numOfFiles;
 		
@@ -82,21 +74,5 @@ public class RandomWriter {
 		
 		for (File c: f.listFiles())
 			c.delete();
-	}
-	
-	void runInput(InputSet input)
-	{		
-		writeManyFiles(input.toString(), Constants.smallSizePageNumber, input.numSmallFiles, input.writeMeasures[0]);
-		writeManyFiles(input.toString(), Constants.mediumSizePageNumber, input.numMediumFiles, input.writeMeasures[1]);
-		writeManyFiles(input.toString(), Constants.largeSizePageNumber, input.numLargeFiles, input.writeMeasures[2]);
-	}
-	
-	public static void main (String[] args)
-	{
-		RandomWriter writer = new RandomWriter("/home/lucas/Dropbox/Graduação/1Sem2015/archlab/projects/x-Bench/seq-hd/jhd-tester/output-test");
-		//writer.writeTotalSize(5, 1, null);
-	
-		writer.runInput(Constants.small);
-		Constants.small.printDetailedWriteInfo();
 	}
 }

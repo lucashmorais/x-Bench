@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mino/Documents/unicamp/MC723/lab1/openaes
+CMAKE_SOURCE_DIR = "/home/lucas/Dropbox/Eclipse Workspace/x-Bench/openaes"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mino/Documents/unicamp/MC723/lab1/openaes
+CMAKE_BINARY_DIR = "/home/lucas/Dropbox/Eclipse Workspace/x-Bench/openaes"
 
 # Utility rule file for oaes_setup_configure.
 
@@ -46,7 +46,7 @@ CMAKE_BINARY_DIR = /home/mino/Documents/unicamp/MC723/lab1/openaes
 include CMakeFiles/oaes_setup_configure.dir/progress.make
 
 CMakeFiles/oaes_setup_configure:
-	/usr/bin/cmake -E copy_if_different /home/mino/Documents/unicamp/MC723/lab1/openaes/src/oaes_setup.vdproj /home/mino/Documents/unicamp/MC723/lab1/openaes & /usr/bin/cmake -E copy_if_different /home/mino/Documents/unicamp/MC723/lab1/openaes/CHANGELOG /home/mino/Documents/unicamp/MC723/lab1/openaes & /usr/bin/cmake -E copy_if_different /home/mino/Documents/unicamp/MC723/lab1/openaes/LICENSE /home/mino/Documents/unicamp/MC723/lab1/openaes & /usr/bin/cmake -E copy_if_different /home/mino/Documents/unicamp/MC723/lab1/openaes/README /home/mino/Documents/unicamp/MC723/lab1/openaes & /usr/bin/cmake -E copy_if_different /home/mino/Documents/unicamp/MC723/lab1/openaes/VERSION /home/mino/Documents/unicamp/MC723/lab1/openaes
+	/usr/bin/cmake -E copy_if_different /home/lucas/Dropbox/Eclipse\ Workspace/x-Bench/openaes/src/oaes_setup.vdproj /home/lucas/Dropbox/Eclipse\ Workspace/x-Bench/openaes & /usr/bin/cmake -E copy_if_different /home/lucas/Dropbox/Eclipse\ Workspace/x-Bench/openaes/CHANGELOG /home/lucas/Dropbox/Eclipse\ Workspace/x-Bench/openaes & /usr/bin/cmake -E copy_if_different /home/lucas/Dropbox/Eclipse\ Workspace/x-Bench/openaes/LICENSE /home/lucas/Dropbox/Eclipse\ Workspace/x-Bench/openaes & /usr/bin/cmake -E copy_if_different /home/lucas/Dropbox/Eclipse\ Workspace/x-Bench/openaes/README /home/lucas/Dropbox/Eclipse\ Workspace/x-Bench/openaes & /usr/bin/cmake -E copy_if_different /home/lucas/Dropbox/Eclipse\ Workspace/x-Bench/openaes/VERSION /home/lucas/Dropbox/Eclipse\ Workspace/x-Bench/openaes
 
 oaes_setup_configure: CMakeFiles/oaes_setup_configure
 oaes_setup_configure: CMakeFiles/oaes_setup_configure.dir/build.make
@@ -61,6 +61,6 @@ CMakeFiles/oaes_setup_configure.dir/clean:
 .PHONY : CMakeFiles/oaes_setup_configure.dir/clean
 
 CMakeFiles/oaes_setup_configure.dir/depend:
-	cd /home/mino/Documents/unicamp/MC723/lab1/openaes && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mino/Documents/unicamp/MC723/lab1/openaes /home/mino/Documents/unicamp/MC723/lab1/openaes /home/mino/Documents/unicamp/MC723/lab1/openaes /home/mino/Documents/unicamp/MC723/lab1/openaes /home/mino/Documents/unicamp/MC723/lab1/openaes/CMakeFiles/oaes_setup_configure.dir/DependInfo.cmake --color=$(COLOR)
+	cd "/home/lucas/Dropbox/Eclipse Workspace/x-Bench/openaes" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/lucas/Dropbox/Eclipse Workspace/x-Bench/openaes" "/home/lucas/Dropbox/Eclipse Workspace/x-Bench/openaes" "/home/lucas/Dropbox/Eclipse Workspace/x-Bench/openaes" "/home/lucas/Dropbox/Eclipse Workspace/x-Bench/openaes" "/home/lucas/Dropbox/Eclipse Workspace/x-Bench/openaes/CMakeFiles/oaes_setup_configure.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/oaes_setup_configure.dir/depend
 

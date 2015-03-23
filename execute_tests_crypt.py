@@ -9,7 +9,7 @@ def main():
         print "wrong number of argments"
     else:
         if int(sys.argv[1]) == 0:
-            compile()
+            compileAll()
         elif int(sys.argv[1]) == 1:
             executeAll()
         else:

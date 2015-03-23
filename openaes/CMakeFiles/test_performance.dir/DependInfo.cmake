@@ -4,7 +4,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_C
-  "/home/mino/Documents/unicamp/MC723/lab1/openaes/test/test_performance.c" "/home/mino/Documents/unicamp/MC723/lab1/openaes/CMakeFiles/test_performance.dir/test/test_performance.c.o"
+  "/home/lucas/Dropbox/Eclipse Workspace/x-Bench/openaes/test/test_performance.c" "/home/lucas/Dropbox/Eclipse Workspace/x-Bench/openaes/CMakeFiles/test_performance.dir/test/test_performance.c.o"
   )
 SET(CMAKE_C_COMPILER_ID "GNU")
 
@@ -15,7 +15,7 @@ SET(CMAKE_TARGET_DEFINITIONS
 
 # Targets to which this target links.
 SET(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/mino/Documents/unicamp/MC723/lab1/openaes/CMakeFiles/oaes_lib.dir/DependInfo.cmake"
+  "/home/lucas/Dropbox/Eclipse Workspace/x-Bench/openaes/CMakeFiles/oaes_lib.dir/DependInfo.cmake"
   )
 
 # The include file search paths:
