@@ -30,3 +30,6 @@
 
 # Random input
 *.rnd
+
+# Vim swap files
+.*.swp
