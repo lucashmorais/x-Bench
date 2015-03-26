@@ -5,21 +5,10 @@ from subprocess import Popen, PIPE
 import re
 
 def main():
-    if len(sys.argv) != 2:
+    if len(sys.argv) != 1:
         print "wrong number of argments"
     else:
-        if int(sys.argv[1]) == 0:
-            compileAll()
-        elif int(sys.argv[1]) == 1:
-            executeAll()
-        else:
-            print "invalid option!"
-        
-def compileAll():
-    command1 = "cmake openaes/CMakeLists.txt"
-    command2 = "make -f ./openaes/Makefile"
-    os.system(command1)
-    os.system(command2)
+    	executeAll()
 
 def executeAll():
     command2 = "./openaes/test_performance -key 256 -data 2 > ./resultados/teste_aes.txt"

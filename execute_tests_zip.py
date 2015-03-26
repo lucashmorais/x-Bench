@@ -5,20 +5,11 @@ from subprocess import Popen, PIPE
 import re
 
 def main():
-    if len(sys.argv) != 2:
+    if len(sys.argv) != 1:
         print "wrong number of argments"
     else:
-        if int(sys.argv[1]) == 0:
-            compile()
-        elif int(sys.argv[1]) == 1:
-            executeAll()
-        else:
-            print "invalid option!"
+	executeAll()
         
-def compileAll():
-    command3 = "make -f ./zip/zip30/unix/Makefile generic_gcc"
-    os.system(command3)
-
 def executeAll():
     (stdout, stderr) = Popen(["time","./zip/zip30/zip","-r","/tmp/archive.zip","./zip/testes/"],stderr=PIPE,stdout=PIPE).communicate()
     #print stdout

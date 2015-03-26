@@ -13,9 +13,6 @@ then
 	exit
 fi
 
-echo $FULL_SCRIPT_PATH
-echo $SCRIPT_PATH
-
 rm "$SCRIPT_PATH"/bin/*.class
 javac "$SCRIPT_PATH"/src/*.java -d "$SCRIPT_PATH/bin"
 

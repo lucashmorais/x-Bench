@@ -1,0 +1,16 @@
+Invoking cryptography test
+Result: 41
+
+Invoking zip test
+	>> Extracting files...
+	>> Finished extracting files
+Result: 6.19
+
+Invoking browser test
+Result: 67834
+
+Invoking video playback test
+Result: 607
+
+Invoking HD test
+Result: /home/lucas/Dropbox/Eclipse Workspace/x-Bench/jhd-tester/jhd-tester.sh /home/lucas/Dropbox/Eclipse Workspace/x-Bench/jhd-tester 248.68015
