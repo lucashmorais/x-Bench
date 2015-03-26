@@ -4,11 +4,20 @@ FULL_PATH=$( readlink -f "$0")
 SCRIPT_PATH=$( dirname "$FULL_PATH")
 #echo $SCRIPT_PATH
 
+#Weights of each of the benchmarks
+benchmarks=( compile encryption browsing compression HD video-playback image-processing )
+weights=( 1 1 2 1 3 1 1)
+
 ### ### ### ### ### ### ### ### ###
 ### ### Invoking tests  ### ### ###
 ### ### ### ### ### ### ### ### ### 
 
 cd "$SCRIPT_PATH"
+
+##############
+# --- Compilation test here!
+result[0]=1
+##############
 
 #Invoking cryptography test
 echo Invoking cryptography test
@@ -23,8 +32,20 @@ then
 	cd "$SCRIPT_PATH"
 	printf "\t>> Finished compiling.\n"
 fi
-aux=$( python execute_tests_crypt.py )
-echo Result: $aux
+result[1]=$( python execute_tests_crypt.py )
+echo
+
+ >/dev/null 2> /dev/null
+echo Invoking browser test
+if [ $( ls qa-mozmill-tests | wc -l ) -le "0" ]
+then
+	printf "\t>> Extracting browser tests...\n"
+	rm -R qa-mozmill-tests
+	unzip misc/qa-mozmill-tests-master.zip 2>&1 > /dev/null
+	mv qa-mozmill-tests-master qa-mozmill-tests
+	printf "\t Finished extracting browser tests."
+fi
+result[2]=$( mozmill -b /usr/bin/firefox -m ./qa-mozmill-tests/firefox/tests/endurance/manifest.ini 2>&1 | awk -F"( |ms)" 'BEGIN { time = 0 } /finished in/ { time += $7 } END { print time }' )
 echo
 
 echo Invoking zip test
@@ -38,37 +59,59 @@ cd zip/zip30
 make -f unix/Makefile generic "--quiet"
 cd "$SCRIPT_PATH"
 # Invoking zip test
-aux=$( python execute_tests_zip.py )
-echo Result: $aux
+result[3]=$( python execute_tests_zip.py )
 echo
 
-echo Invoking browser test
-if [ $( ls qa-mozmill-tests | wc -l ) -le "0" ]
-then
-	printf "\t>> Extracting browser tests...\n"
-	rm -R qa-mozmill-tests
-	unzip misc/qa-mozmill-tests-master.zip 2>&1 > /dev/null
-	mv qa-mozmill-tests-master qa-mozmill-tests
-	printf "\t Finished extracting browser tests."
-fi
-aux=$( mozmill -b /usr/bin/firefox -m ./qa-mozmill-tests/firefox/tests/endurance/manifest.ini 2>&1 | awk -F"( |ms)" 'BEGIN { time = 0 } /finished in/ { time += $7 } END { print time }' )
-echo Result: $aux
-echo
+# Invoking the HD test
+echo Invoking HD test
+result[4]=$( jhd-tester/jhd-tester.sh )
+rm -R jhd-tester/testdir 2>&1 > /dev/null
 
 # Invoking the video playback test
 echo Invoking video playback test
 cd video
 cp teste.avi.7z aux.7z
 p7zip -d teste.avi.7z 2>&1 > /dev/null
-aux=$( ./dframes.sh  )
-echo Result: $aux
+result[5]=$( ./dframes.sh  )
 rm *.avi 2>&1 > /dev/null
 mv aux.7z teste.avi.7z
 cd "$SCRIPT_PATH"
 echo
 
-# Invoking the HD test
-echo Invoking HD test
-aux=$( jhd-tester/jhd-tester.sh )
-rm -R jhd-tester/testdir 2>&1 > /dev/null
-echo Result: $aux
+#####################
+#--- Image test here!
+result[6]=1
+#####################
+
+weights=( 1 1 2 1 3 1 1 )
+constant=2.64
+size=${#weights[*]}
+size=$(( size - 1))
+
+sum_weights=0
+final=0
+
+for i in $( seq 0 $size )
+do
+        sum_weights=$( awk "BEGIN{ print $sum_weights + ${weights[$i]} }" )
+done
+
+for i in $( seq 0 $size )
+do
+        echo ${benchmarks[$i]} result: ${result[$i]}
+        echo i: $i
+        inv=$( awk "BEGIN{ print 1/${result[$i]} }" )
+        echo inv: $inv
+        log=$( awk "BEGIN{ print log($inv)/log(2) }" )
+        echo log: $log
+        mult=$( awk "BEGIN{ printf $log*${weights[$i]} }" )
+        echo mult: $mult
+        final=$( awk "BEGIN{ printf $final + ($mult) } " )
+        echo final: $final
+        echo
+done
+echo
+
+final=$( awk "BEGIN{ printf $final / $sum_weights + $constant }" )
+echo Final score: $final
+
