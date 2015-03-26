@@ -1,0 +1,13 @@
+../mozinfo/__init__.py
+../mozinfo/mozinfo.py
+../mozinfo/__init__.pyc
+../mozinfo/mozinfo.pyc
+./
+SOURCES.txt
+PKG-INFO
+dependency_links.txt
+requires.txt
+not-zip-safe
+entry_points.txt
+top_level.txt
+../../../../bin/mozinfo

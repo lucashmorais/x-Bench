@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>OGV video via &lt;video&gt; (60s)</title>
+    <script>
+      var currentTime;
+      var movie;
+      var seekTime;
+      var skipTime;
+
+      function init () {
+        currentTime = document.getElementById("currentTime");
+        movie = document.getElementById("movie");
+        seekTime = document.getElementById("seekField");
+        skipTime = document.getElementById("skipField");
+
+        movie.muted = true;
+        movie.addEventListener("timeupdate", updateTime, true);
+        window.onunload = tearDown;
+      }
+
+      function play() {
+        movie.play();
+      }
+
+      function pause() {
+        movie.pause();
+      }
+
+      function seek() {
+        movie.currentTime = parseInt(seekTime.value, 0);
+      }
+
+      function skip() {
+        movie.currentTime += parseInt(skipTime.value, 0);
+      }
+
+      function updateTime(aEvent) {
+        currentTime.value = aEvent.target.currentTime;
+      }
+
+      function tearDown() {
+        movie.removeEventListener("timeupdate", updateTime, true);
+      }
+    </script>
+  </head>
+
+  <body onload="init();">
+    <h1>Sample OGV Video:</h1>
+    <video id="movie" preload="auto" src="test_ogv_video_60s_files/sample-video-60s.ogv"></video>
+    <div>
+      <a href="#" onclick="play()" id="play">play</a>
+      <a href="#" onclick="pause()" id="pause">pause</a>
+      <input id="seekField" value="0" type="number">
+      <a href="#" onclick="seek()" id="seek">seek</a>
+      <input id="skipField" value="0" type="number">
+      <a href="#" onclick="skip()" id="skip">skip</a>
+      <input id="currentTime" placeholder="Current Time" type="text">
+    </div>
+  
+
+</body></html>

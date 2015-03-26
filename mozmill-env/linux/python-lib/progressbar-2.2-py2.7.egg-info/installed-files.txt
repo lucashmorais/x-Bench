@@ -1,0 +1,7 @@
+../progressbar.py
+../progressbar.pyc
+./
+SOURCES.txt
+PKG-INFO
+dependency_links.txt
+top_level.txt

@@ -1,0 +1,10 @@
+../mozfile/__init__.py
+../mozfile/mozfile.py
+../mozfile/__init__.pyc
+../mozfile/mozfile.pyc
+./
+SOURCES.txt
+PKG-INFO
+dependency_links.txt
+not-zip-safe
+top_level.txt

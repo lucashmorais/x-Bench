@@ -1,0 +1,10 @@
+#!python -u
+# EASY-INSTALL-ENTRY-SCRIPT: 'mozinfo==0.7','console_scripts','mozinfo'
+__requires__ = 'mozinfo==0.7'
+import sys
+from pkg_resources import load_entry_point
+
+if __name__ == '__main__':
+    sys.exit(
+        load_entry_point('mozinfo==0.7', 'console_scripts', 'mozinfo')()
+    )
