@@ -42,18 +42,11 @@ then
 fi
 result[1]=$( python execute_tests_crypt.py )
 
- >/dev/null 2> /dev/null
+#Invoking browser test
 echo Invoking browser test
-if [ $( ls qa-mozmill-tests | wc -l ) -le "0" ]
-then
-	printf "\t>> Extracting browser tests...\n"
-	rm -R qa-mozmill-tests
-	unzip misc/qa-mozmill-tests-master.zip 2>&1 > /dev/null
-	mv qa-mozmill-tests-master qa-mozmill-tests
-	printf "\t Finished extracting browser tests.\n"
-fi
-result[2]=$( mozmill -b /usr/bin/firefox -m ./qa-mozmill-tests/firefox/tests/endurance/manifest.ini 2>&1 | awk -F"( |ms)" 'BEGIN { time = 0 } /finished in/ { time += $7 } END { print time }' )
+result[2]=$( mozmill-env/firefox_test.sh )
 
+# Invoking zip test
 echo Invoking zip test
 if [ ! -f zip/zip30 ];
 then
@@ -64,7 +57,6 @@ fi
 cd zip/zip30
 make -f unix/Makefile generic "--quiet"
 cd "$SCRIPT_PATH"
-# Invoking zip test
 result[3]=$( python execute_tests_zip.py )
 
 # Invoking the HD test
