@@ -1,3 +1,0 @@
-manifestparser >= 0.6
-mozfile >= 1.0
-mozlog

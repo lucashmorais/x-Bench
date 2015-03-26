@@ -1,6 +1,0 @@
-mozmill -m /firefox/tests/functional/testPreferences/testTabView/manifest.ini -b "/usr/bin/firefox"
-mozmill -m /firefox/tests/functional/testTabView/manifest.ini -b "/usr/bin/firefox"
-mozmill -m /firefox/tests/functional/testTabView/manifest.ini -b "C:\Program Files\Mozilla Firefox\firefox.exe"
-mozmill -m /firefox/tests/functional/testTabbedBrowsing/manifest.ini -b "C:\Program Files\Mozilla Firefox\firefox.exe"
-mozmill -m /firefox/tests/functional/testTabbedBrowsing/manifest.ini -b "C:\Program Files\Mozilla Firefox\firefox.exe"
-mozmill -m /firefox/tests/functional/testTabbedBrowsing/manifest.ini -b "C:\Program Files\Mozilla Firefox\firefox.exe"
