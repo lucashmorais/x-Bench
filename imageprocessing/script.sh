@@ -11,6 +11,6 @@ do
 done
 wait
 
-/usr/bin/time -f "%e" ./core_script.sh
+/usr/bin/time 2>&1 -f "%e" ./core_script.sh 
 
 rm ppm/*.ppm

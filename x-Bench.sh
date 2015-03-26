@@ -14,8 +14,7 @@ weights=( 1 1 2 1 3 1 1)
 
 cd "$SCRIPT_PATH"
 
-##############
-# --- Compilation test here!
+# Invoking compiling test
 echo Invoking compiling test
 NUM_PROC=$( nproc )
 printf "\t>> Number of detected processors: %d\n" $NUM_PROC
@@ -25,9 +24,9 @@ cd compiling/fftw-3.3.4
 ./configure --quiet 2>&1 > /dev/null
 result[0]=$( /usr/bin/time -f "%e" sh -c "make -j $NUM_PROC --quiet 2>&1 > /dev/null" 2>&1 2>&1 )
 cd "$SCRIPT_PATH"
-##############
 
-#Invoking cryptography test
+
+# Invoking cryptography test
 echo Invoking cryptography test
 if [ $( ls openaes | wc -l ) -le "0" ]
 then
@@ -42,9 +41,11 @@ then
 fi
 result[1]=$( python execute_tests_crypt.py )
 
-#Invoking browser test
+
+# Invoking browser test
 echo Invoking browser test
 result[2]=$( mozmill-env/firefox_test.sh )
+
 
 # Invoking zip test
 echo Invoking zip test
@@ -59,10 +60,12 @@ make -f unix/Makefile generic "--quiet"
 cd "$SCRIPT_PATH"
 result[3]=$( python execute_tests_zip.py )
 
+
 # Invoking the HD test
 echo Invoking HD test
 result[4]=$( jhd-tester/jhd-tester.sh )
 rm -R jhd-tester/testdir 2>&1 > /dev/null
+
 
 # Invoking the video playback test
 echo Invoking video playback test
@@ -74,10 +77,13 @@ rm *.avi 2>&1 > /dev/null
 mv aux.7z teste.avi.7z
 cd "$SCRIPT_PATH"
 
-#####################
-#--- Image test here!
-result[6]=1
-#####################
+
+# Invoking image processing test
+echo Invoking image processing test
+result[6]=$( imageprocessing/script.sh )
+
+
+
 
 weights=( 1 1 2 1 3 1 1 )
 #Adicionar aqui os resultados da máquina de referência
