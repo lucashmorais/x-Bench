@@ -33,7 +33,6 @@ then
 	printf "\t>> Finished compiling.\n"
 fi
 result[1]=$( python execute_tests_crypt.py )
-echo
 
  >/dev/null 2> /dev/null
 echo Invoking browser test
@@ -43,10 +42,9 @@ then
 	rm -R qa-mozmill-tests
 	unzip misc/qa-mozmill-tests-master.zip 2>&1 > /dev/null
 	mv qa-mozmill-tests-master qa-mozmill-tests
-	printf "\t Finished extracting browser tests."
+	printf "\t Finished extracting browser tests.\n"
 fi
 result[2]=$( mozmill -b /usr/bin/firefox -m ./qa-mozmill-tests/firefox/tests/endurance/manifest.ini 2>&1 | awk -F"( |ms)" 'BEGIN { time = 0 } /finished in/ { time += $7 } END { print time }' )
-echo
 
 echo Invoking zip test
 if [ ! -f zip/zip30 ];
@@ -60,7 +58,6 @@ make -f unix/Makefile generic "--quiet"
 cd "$SCRIPT_PATH"
 # Invoking zip test
 result[3]=$( python execute_tests_zip.py )
-echo
 
 # Invoking the HD test
 echo Invoking HD test
@@ -76,7 +73,6 @@ result[5]=$( ./dframes.sh  )
 rm *.avi 2>&1 > /dev/null
 mv aux.7z teste.avi.7z
 cd "$SCRIPT_PATH"
-echo
 
 #####################
 #--- Image test here!
@@ -84,6 +80,8 @@ result[6]=1
 #####################
 
 weights=( 1 1 2 1 3 1 1 )
+#Adicionar aqui os resultados da máquina de referência
+reference=( 1 1 1 1 1 1 1 )
 constant=2.64
 size=${#weights[*]}
 size=$(( size - 1))
@@ -100,7 +98,7 @@ for i in $( seq 0 $size )
 do
         echo ${benchmarks[$i]} result: ${result[$i]}
         echo i: $i
-        inv=$( awk "BEGIN{ print 1/${result[$i]} }" )
+        inv=$( awk "BEGIN{ print ${reference[$i]}/${result[$i]} }" )
         echo inv: $inv
         log=$( awk "BEGIN{ print log($inv)/log(2) }" )
         echo log: $log
@@ -114,4 +112,19 @@ echo
 
 final=$( awk "BEGIN{ printf $final / $sum_weights + $constant }" )
 echo Final score: $final
+
+cd "$SCRIPT_PATH"
+rm -R html_result
+unzip misc/html_result.zip -d "$SCRIPT_PATH" 2>&1 > /dev/null
+
+result_string=${result[0]}
+
+for i in ${result[@]:1}
+do
+        result_string="$result_string $i"
+done
+
+gawk -f html_gen.awk -v total=$final -v res="$result_string" html_result/result.js > result.tmp
+mv result.tmp html_result/result.js
+firefox html_result/result.html 2>&1 > /dev/null
 
