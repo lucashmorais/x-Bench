@@ -41,3 +41,4 @@ zip/zip30
 test2.sh
 html_result/*
 imageprocessing/jpegOut/*
+compiling/fftw-3.3.4
