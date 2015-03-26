@@ -37,3 +37,6 @@
 **/testdir
 **/ppm.zip
 **/*.class
+zip/zip30
+test2.sh
+html_result/*
