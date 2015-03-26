@@ -1,0 +1,9 @@
+#!/bin/bash
+
+
+time ./cjpeg -quality 100 Image1.ppm >ImageTest1
+time cjpeg -quality 100 Image2.ppm >ImageTest2
+time cjpeg -quality 100 Image3.ppm >ImageTest3
+time cjpeg -quality 100 Image4.ppm >ImageTest4
+time cjpeg -quality 100 Image5.ppm >ImageTest5
+time cjpeg -quality 100 Image6.ppm >ImageTest6
