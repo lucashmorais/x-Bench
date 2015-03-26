@@ -16,7 +16,15 @@ cd "$SCRIPT_PATH"
 
 ##############
 # --- Compilation test here!
-result[0]=1
+echo Invoking compiling test
+NUM_PROC=$( nproc )
+printf "\t>> Number of detected processors: %d\n" $NUM_PROC
+rm -r compiling/*
+tar -xf misc/fftw-3.3.4.tar.gz -C compiling
+cd compiling/fftw-3.3.4
+./configure --quiet 2>&1 > /dev/null
+result[0]=$( /usr/bin/time -f "%e" sh -c "make -j $NUM_PROC --quiet 2>&1 > /dev/null" 2>&1 2>&1 )
+cd "$SCRIPT_PATH"
 ##############
 
 #Invoking cryptography test
@@ -102,24 +110,24 @@ do
         echo inv: $inv
         log=$( awk "BEGIN{ print log($inv)/log(2) }" )
         echo log: $log
-        mult=$( awk "BEGIN{ printf $log*${weights[$i]} }" )
-        echo mult: $mult
-        final=$( awk "BEGIN{ printf $final + ($mult) } " )
+        mult[i]=$( awk "BEGIN{ printf $log*${weights[$i]} }" )
+        echo mult: ${mult[$i]}
+        final=$( awk "BEGIN{ printf(\"%f\", $final + (${mult[i]})) } " )
         echo final: $final
         echo
 done
 echo
 
-final=$( awk "BEGIN{ printf $final / $sum_weights + $constant }" )
+final=$( awk "BEGIN{ printf(\"%.1f\", $final / $sum_weights + $constant) }" )
 echo Final score: $final
 
 cd "$SCRIPT_PATH"
 rm -R html_result
 unzip misc/html_result.zip -d "$SCRIPT_PATH" 2>&1 > /dev/null
 
-result_string=${result[0]}
+result_string=${mult[0]}
 
-for i in ${result[@]:1}
+for i in ${mult[@]:1}
 do
         result_string="$result_string $i"
 done
@@ -127,4 +135,3 @@ done
 gawk -f html_gen.awk -v total=$final -v res="$result_string" html_result/result.js > result.tmp
 mv result.tmp html_result/result.js
 firefox html_result/result.html 2>&1 > /dev/null
-
