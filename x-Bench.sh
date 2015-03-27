@@ -84,7 +84,6 @@ result[6]=$( imageprocessing/script.sh )
 
 
 
-
 weights=( 1 1 2 1 3 1 1 )
 #Adicionar aqui os resultados da máquina de referência
 reference=( 28.06 44 384565 7.93 139.0352 566 7.43 )
@@ -105,11 +104,11 @@ do
         echo i: $i
         inv=$( awk "BEGIN{ print 2 * ${reference[$i]}/${result[$i]} }" )
         echo inv: $inv
-        log=$( awk "BEGIN{ print log($inv)/log(2) }" )
-        echo log: $log
-        mult[i]=$( awk "BEGIN{ printf $log*${weights[$i]} }" )
-        echo mult: ${mult[$i]}
-        final=$( awk "BEGIN{ printf(\"%f\", $final + (${mult[i]})) } " )
+        log[$i]=$( awk "BEGIN{ print log($inv)/log(2) }" )
+        echo log: ${log[$i]}
+        mult=$( awk "BEGIN{ printf ${log[$i]}*${weights[$i]} }" )
+        echo mult: $mult
+        final=$( awk "BEGIN{ printf(\"%f\", $final + $mult) }" )
         echo final: $final
         echo
 done
@@ -122,12 +121,14 @@ cd "$SCRIPT_PATH"
 rm -R html_result
 unzip misc/html_result.zip -d "$SCRIPT_PATH" 2>&1 > /dev/null
 
-result_string=${mult[0]}
+result_string=${log[0]}
 
-for i in ${mult[@]:1}
+for i in ${log[@]:1}
 do
         result_string="$result_string $i"
 done
+
+echo result string: $result_string
 
 gawk -f html_gen.awk -v total=$final -v res="$result_string" html_result/result.js > result.tmp
 mv result.tmp html_result/result.js

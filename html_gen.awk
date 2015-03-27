@@ -5,7 +5,7 @@ BEGIN{
 	total_line="var total = "total";"
 
 	result_string=result[1]
-	for (i = 2; i < num_res; i++)
+	for (i = 2; i <= num_res; i++)
 		result_string=sprintf("%s, %s", result_string, result[i])
 
 	result_line="var pontuacao = [" result_string "];"
