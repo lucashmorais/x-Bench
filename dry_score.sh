@@ -2,6 +2,7 @@
 
 result=( 15.55 43 233946 6.11 8.367691 591 5.64 )
 weights=( 1 1 2 1 3 1 1 )
+benchmarks=( compile encryption browsing compression HD video-playback image-processing )
 #Adicionar aqui os resultados da máquina de referência
 reference=( 28.06 44 384565 7.93 139.0352 566 7.43 )
 size=${#weights[*]}
