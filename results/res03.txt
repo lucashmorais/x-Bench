@@ -1,0 +1,64 @@
+Invoking compiling test
+	>> Number of detected processors: 4
+configure: WARNING: Libtool does not cope well with whitespace in `pwd`
+Invoking cryptography test
+Invoking browser test
+Invoking zip test
+	>> Extracting files...
+	>> Finished extracting files
+Invoking HD test
+Invoking video playback test
+Invoking image processing test
+compile result: 28.06
+i: 0
+inv: 0.0356379
+log: -4.81044
+mult: -4.81044
+final: -4.810440
+
+encryption result: 44
+i: 1
+inv: 0.0227273
+log: -5.45943
+mult: -5.45943
+final: -10.269870
+
+browsing result: 384565
+i: 2
+inv: 2.60034e-06
+log: -18.5529
+mult: -37.1058
+final: -47.375670
+
+compression result: 7.93
+i: 3
+inv: 0.126103
+log: -2.98733
+mult: -2.98733
+final: -50.363000
+
+HD result: 139.0352
+i: 4
+inv: 0.00719242
+log: -7.11931
+mult: -21.3579
+final: -71.720900
+
+video-playback result: 566
+i: 5
+inv: 0.00176678
+log: -9.14466
+mult: -9.14466
+final: -80.865560
+
+image-processing result: 7.43
+i: 6
+inv: 0.13459
+log: -2.89336
+mult: -2.89336
+final: -83.758920
+
+
+Final score: -5.7
+
+(process:30646): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
