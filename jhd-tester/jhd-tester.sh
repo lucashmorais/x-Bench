@@ -13,7 +13,14 @@ then
 	exit
 fi
 
-rm "$SCRIPT_PATH"/bin/*.class
-javac "$SCRIPT_PATH"/src/*.java -d "$SCRIPT_PATH/bin"
+cd "$SCRIPT_PATH"
+if [ ! -d bin ];
+then
+	mkdir bin
+elif [ $( ls -l bin | wc -l) -ge 2 ];
+then
+	rm "$SCRIPT_PATH"/bin/*.class
+fi
+javac src/*.java -d bin
 
-java -cp "$SCRIPT_PATH"/bin Main "$TEST_FILES_PATH"
+java -cp bin Main "$TEST_FILES_PATH"
