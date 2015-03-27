@@ -42,3 +42,4 @@ test2.sh
 html_result/*
 imageprocessing/jpegOut/*
 compiling/fftw-3.3.4
+trash/
