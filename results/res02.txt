@@ -1,0 +1,72 @@
+nvoking compiling test
+	>> Number of detected processors: 8
+configure: WARNING: Libtool does not cope well with whitespace in `pwd`
+Invoking cryptography test
+Invoking browser test
+Invoking zip test
+	>> Extracting files...
+	>> Finished extracting files
+Invoking HD test
+Invoking video playback test
+Invoking image processing test
+compile result: 15.55
+i: 0
+inv: 0.0643087
+log: -3.95884
+mult: -3.95884
+final: -3.958840
+
+encryption result: 43
+i: 1
+inv: 0.0232558
+log: -5.42627
+mult: -5.42627
+final: -9.385110
+
+browsing result: 233946
+i: 2
+inv: 4.27449e-06
+log: -17.8358
+mult: -35.6716
+final: -45.056710
+
+compression result: 6.11
+i: 3
+inv: 0.163666
+log: -2.61117
+mult: -2.61117
+final: -47.667880
+
+HD result: 8.367691
+i: 4
+inv: 0.119507
+log: -3.06483
+mult: -9.19449
+final: -56.862370
+
+video-playback result: 591
+i: 5
+inv: 0.00169205
+log: -9.20701
+mult: -9.20701
+final: -66.069380
+
+image-processing result: 5.64
+i: 6
+inv: 0.177305
+log: -2.49569
+mult: -2.49569
+final: -68.565070
+
+
+Final score: -4.2
+
+(process:15263): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+
+(firefox:15263): GLib-GObject-WARNING **: Attempt to add property GnomeProgram::sm-connect after class was initialised
+
+(firefox:15263): GLib-GObject-WARNING **: Attempt to add property GnomeProgram::show-crash-dialog after class was initialised
+
+(firefox:15263): GLib-GObject-WARNING **: Attempt to add property GnomeProgram::display after class was initialised
+
+(firefox:15263): GLib-GObject-WARNING **: Attempt to add property GnomeProgram::default-icon after class was initialised
