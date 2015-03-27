@@ -18,7 +18,13 @@ cd "$SCRIPT_PATH"
 echo Invoking compiling test
 NUM_PROC=$( nproc )
 printf "\t>> Number of detected processors: %d\n" $NUM_PROC
-rm -r compiling/*
+if [ ! -d compiling ];
+then
+	mkdir compiling 2> /dev/null
+elif [ $( ls -l compiling | wc -l ) -ge 2 ]
+then
+	rm -r compiling/* 2>&1 > /dev/null
+fi
 tar -xf misc/fftw-3.3.4.tar.gz -C compiling
 cd compiling/fftw-3.3.4
 ./configure --quiet 2>&1 > /dev/null
