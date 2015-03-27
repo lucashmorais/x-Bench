@@ -87,8 +87,7 @@ result[6]=$( imageprocessing/script.sh )
 
 weights=( 1 1 2 1 3 1 1 )
 #Adicionar aqui os resultados da máquina de referência
-reference=( 1 1 1 1 1 1 1 )
-constant=2.64
+reference=( 28.06 44 384565 7.93 139.0352 566 7.43 )
 size=${#weights[*]}
 size=$(( size - 1))
 
@@ -104,7 +103,7 @@ for i in $( seq 0 $size )
 do
         echo ${benchmarks[$i]} result: ${result[$i]}
         echo i: $i
-        inv=$( awk "BEGIN{ print ${reference[$i]}/${result[$i]} }" )
+        inv=$( awk "BEGIN{ print 2 * ${reference[$i]}/${result[$i]} }" )
         echo inv: $inv
         log=$( awk "BEGIN{ print log($inv)/log(2) }" )
         echo log: $log
@@ -116,7 +115,7 @@ do
 done
 echo
 
-final=$( awk "BEGIN{ printf(\"%.1f\", $final / $sum_weights + $constant) }" )
+final=$( awk "BEGIN{ printf(\"%.1f\", $final / $sum_weights) }" )
 echo Final score: $final
 
 cd "$SCRIPT_PATH"
