@@ -1,6 +1,12 @@
 #!/bin/bash
 
 cd ppm
+
+if [ ! -d ../jpegOut ];
+then
+	mkdir ../jpegOut
+fi
+
 for i in *.ppm
 do
 	basename=$( basename $i )
